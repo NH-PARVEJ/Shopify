@@ -1,0 +1,1 @@
+{% for style_block in section.blocks %}{% if style_block.type == 'menu_item_style' and style_block.settings.link == link.url and style_block.settings.subtitle != blank %}<small>{{ style_block.settings.subtitle | escape }}</small>{% break %}{% endif %}{% endfor %}

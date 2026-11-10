@@ -1,0 +1,45 @@
+<section class="pdp-reviews-section" id="pdp-reviews" aria-labelledby="reviews-heading">
+        <div class="pdp-reviews-header">
+          <h2 class="pdp-reviews-title" id="reviews-heading">Verified Customer Reviews <span>♡</span></h2>
+          <button class="pdp-write-review-btn" id="pdp-write-review-btn" type="button">WRITE A REVIEW ✍️</button>
+        </div>
+
+        <div class="pdp-reviews-summary">
+          <div class="pdp-score-card">
+            <div class="pdp-score-num">{{ section.settings.score }}</div>
+            <div class="pdp-score-stars">★★★★★</div>
+            <div class="pdp-score-total">{{ section.settings.summary | escape }}</div>
+          </div>
+
+          <div class="pdp-rating-bars">
+            <div class="pdp-rating-bar-row">
+              <span>5 Stars</span>
+              <div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 92%;"></div></div>
+              <span>92%</span>
+            </div>
+            <div class="pdp-rating-bar-row">
+              <span>4 Stars</span>
+              <div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 8%;"></div></div>
+              <span>8%</span>
+            </div>
+            <div class="pdp-rating-bar-row">
+              <span>3 Stars</span>
+              <div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 0%;"></div></div>
+              <span>0%</span>
+            </div>
+            <div class="pdp-rating-bar-row">
+              <span>2 Stars</span>
+              <div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 0%;"></div></div>
+              <span>0%</span>
+            </div>
+            <div class="pdp-rating-bar-row">
+              <span>1 Star</span>
+              <div class="pdp-bar-track"><div class="pdp-bar-fill" style="width: 0%;"></div></div>
+              <span>0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Cards Grid -->
+        <div class="pdp-review-cards" id="pdp-reviews-list">{% for block in section.blocks %}<article class="pdp-review-card" {{ block.shopify_attributes }}><div class="pdp-review-top"><span class="pdp-review-stars">{{ block.settings.rating | escape }}</span><span class="pdp-review-date">{{ block.settings.date | escape }}</span></div><div class="pdp-review-author"><span>{{ block.settings.author | escape }}</span></div><span class="pdp-review-variant">{{ block.settings.variant | escape }}</span><p class="pdp-review-body">{{ block.settings.body | escape }}</p></article>{% endfor %}</div>
+      </section>

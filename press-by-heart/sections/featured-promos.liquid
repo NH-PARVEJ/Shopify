@@ -1,0 +1,187 @@
+<div class="content-container">
+<section class="features" id="features">
+  {%- if section.blocks.size > 0 -%}
+    {%- for block in section.blocks -%}
+      <article class="feature" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="200" height="99">
+        {%- else -%}
+          {%- assign default_idx = forloop.index0 | modulo: 4 -%}
+          <img src="{{ 'feature-' | append: default_idx | append: '.png' | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="200" height="99">
+        {%- endif -%}
+        <div class="feature-content">
+          <h2>{{ block.settings.title }}</h2>
+          <p>{{ block.settings.description }}</p>
+          <a href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+            {{ block.settings.button_text | default: 'SHOP NOW' }} <span>→</span>
+          </a>
+        </div>
+      </article>
+    {%- endfor -%}
+  {%- endif -%}
+</section>
+</div>
+
+
+{% schema %}{
+  "name": "Featured Promo Grid",
+  "blocks": [
+    {
+      "type": "promo_card",
+      "name": "Promo Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "NEW ARRIVALS"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description (HTML supported)",
+          "default": "Shop the latest drop"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Destination URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Promo Grid"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: NEW ARRIVALS",
+      "default": "NEW ARRIVALS"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: Shop the latest drop",
+      "default": "Shop the latest drop"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: SHOP NOW",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: KIDS COLLECTION",
+      "default": "KIDS COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: Fun & cute designs",
+      "default": "Fun & cute designs"
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Copy: for little queens",
+      "default": "for little queens"
+    },
+    {
+      "type": "text",
+      "id": "copy_7",
+      "label": "Copy: SHOP NOW",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "text",
+      "id": "copy_8",
+      "label": "Copy: BUNDLES & SAVE",
+      "default": "BUNDLES & SAVE"
+    },
+    {
+      "type": "text",
+      "id": "copy_9",
+      "label": "Copy: More nails, more",
+      "default": "More nails, more"
+    },
+    {
+      "type": "text",
+      "id": "copy_10",
+      "label": "Copy: savings",
+      "default": "savings"
+    },
+    {
+      "type": "text",
+      "id": "copy_11",
+      "label": "Copy: SHOP NOW",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "text",
+      "id": "copy_12",
+      "label": "Copy: ACCESSORIES",
+      "default": "ACCESSORIES"
+    },
+    {
+      "type": "text",
+      "id": "copy_13",
+      "label": "Copy: Everything you",
+      "default": "Everything you"
+    },
+    {
+      "type": "text",
+      "id": "copy_14",
+      "label": "Copy: need for the",
+      "default": "need for the"
+    },
+    {
+      "type": "text",
+      "id": "copy_15",
+      "label": "Copy: perfect set",
+      "default": "perfect set"
+    },
+    {
+      "type": "text",
+      "id": "copy_16",
+      "label": "Copy: SHOP NOW",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: feature-0.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_2",
+      "label": "Image: feature-1.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_3",
+      "label": "Image: feature-2.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_4",
+      "label": "Image: feature-3.png"
+    }
+  ]
+}{% endschema %}

@@ -1,0 +1,645 @@
+{% assign hero_script = section.settings.copy_1 %}{% assign hero_line1 = section.settings.copy_2 %}{% assign hero_line2 = section.settings.copy_3 %}{% assign hero_description = section.settings.copy_4 %}{% assign hero_description2 = section.settings.copy_5 %}{% assign hero_button = section.settings.copy_7 %}
+
+    <section class="shop-hero" aria-labelledby="shop-hero-title">
+      <img class="shop-hero-background" src="{% if section.settings.art_1 %}{{ section.settings.art_1 | image_url: width: 2000 }}{% elsif collection.image %}{{ collection.image | image_url: width: 2000 }}{% else %}{{ 'hero-expanded.png' | asset_url }}{% endif %}" alt="Salon quality press-on nails and pink satin ribbon" width="1881" height="836">
+      <div class="shop-hero-container">
+        <div class="shop-hero-copy">
+          <p class="shop-script">{{ hero_script | escape }}</p>
+          <h1 id="shop-hero-title">{% if section.settings.use_collection_title %}{{ collection.title | escape }}{% else %}{{ hero_line1 | escape }}<br>{{ hero_line2 | escape }}{% endif %}</h1>
+          <div class="shop-description">{% if collection.description != blank %}{{ collection.description }}{% else %}{{ hero_description | escape }}{% if hero_description2 != blank %}<br>{{ hero_description2 | escape }}{% endif %}{% endif %}</div>
+          <a class="shop-primary" href="{{ section.settings.copy_6 | escape }}">{{ hero_button | escape }} <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/><path d="M5 16h14M7 22h10"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-container shop-all-content">
+      {% render 'category-navigation', menu: section.settings.category_menu %}
+
+      <section class="shop-filter-bar" aria-label="Filter products">
+        <div class="shop-chips" aria-label="Product categories">{% for link in section.settings.filter_menu.links %}<a class="shop-chip{% if link.current %} active{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a>{% endfor %}</div>
+        <div class="shop-status-text" aria-live="polite">
+          {{ section.settings.copy_20 | escape }} <strong id="product-count">{{ collection.products_count }}</strong> {{ section.settings.copy_21 | escape }}
+        </div>
+      </section>
+
+      {% if section.settings.show_advanced_filters %}{% render 'collection-controls', results: collection %}{% endif %}{% paginate collection.products by section.settings.products_per_page %}<section class="shop-grid" id="shop-all-grid" aria-label="Product list">{% for product in collection.products %}{% render 'catalog-card', product: product, kind: 'shop' %}{% else %}<p>{{ section.settings.empty_text }}</p>{% endfor %}</section>{{ paginate | default_pagination }}{% endpaginate %}
+
+      <section class="shop-benefits" aria-label="Customer benefits">
+        <div><i>♧</i><p><b>{{ section.settings.copy_22 | escape }}</b><span>{{ section.settings.copy_23 | escape }}</span></p></div>
+        <div><i>♢</i><p><b>{{ section.settings.copy_24 | escape }}</b><span>{{ section.settings.copy_25 | escape }}</span></p></div>
+        <div><i>◷</i><p><b>{{ section.settings.copy_26 | escape }}</b><span>{{ section.settings.copy_27 | escape }}</span></p></div>
+        <div><i>♡</i><p><b>{{ section.settings.copy_28 | escape }}</b><span>{{ section.settings.copy_29 | escape }}</span></p></div>
+      </section>
+
+      <section class="shop-promo-banner" aria-label="Shop promo">
+        <img class="promo-emblem" src="{% if section.settings.art_2 != blank %}{{ section.settings.art_2 | image_url: width: 2000 }}{% else %}{{ 'heart-hq.png' | asset_url }}{% endif %}" alt="Golden crowned heart" width="1254" height="1254">
+        <div class="shop-promo-copy">
+          <h3>{{ section.settings.copy_30 | escape }}</h3>
+          <h2>{{ section.settings.copy_31 | escape }}</h2>
+          <p>{{ section.settings.copy_32 | escape }}</p>
+        </div>
+        <div class="shop-promo-action">
+          <a class="shop-promo-btn" href="{{ section.settings.copy_33 | escape }}">
+            {{ section.settings.copy_34 | escape }} <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/><path d="M5 16h14M7 22h10"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="social" class="social" aria-labelledby="instagram-heading">
+        <h2 id="instagram-heading">{{ section.settings.copy_35 | escape }} <a href="{{ section.settings.copy_36 | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.copy_37 | escape }}</a> <span>♡</span></h2>
+        <div id="social-grid" role="list" aria-label="Demo Instagram feed">
+          <a class="instagram-card" href="{{ section.settings.copy_38 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_3 != blank %}{{ section.settings.art_3 | image_url: width: 2000 }}{% else %}{{ 'social-0.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 1" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_39 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_4 != blank %}{{ section.settings.art_4 | image_url: width: 2000 }}{% else %}{{ 'social-1.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 2" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_40 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_5 != blank %}{{ section.settings.art_5 | image_url: width: 2000 }}{% else %}{{ 'social-2.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 3" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_41 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_6 != blank %}{{ section.settings.art_6 | image_url: width: 2000 }}{% else %}{{ 'social-3.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 4" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_42 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_7 != blank %}{{ section.settings.art_7 | image_url: width: 2000 }}{% else %}{{ 'social-4.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 5" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_43 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_8 != blank %}{{ section.settings.art_8 | image_url: width: 2000 }}{% else %}{{ 'social-5.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 6" loading="lazy" width="129" height="81"></a>
+        </div>
+      </section>
+    </div>
+  
+
+{% schema %}
+{
+  "name": "main collection",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_collection_title",
+      "label": "Use collection title from Shopify",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "category_menu",
+      "label": "Category navigation menu"
+    },
+    {
+      "type": "link_list",
+      "id": "filter_menu",
+      "label": "Quick filter menu"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty collection",
+      "default": "No products found."
+    },
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: Press By Heart ♡",
+      "default": "Press By Heart ♡"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: SHOP ALL",
+      "default": "SHOP ALL"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: NAILS",
+      "default": "NAILS"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: Salon quality press-on nails",
+      "default": "Salon quality press-on nails"
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: delivered to your door.",
+      "default": "delivered to your door."
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Link: #shop-all-grid",
+      "default": "#shop-all-grid"
+    },
+    {
+      "type": "text",
+      "id": "copy_7",
+      "label": "Copy: SHOP ALL NAILS",
+      "default": "SHOP ALL NAILS"
+    },
+    {
+      "type": "text",
+      "id": "copy_8",
+      "label": "Copy: NAILS",
+      "default": "NAILS"
+    },
+    {
+      "type": "text",
+      "id": "copy_9",
+      "label": "Copy: KIDS",
+      "default": "KIDS"
+    },
+    {
+      "type": "text",
+      "id": "copy_10",
+      "label": "Copy: BUNDLES",
+      "default": "BUNDLES"
+    },
+    {
+      "type": "text",
+      "id": "copy_11",
+      "label": "Copy: PEDIS",
+      "default": "PEDIS"
+    },
+    {
+      "type": "text",
+      "id": "copy_12",
+      "label": "Copy: ACCESSORIES",
+      "default": "ACCESSORIES"
+    },
+    {
+      "type": "text",
+      "id": "copy_13",
+      "label": "Copy: All Nails",
+      "default": "All Nails"
+    },
+    {
+      "type": "text",
+      "id": "copy_14",
+      "label": "Copy: New Arrivals",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "text",
+      "id": "copy_15",
+      "label": "Copy: Best Sellers",
+      "default": "Best Sellers"
+    },
+    {
+      "type": "text",
+      "id": "copy_16",
+      "label": "Copy: Kids Collection",
+      "default": "Kids Collection"
+    },
+    {
+      "type": "text",
+      "id": "copy_17",
+      "label": "Copy: Pedis",
+      "default": "Pedis"
+    },
+    {
+      "type": "text",
+      "id": "copy_18",
+      "label": "Copy: Bundles & Sets",
+      "default": "Bundles & Sets"
+    },
+    {
+      "type": "text",
+      "id": "copy_19",
+      "label": "Copy: Accessories",
+      "default": "Accessories"
+    },
+    {
+      "type": "text",
+      "id": "copy_20",
+      "label": "Copy: Showing",
+      "default": "Showing"
+    },
+    {
+      "type": "text",
+      "id": "copy_21",
+      "label": "Copy: styles",
+      "default": "styles"
+    },
+    {
+      "type": "text",
+      "id": "copy_22",
+      "label": "Copy: REUSABLE & DURABLE",
+      "default": "REUSABLE & DURABLE"
+    },
+    {
+      "type": "text",
+      "id": "copy_23",
+      "label": "Copy: Wear again & again",
+      "default": "Wear again & again"
+    },
+    {
+      "type": "text",
+      "id": "copy_24",
+      "label": "Copy: SALON QUALITY",
+      "default": "SALON QUALITY"
+    },
+    {
+      "type": "text",
+      "id": "copy_25",
+      "label": "Copy: Premium finish",
+      "default": "Premium finish"
+    },
+    {
+      "type": "text",
+      "id": "copy_26",
+      "label": "Copy: QUICK & EASY",
+      "default": "QUICK & EASY"
+    },
+    {
+      "type": "text",
+      "id": "copy_27",
+      "label": "Copy: Apply in minutes",
+      "default": "Apply in minutes"
+    },
+    {
+      "type": "text",
+      "id": "copy_28",
+      "label": "Copy: CRUELTY FREE",
+      "default": "CRUELTY FREE"
+    },
+    {
+      "type": "text",
+      "id": "copy_29",
+      "label": "Copy: Made with love",
+      "default": "Made with love"
+    },
+    {
+      "type": "text",
+      "id": "copy_30",
+      "label": "Copy: Quick press, instant beauty ♡",
+      "default": "Quick press, instant beauty ♡"
+    },
+    {
+      "type": "text",
+      "id": "copy_31",
+      "label": "Copy: PRESS-ON NAILS FOR EVERY YOU",
+      "default": "PRESS-ON NAILS FOR EVERY YOU"
+    },
+    {
+      "type": "text",
+      "id": "copy_32",
+      "label": "Copy: Reusable, salon quality nails delivered to your door. Explo",
+      "default": "Reusable, salon quality nails delivered to your door. Explore fresh drops & signature designs."
+    },
+    {
+      "type": "text",
+      "id": "copy_33",
+      "label": "Link: #shop-all-grid",
+      "default": "#shop-all-grid"
+    },
+    {
+      "type": "text",
+      "id": "copy_34",
+      "label": "Copy: SHOP NOW",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "text",
+      "id": "copy_35",
+      "label": "Copy: FOLLOW US",
+      "default": "FOLLOW US"
+    },
+    {
+      "type": "text",
+      "id": "copy_36",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_37",
+      "label": "Copy: @PRESSBYHEART",
+      "default": "@PRESSBYHEART"
+    },
+    {
+      "type": "text",
+      "id": "copy_38",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_39",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_40",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_41",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_42",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_43",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: hero-expanded.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_2",
+      "label": "Image: heart-hq.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_3",
+      "label": "Image: social-0.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_4",
+      "label": "Image: social-1.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_5",
+      "label": "Image: social-2.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_6",
+      "label": "Image: social-3.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_7",
+      "label": "Image: social-4.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_8",
+      "label": "Image: social-5.png"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_1",
+      "label": "Copy: Made for ♡",
+      "default": "Made for ♡"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_2",
+      "label": "Copy: LITTLE",
+      "default": "LITTLE"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_3",
+      "label": "Copy: QUEENS",
+      "default": "QUEENS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_4",
+      "label": "Copy: Adorable press-on nails",
+      "default": "Adorable press-on nails"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_5",
+      "label": "Copy: just for kids.",
+      "default": "just for kids."
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_6",
+      "label": "Link: #kids-collection",
+      "default": "#kids-collection"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_7",
+      "label": "Copy: SHOP KIDS NAILS",
+      "default": "SHOP KIDS NAILS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_8",
+      "label": "Copy: NAILS",
+      "default": "NAILS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_9",
+      "label": "Link: #kids-collection",
+      "default": "#kids-collection"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_10",
+      "label": "Copy: KIDS",
+      "default": "KIDS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_11",
+      "label": "Copy: BUNDLES",
+      "default": "BUNDLES"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_12",
+      "label": "Copy: PEDIS",
+      "default": "PEDIS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_13",
+      "label": "Copy: ACCESSORIES",
+      "default": "ACCESSORIES"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_14",
+      "label": "Copy: KIDS COLLECTION",
+      "default": "KIDS COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_15",
+      "label": "Link: #kids-collection",
+      "default": "#kids-collection"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_16",
+      "label": "Copy: VIEW ALL",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_17",
+      "label": "Copy: SAFE FOR KIDS",
+      "default": "SAFE FOR KIDS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_18",
+      "label": "Copy: Non-toxic & skin friendly",
+      "default": "Non-toxic & skin friendly"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_19",
+      "label": "Copy: EASY TO APPLY",
+      "default": "EASY TO APPLY"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_20",
+      "label": "Copy: Press on & go",
+      "default": "Press on & go"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_21",
+      "label": "Copy: GENTLE ON NAILS",
+      "default": "GENTLE ON NAILS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_22",
+      "label": "Copy: No damage",
+      "default": "No damage"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_23",
+      "label": "Copy: REUSABLE",
+      "default": "REUSABLE"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_24",
+      "label": "Copy: Wear again & again",
+      "default": "Wear again & again"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_25",
+      "label": "Copy: Quick press,",
+      "default": "Quick press,"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_26",
+      "label": "Copy: instant happiness ♡",
+      "default": "instant happiness ♡"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_27",
+      "label": "Copy: Adorable designs for",
+      "default": "Adorable designs for"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_28",
+      "label": "Copy: little hands and big dreams.",
+      "default": "little hands and big dreams."
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_29",
+      "label": "Link: #kids-collection",
+      "default": "#kids-collection"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_30",
+      "label": "Copy: SHOP KIDS NAILS",
+      "default": "SHOP KIDS NAILS"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_31",
+      "label": "Copy: FAST DELIVERY",
+      "default": "FAST DELIVERY"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_32",
+      "label": "Copy: Right to your door",
+      "default": "Right to your door"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_33",
+      "label": "Copy: PREMIUM QUALITY",
+      "default": "PREMIUM QUALITY"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_34",
+      "label": "Copy: Salon quality nails",
+      "default": "Salon quality nails"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_35",
+      "label": "Copy: SECURE PAYMENT",
+      "default": "SECURE PAYMENT"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_36",
+      "label": "Copy: Safe & trusted checkout",
+      "default": "Safe & trusted checkout"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_37",
+      "label": "Copy: CUSTOMER CARE",
+      "default": "CUSTOMER CARE"
+    },
+    {
+      "type": "text",
+      "id": "kids_copy_38",
+      "label": "Copy: We’re here to help",
+      "default": "We’re here to help"
+    },
+    {
+      "type": "image_picker",
+      "id": "kids_art_1",
+      "label": "Image: kids-hero-natural-hand.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "kids_art_2",
+      "label": "Image: heart-hq.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "kids_art_3",
+      "label": "Image: kids-promo-product.png"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection catalog"
+    }
+  ]
+}
+{% endschema %}

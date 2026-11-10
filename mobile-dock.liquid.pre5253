@@ -1,0 +1,183 @@
+Created At: 2026-11-08T17:51:18+06:00
+Completed At: 2026-11-08T17:51:18+06:00
+Showing lines 1-180 of 180
+1: <nav class="mobile-app-dock" aria-label="Mobile application bottom navigation" style="margin: 0px !important; margin-left: 0px !important; margin-right: 0px !important; left: 0px !important; right: 0px !important; width: 100% !important;">
+2:   <a href="{{ routes.root_url }}" class="app-tab {% if template.name == 'index' %}active{% endif %}">
+3:     <span class="app-tab-icon">
+4:       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>
+5:     </span>
+6:     <span class="app-tab-label">{{ section.settings.copy_1 | escape }}</span>
+7:   </a>
+8:   <a href="{{ routes.all_products_collection_url }}" class="app-tab {% if template.name == 'collection' and collection.handle != 'kids' %}active{% endif %}">
+9:     <span class="app-tab-icon">
+10:       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+11:     </span>
+12:     <span class="app-tab-label">{{ section.settings.copy_2 | escape }}</span>
+13:   </a>
+14:   <a href="{{ routes.root_url }}pages/shop-by-design" class="app-tab {% if template.suffix == 'shop-by-design' %}active{% endif %}">
+15:     <span class="app-tab-icon">
+16:       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+17:     </span>
+18:     <span class="app-tab-label">{{ section.settings.copy_3 | escape }}</span>
+19:   </a>
+20:   <a href="{{ routes.collections_url }}/kids" class="app-tab {% if collection.handle == 'kids' %}active{% endif %}">
+21:     <span class="app-tab-icon">
+22:       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 4 5 5-8 5 8 4-5-2 13H5L3 7Z"/><path d="M5 16h14"/></svg>
+23:     </span>
+24:     <span class="app-tab-label">{{ section.settings.copy_4 | escape }}</span>
+25:   </a>
+26:   <a href="#bag" class="app-tab app-tab-bag" id="mobile-dock-bag-btn">
+27:     <span class="app-tab-icon app-tab-bag-wrap">
+28:       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 14H4Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+29:       <span class="app-tab-badge" id="mobile-dock-badge">{{ cart.item_count | default: 0 }}</span>
+30:     </span>
+31:     <span class="app-tab-label">{{ section.settings.copy_5 | escape }}</span>
+32:   </a>
+33: </nav>
+34: 
+35: {% render 'mobile-app-drawer' %}
+36: 
+37: 
+38: {% schema %}{
+39:   "name": "Mobile Bottom Dock",
+40:   "settings": [
+41:     {
+42:       "type": "checkbox",
+43:       "id": "show_dock",
+44:       "label": "Show Mobile Bottom Dock",
+45:       "default": true
+46:     },
+47:     {
+48:       "type": "text",
+49:       "id": "copy_1",
+50:       "label": "Copy: Home",
+51:       "default": "Home"
+52:     },
+53:     {
+54:       "type": "text",
+55:       "id": "copy_2",
+56:       "label": "Copy: Shop All",
+57:       "default": "Shop All"
+58:     },
+59:     {
+60:       "type": "text",
+61:       "id": "copy_3",
+62:       "label": "Copy: Designs",
+63:       "default": "Designs"
+64:     },
+65:     {
+66:       "type": "text",
+67:       "id": "copy_4",
+68:       "label": "Copy: Kids",
+69:       "default": "Kids"
+70:     },
+71:     {
+72:       "type": "text",
+73:       "id": "copy_5",
+74:       "label": "Copy: Bag",
+75:       "default": "Bag"
+76:     },
+77:     {
+78:       "type": "text",
+79:       "id": "mobile_app_draw_1",
+80:       "label": "Copy: Quick press, instant beauty ♡",
+81:       "default": "Quick press, instant beauty ♡"
+82:     },
+83:     {
+84:       "type": "text",
+85:       "id": "mobile_app_draw_2",
+86:       "label": "Copy: Free UK Tracked Delivery",
+87:       "default": "Free UK Tracked Delivery"
+88:     },
+89:     {
+90:       "type": "text",
+91:       "id": "mobile_app_draw_3",
+92:       "label": "Copy: on orders over £",
+93:       "default": "on orders over £"
+94:     },
+95:     {
+96:       "type": "text",
+97:       "id": "mobile_app_draw_4",
+98:       "label": "Copy: Home",
+99:       "default": "Home"
+100:     },
+101:     {
+102:       "type": "text",
+103:       "id": "mobile_app_draw_5",
+104:       "label": "Copy: All Press-On Nails",
+105:       "default": "All Press-On Nails"
+106:     },
+107:     {
+108:       "type": "text",
+109:       "id": "mobile_app_draw_6",
+110:       "label": "Copy: 24 Sets",
+111:       "default": "24 Sets"
+112:     },
+113:     {
+114:       "type": "text",
+115:       "id": "mobile_app_draw_7",
+116:       "label": "Copy: Shop By Design",
+117:       "default": "Shop By Design"
+118:     },
+119:     {
+120:       "type": "text",
+121:       "id": "mobile_app_draw_8",
+122:       "label": "Copy: Kids Collection",
+123:       "default": "Kids Collection"
+124:     },
+125:     {
+126:       "type": "text",
+127:       "id": "mobile_app_draw_9",
+128:       "label": "Copy: Safe & Cute",
+129:       "default": "Safe & Cute"
+130:     },
+131:     {
+132:       "type": "text",
+133:       "id": "mobile_app_draw_10",
+134:       "label": "Copy: Pedis Collection",
+135:       "default": "Pedis Collection"
+136:     },
+137:     {
+138:       "type": "text",
+139:       "id": "mobile_app_draw_11",
+140:       "label": "Copy: Bundles & Save",
+141:       "default": "Bundles & Save"
+142:     },
+143:     {
+144:       "type": "text",
+145:       "id": "mobile_app_draw_12",
+146:       "label": "Copy: Save 25%",
+147:       "default": "Save 25%"
+148:     },
+149:     {
+150:       "type": "text",
+151:       "id": "mobile_app_draw_13",
+152:       "label": "Copy: Accessories & Care",
+153:       "default": "Accessories & Care"
+154:     },
+155:     {
+156:       "type": "text",
+157:       "id": "mobile_app_draw_14",
+158:       "label": "Copy: BOOK APPOINTMENT",
+159:       "default": "BOOK APPOINTMENT"
+160:     },
+161:     {
+162:       "type": "text",
+163:       "id": "mobile_app_draw_15",
+164:       "label": "Copy: FOLLOW ON INSTAGRAM",
+165:       "default": "FOLLOW ON INSTAGRAM"
+166:     },
+167:     {
+168:       "type": "text",
+169:       "id": "mobile_app_draw_16",
+170:       "label": "Copy: 📞 Need Help? Call",
+171:       "default": "📞 Need Help? Call"
+172:     },
+173:     {
+174:       "type": "text",
+175:       "id": "mobile_app_draw_17",
+176:       "label": "Copy: Press By Heart London",
+177:       "default": "Press By Heart London"
+178:     }
+179:   ]
+180: }{% endschema %}

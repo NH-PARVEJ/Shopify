@@ -1,0 +1,63 @@
+Created At: 2026-11-08T17:19:44+06:00
+Completed At: 2026-11-08T17:19:45+06:00
+Showing lines 61-120 of 173
+61:       font-family: 'Poppins';
+62:       src: url('{{ "poppins-600.ttf" | asset_url }}') format('truetype');
+63:       font-weight: 600;
+64:       font-style: normal;
+65:       font-display: swap;
+66:     }
+67:     @font-face {
+68:       font-family: 'Allura';
+69:       src: url('{{ "allura.ttf" | asset_url }}') format('truetype');
+70:       font-weight: 400;
+71:       font-style: normal;
+72:       font-display: swap;
+73:     }
+74:   </style>
+75: 
+76:   {% comment %} Stylesheets {% endcomment %}
+77:   {{ 'style.css' | asset_url | stylesheet_tag }}
+78:   {{ 'refinements.css' | asset_url | stylesheet_tag }}
+79:   {% if template.name == 'collection' %}{% if collection.handle == 'kids' %}{{ 'kids.css' | asset_url | stylesheet_tag }}{% else %}{{ 'shop-all.css' | asset_url | stylesheet_tag }}{% endif %}{% elsif template.name == 'product' %}{{ 'product.css' | asset_url | stylesheet_tag }}{% elsif page.handle == 'shop-by-design' %}{{ 'shop-by-design.css' | asset_url | stylesheet_tag }}{% endif %}
+80: 
+81:   {% comment %} Shopify Required Header Hooks {% endcomment %}
+82:   {{ content_for_header }}
+83:   {% render 'theme-settings' %}
+84: 
+85:   <script>
+86:     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+87:     window.ShopifyTheme = {
+88:       routes: {
+89:         root: "{{ routes.root_url }}",
+90:         cart: "{{ routes.cart_url }}",
+91:         cart_add_url: "{{ routes.cart_add_url }}",
+92:         cart_change_url: "{{ routes.cart_change_url }}",
+93:         cart_clear_url: "{{ routes.cart_clear_url }}",
+94:         search_url: "{{ routes.search_url }}"
+95:       },
+96:       settings: {
+97:         freeShippingThreshold: {{ settings.free_shipping_threshold | default: 30 }},
+98:         standardShippingRate: {{ settings.standard_shipping_rate | default: 3.99 }},
+99:         promoCodeDefault: {{ settings.promo_code_default | json }},
+100:         promoDiscountPercent: {{ settings.promo_discount_percent | default: 10 }}
+101:       },
+102:       assetRoot: "{{ 'product-0.png' | asset_url | split: 'product-0.png' | first }}",
+103:       assets: {
+104:         'product-0.png': '{{ "product-0.png" | asset_url }}',
+105:         'product-1.png': '{{ "product-1.png" | asset_url }}',
+106:         'product-2.png': '{{ "product-2.png" | asset_url }}',
+107:         'product-3.png': '{{ "product-3.png" | asset_url }}',
+108:         'product-4.png': '{{ "product-4.png" | asset_url }}',
+109:         'collection-0.png': '{{ "collection-0.png" | asset_url }}',
+110:         'collection-1.png': '{{ "collection-1.png" | asset_url }}',
+111:         'collection-2.png': '{{ "collection-2.png" | asset_url }}',
+112:         'collection-3.png': '{{ "collection-3.png" | asset_url }}',
+113:         'collection-4.png': '{{ "collection-4.png" | asset_url }}',
+114:         'collection-5.png': '{{ "collection-5.png" | asset_url }}',
+115:         'feature-0.png': '{{ "feature-0.png" | asset_url }}',
+116:         'feature-1.png': '{{ "feature-1.png" | asset_url }}',
+117:         'feature-2.png': '{{ "feature-2.png" | asset_url }}',
+118:         'feature-3.png': '{{ "feature-3.png" | asset_url }}',
+119:         'social-0.png': '{{ "social-0.png" | asset_url }}',
+120:         'social-1.png': '{{ "social-1.png" | asset_url }}',

@@ -1,0 +1,14 @@
+{% comment %}Decorative artwork follows link titles; destinations always come from Shopify menus.{% endcomment %}
+{% assign key = link.title | handleize %}{% assign appearance = nil %}{% for style_block in section.blocks %}{% if style_block.type == 'menu_item_style' and style_block.settings.link == link.url %}{% assign appearance = style_block.settings %}{% break %}{% endif %}{% endfor %}
+{% if appearance.image %}{{ appearance.image | image_url: width: 160 | image_tag: class: 'sbd-shape-icon', loading: 'lazy', alt: '' }}{% elsif appearance.icon != blank and appearance.icon != 'automatic' %}{% render 'icon', name: appearance.icon %}{% elsif column == 3 and appearance.swatch != blank %}<span class="sbd-dot" style="background:{{ appearance.swatch }}"></span>{% else %}
+{% if column == 1 %}
+  {% assign shapes = 'almond,square,oval,coffin,ballerina' | split: ',' %}{% if shapes contains key %}{% assign art = key | prepend: 'shape-' | append: '.png' %}<img class="sbd-shape-icon" src="{{ art | asset_url }}" alt="" width="25" height="42" loading="lazy">{% else %}{% render 'icon', name: 'sparkles' %}{% endif %}
+{% elsif column == 2 %}
+  {% assign lengths = 'short,medium,long' | split: ',' %}{% if lengths contains key %}{% assign art = key | prepend: 'length-' | append: '.png' %}<img class="sbd-length-img" src="{{ art | asset_url }}" alt="" width="37" height="65" loading="lazy">{% else %}{% render 'icon', name: 'sparkles' %}{% endif %}
+{% elsif column == 3 %}
+  {% case key %}{% when 'pink' %}{% assign swatch = '#ff7aa5' %}{% when 'white' %}{% assign swatch = '#ffffff' %}{% when 'blue' %}{% assign swatch = '#84b6f4' %}{% when 'black' %}{% assign swatch = '#1a1a1a' %}{% when 'orange' %}{% assign swatch = '#ff9f43' %}{% when 'yellow' %}{% assign swatch = '#ffd32a' %}{% when 'purple' %}{% assign swatch = '#a55eea' %}{% when 'green' %}{% assign swatch = '#26de81' %}{% when 'red' %}{% assign swatch = '#eb3b5a' %}{% else %}{% assign swatch = '#ffd2e2' %}{% endcase %}{% if key == 'gems' %}<img class="sbd-dot sbd-gems-img" src="{{ 'swatch-gems.png' | asset_url }}" alt="" width="24" height="24" loading="lazy">{% else %}<span class="sbd-dot" style="background:{{ swatch }};"></span>{% endif %}
+{% else %}
+  {% case index %}{% when 1 %}{% render 'icon', name: 'sparkles' %}{% when 2 %}{% render 'icon', name: 'flame' %}{% when 3 %}{% render 'icon', name: 'kids' %}{% else %}{% render 'icon', name: 'bag' %}{% endcase %}
+{% endif %}
+
+{% endif %}

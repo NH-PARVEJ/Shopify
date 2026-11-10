@@ -1,0 +1,67 @@
+<div class="mobile-app-drawer" id="mobile-app-drawer" aria-hidden="true">
+  <div class="app-drawer-overlay" aria-hidden="true"></div>
+  <div class="app-drawer-content" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div class="app-drawer-header">
+      <div class="app-drawer-brand">
+        <img src="{{ 'logo-hq-v2.png' | asset_url }}" alt="{{ shop.name }}" class="app-drawer-logo" width="125" height="32">
+        <span class="app-drawer-tagline">{{ section.settings.mobile_app_draw_1 | escape }}</span>
+      </div>
+      <button type="button" class="app-drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <div class="app-drawer-delivery">
+      <span>🚚</span> <strong>{{ section.settings.mobile_app_draw_2 | escape }}</strong> {{ section.settings.mobile_app_draw_3 | escape }}{{ settings.free_shipping_threshold | default: 30 }}
+    </div>
+    <div class="app-drawer-nav">
+      {%- assign nav_menu = section.settings.drawer_menu -%}
+      {%- if nav_menu != blank and nav_menu.links.size > 0 -%}
+        {%- for link in nav_menu.links -%}
+          {%- assign link_title_down = link.title | downcase -%}
+          <a href="{{ link.url }}" class="app-drawer-link {% if link.active or link.current %}active{% endif %}">
+            <span class="app-link-glyph">
+              {%- if link_title_down contains 'home' -%}🏠
+              {%- elsif link_title_down contains 'all' or link_title_down contains 'shop' -%}💅
+              {%- elsif link_title_down contains 'design' -%}🎨
+              {%- elsif link_title_down contains 'kid' -%}👑
+              {%- elsif link_title_down contains 'pedi' -%}👣
+              {%- elsif link_title_down contains 'bundle' -%}🎁
+              {%- elsif link_title_down contains 'access' -%}✨
+              {%- elsif link_title_down contains 'about' -%}📖
+              {%- elsif link_title_down contains 'contact' -%}✉
+              {%- elsif link_title_down contains 'faq' or link_title_down contains 'help' -%}❓
+              {%- else -%}♡{%- endif -%}
+            </span>
+            <span class="app-link-title">{{ link.title }}</span>
+            {%- if link_title_down contains 'all' -%}
+              <span class="app-link-pill">ALL</span>
+            {%- elsif link_title_down contains 'kid' -%}
+              <span class="app-link-pill">CUTE</span>
+            {%- elsif link_title_down contains 'bundle' or link_title_down contains 'sale' -%}
+              <span class="app-link-pill sale">SALE</span>
+            {%- elsif link_title_down contains 'best' -%}
+              <span class="app-link-pill">BEST</span>
+            {%- endif -%}
+          </a>
+          {%- if link.links.size > 0 -%}
+            <div class="app-drawer-sublinks" style="padding-left: 36px; display: flex; flex-direction: column; gap: 6px; margin: -4px 0 8px;">
+              {%- for child_link in link.links -%}
+                <a href="{{ child_link.url }}" class="app-drawer-sublink" style="font-size: 11px; color: #7b5962; text-decoration: none; padding: 4px 0;">• {{ child_link.title }}</a>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <div class="app-drawer-actions">
+      <a href="tel:{{ settings.booking_phone | default: '07944545406' }}" class="app-drawer-action-btn primary">
+        {{ section.settings.mobile_app_draw_14 | escape }} <span>👑</span>
+      </a>
+      <a href="{{ settings.social_instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}" target="_blank" rel="noopener noreferrer" class="app-drawer-action-btn secondary">
+        {{ section.settings.mobile_app_draw_15 | escape }} <span>◎</span>
+      </a>
+    </div>
+    <div class="app-drawer-footer">
+      <p>{{ section.settings.mobile_app_draw_16 | escape }} <a href="tel:{{ settings.contact_phone | default: '07944545406' }}">{{ settings.contact_phone | default: '07944 545 406' }}</a></p>
+      <small>© {{ 'now' | date: '%Y' }} {{ section.settings.mobile_app_draw_17 | escape }}</small>
+    </div>
+  </div>
+</div>

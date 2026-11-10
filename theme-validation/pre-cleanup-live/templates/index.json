@@ -1,0 +1,322 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "eyebrow": "PRESS BY HEART",
+        "heading_main": "QUICK PRESS,",
+        "heading_script": "instant beauty",
+        "description": "Salon quality press-on nails<br>delivered to your door.",
+        "button_text": "SHOP NOW"
+      }
+    },
+    "collections": {
+      "type": "collections-list",
+      "settings": {
+        "title": "SHOP BY COLLECTION",
+        "intro": "Find the perfect set for every mood, moment and occasion."
+      },
+      "blocks": {
+        "collection_1": {
+          "type": "collection_card",
+          "settings": {
+            "title": "The Classics",
+            "description": "Timeless styles you’ll never get tired of.",
+            "button_text": "SHOP COLLECTION"
+          }
+        },
+        "collection_2": {
+          "type": "collection_card",
+          "settings": {
+            "title": "The Pinks",
+            "description": "From soft blush to bold fuchsia.",
+            "button_text": "SHOP COLLECTION"
+          }
+        },
+        "collection_3": {
+          "type": "collection_card",
+          "settings": {
+            "title": "The French",
+            "description": "Modern twists on the iconic french tip.",
+            "button_text": "SHOP COLLECTION"
+          }
+        },
+        "collection_4": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Kawaii",
+            "description": "Playful, cute and dreamy 3D nail art.",
+            "button_text": "SHOP COLLECTION"
+          }
+        },
+        "collection_5": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Never Basic",
+            "description": "Chrome, gems and statement textures.",
+            "button_text": "SHOP COLLECTION"
+          }
+        },
+        "collection_6": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Festivities",
+            "description": "Holiday glitz and party-ready sparkle.",
+            "button_text": "SHOP COLLECTION"
+          }
+        }
+      },
+      "block_order": [
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4",
+        "collection_5",
+        "collection_6"
+      ]
+    },
+    "benefits": {
+      "type": "benefits-bar",
+      "settings": {},
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "♧",
+            "title": "REUSABLE & DURABLE",
+            "subtitle": "Wear again & again"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "♢",
+            "title": "SALON QUALITY",
+            "subtitle": "Premium finish"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "◷",
+            "title": "QUICK & EASY",
+            "subtitle": "Apply in minutes"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "♡",
+            "title": "CRUELTY FREE",
+            "subtitle": "Made with love"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ]
+    },
+    "best_sellers": {
+      "type": "best-sellers",
+      "settings": {
+        "title": "BEST SELLERS",
+        "products_to_show": 5,
+        "view_all_text": "VIEW ALL"
+      }
+    },
+    "features": {
+      "type": "featured-promos",
+      "settings": {},
+      "blocks": {
+        "promo_1": {
+          "type": "promo_card",
+          "settings": {
+            "title": "NEW ARRIVALS",
+            "description": "Shop the latest drop",
+            "button_text": "SHOP NOW",
+            "link": "/collections/all"
+          }
+        },
+        "promo_2": {
+          "type": "promo_card",
+          "settings": {
+            "title": "KIDS COLLECTION",
+            "description": "Little nails, big style",
+            "button_text": "SHOP NOW",
+            "link": "/collections/kids"
+          }
+        },
+        "promo_3": {
+          "type": "promo_card",
+          "settings": {
+            "title": "BUNDLES & SAVE",
+            "description": "Bundle up and save 20%",
+            "button_text": "SHOP NOW",
+            "link": "/collections/bundles"
+          }
+        },
+        "promo_4": {
+          "type": "promo_card",
+          "settings": {
+            "title": "ACCESSORIES",
+            "description": "Glues, tabs, files & more",
+            "button_text": "SHOP NOW",
+            "link": "/collections/accessories"
+          }
+        }
+      },
+      "block_order": [
+        "promo_1",
+        "promo_2",
+        "promo_3",
+        "promo_4"
+      ]
+    },
+    "why_us": {
+      "type": "why-choose-us",
+      "settings": {
+        "heading": "Why Press By Heart?"
+      },
+      "blocks": {
+        "bullet_1": {
+          "type": "bullet_point",
+          "settings": {
+            "text": "Salon quality nails at home"
+          }
+        },
+        "bullet_2": {
+          "type": "bullet_point",
+          "settings": {
+            "text": "Long lasting & durable"
+          }
+        },
+        "bullet_3": {
+          "type": "bullet_point",
+          "settings": {
+            "text": "Reusable up to 2+ weeks"
+          }
+        },
+        "bullet_4": {
+          "type": "bullet_point",
+          "settings": {
+            "text": "100% handmade with love"
+          }
+        },
+        "bullet_5": {
+          "type": "bullet_point",
+          "settings": {
+            "text": "Inclusive sizes for every nail shape"
+          }
+        },
+        "review_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "“The quality is unreal! They last for weeks and I get so many compliments.”",
+            "author": "- Sarah J.",
+            "stars": "★★★★★"
+          }
+        },
+        "review_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "“So easy to apply, with a beautiful salon-style finish at home.”",
+            "author": "- Emily R.",
+            "stars": "★★★★★"
+          }
+        },
+        "review_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "“Love the glossy designs and being able to switch up my nails.”",
+            "author": "- Chloe M.",
+            "stars": "★★★★★"
+          }
+        }
+      },
+      "block_order": [
+        "bullet_1",
+        "bullet_2",
+        "bullet_3",
+        "bullet_4",
+        "bullet_5",
+        "review_1",
+        "review_2",
+        "review_3"
+      ]
+    },
+    "instagram": {
+      "type": "instagram-feed",
+      "settings": {
+        "heading": "FOLLOW US",
+        "account_handle": "@PRESSBYHEART"
+      },
+      "blocks": {
+        "post_1": {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Everyday nude nail inspiration"
+          }
+        },
+        "post_2": {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Pretty in pink press-on nails"
+          }
+        },
+        "post_3": {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Unbox your instant beauty"
+          }
+        },
+        "post_4": {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Your next pink manicure"
+          }
+        },
+        "post_5": {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Glossy French nail designs"
+          }
+        },
+        "post_6": {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "A little pink delivery"
+          }
+        }
+      },
+      "block_order": [
+        "post_1",
+        "post_2",
+        "post_3",
+        "post_4",
+        "post_5",
+        "post_6"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "collections",
+    "benefits",
+    "best_sellers",
+    "features",
+    "why_us",
+    "instagram"
+  ]
+}

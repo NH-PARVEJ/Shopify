@@ -1,0 +1,103 @@
+Created At: 2026-11-08T00:53:25+06:00
+Completed At: 2026-11-08T00:53:25+06:00
+Showing lines 1-100 of 173
+1: <!doctype html>
+2: <html class="no-js" lang="{{ request.locale.iso_code }}">
+3: <head>
+4:   <meta charset="utf-8">
+5:   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+7:   <meta name="theme-color" content="{{ settings.color_primary | default: '#f93685' }}">
+8:   <link rel="canonical" href="{{ canonical_url }}">
+9:   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+10: 
+11:   {%- if settings.favicon != blank -%}
+12:     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+13:   {%- endif -%}
+14: 
+15:   <title>
+16:     {{ page_title }}
+17:     {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+18:     {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+19:     {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+20:   </title>
+21: 
+22:   {% if page_description %}
+23:     <meta name="description" content="{{ page_description | escape }}">
+24:   {% endif %}
+25: 
+26:   {% comment %} Social Meta Tags (Open Graph & Twitter) {% endcomment %}
+27:   <meta property="og:site_name" content="{{ shop.name }}">
+28:   <meta property="og:url" content="{{ canonical_url }}">
+29:   <meta property="og:title" content="{{ page_title | escape }}">
+30:   <meta property="og:type" content="{% if template contains 'product' %}product{% else %}website{% endif %}">
+31:   <meta property="og:description" content="{{ page_description | default: shop.description | escape }}">
+32:   {%- if page_image -%}
+33:     <meta property="og:image" content="{{ page_image | image_url: width: 1200 }}">
+34:     <meta property="og:image:secure_url" content="{{ page_image | image_url: width: 1200 }}">
+35:     <meta property="og:image:width" content="{{ page_image.width }}">
+36:     <meta property="og:image:height" content="{{ page_image.height }}">
+37:   {%- else -%}
+38:     <meta property="og:image" content="{{ 'hero-expanded.png' | asset_url }}">
+39:   {%- endif -%}
+40:   <meta name="twitter:card" content="summary_large_image">
+41:   <meta name="twitter:title" content="{{ page_title | escape }}">
+42:   <meta name="twitter:description" content="{{ page_description | default: shop.description | escape }}">
+43: 
+44:   {% comment %} Bulletproof Font-Face Declarations {% endcomment %}
+45:   <style>
+46:     @font-face {
+47:       font-family: 'Poppins';
+48:       src: url('{{ "poppins-400.ttf" | asset_url }}') format('truetype');
+49:       font-weight: 400;
+50:       font-style: normal;
+51:       font-display: swap;
+52:     }
+53:     @font-face {
+54:       font-family: 'Poppins';
+55:       src: url('{{ "poppins-500.ttf" | asset_url }}') format('truetype');
+56:       font-weight: 500;
+57:       font-style: normal;
+58:       font-display: swap;
+59:     }
+60:     @font-face {
+61:       font-family: 'Poppins';
+62:       src: url('{{ "poppins-600.ttf" | asset_url }}') format('truetype');
+63:       font-weight: 600;
+64:       font-style: normal;
+65:       font-display: swap;
+66:     }
+67:     @font-face {
+68:       font-family: 'Allura';
+69:       src: url('{{ "allura.ttf" | asset_url }}') format('truetype');
+70:       font-weight: 400;
+71:       font-style: normal;
+72:       font-display: swap;
+73:     }
+74:   </style>
+75: 
+76:   {% comment %} Stylesheets {% endcomment %}
+77:   {{ 'style.css' | asset_url | stylesheet_tag }}
+78:   {{ 'refinements.css' | asset_url | stylesheet_tag }}
+79:   {% if template.name == 'collection' %}{% if collection.handle == 'kids' %}{{ 'kids.css' | asset_url | stylesheet_tag }}{% else %}{{ 'shop-all.css' | asset_url | stylesheet_tag }}{% endif %}{% elsif template.name == 'product' %}{{ 'product.css' | asset_url | stylesheet_tag }}{% elsif page.handle == 'shop-by-design' %}{{ 'shop-by-design.css' | asset_url | stylesheet_tag }}{% endif %}
+80: 
+81:   {% comment %} Shopify Required Header Hooks {% endcomment %}
+82:   {{ content_for_header }}
+83:   {% render 'theme-settings' %}
+84: 
+85:   <script>
+86:     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+87:     window.ShopifyTheme = {
+88:       routes: {
+89:         root: "{{ routes.root_url }}",
+90:         cart: "{{ routes.cart_url }}",
+91:         cart_add_url: "{{ routes.cart_add_url }}",
+92:         cart_change_url: "{{ routes.cart_change_url }}",
+93:         cart_clear_url: "{{ routes.cart_clear_url }}",
+94:         search_url: "{{ routes.search_url }}"
+95:       },
+96:       settings: {
+97:         freeShippingThreshold: {{ settings.free_shipping_threshold | default: 30 }},
+98:         standardShippingRate: {{ settings.standard_shipping_rate | default: 3.99 }},
+99:         promoCodeDefault: {{ settings.promo_code_default | json }},
+100:         promoDiscountPercent: {{ settings.promo_discount_percent | default: 10 }}

@@ -1,0 +1,25 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your {{ shop.name }} Gift Card</title>
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'refinements.css' | asset_url | stylesheet_tag }}
+</head>
+<body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #fff5f8; font-family: Poppins, Arial, sans-serif; padding: 20px;">
+  <div style="max-width: 480px; width: 100%; background: #fff; border: 1px solid #ffdeea; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.05);">
+    <img src="{{ 'logo-hq-v2.png' | asset_url }}" alt="{{ shop.name }}" style="width: 140px; margin-bottom: 20px;" width="2172" height="724">
+    <h1 style="font-family: 'Times New Roman', serif; font-size: 26px; margin-bottom: 8px;">Your Gift Card</h1>
+    <p style="font-size: 13px; color: #666; margin-bottom: 24px;">Here is your {{ shop.name }} digital gift card!</p>
+    <div style="background: linear-gradient(135deg, #fce5eb 0%, #fff0f5 100%); border: 1px dashed #ed4c9b; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+      <div style="font-size: 32px; font-weight: bold; color: #ed4c9b; margin-bottom: 12px;">{{ gift_card.initial_value | money_with_currency }}</div>
+      <div style="font-size: 18px; font-family: monospace; letter-spacing: 2px; color: #101010;">{{ gift_card.code | format_code }}</div>
+    </div>
+    <a href="{{ shop.url }}" class="shop-button" style="display: inline-flex; text-decoration: none;">
+      START SHOPPING <span>👑</span>
+    </a>
+  </div>
+</body>
+</html>

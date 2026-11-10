@@ -1,0 +1,194 @@
+{% if section.settings.show_dock %}<nav class="mobile-app-dock" aria-label="Mobile navigation" style="--dock-items:{{ section.settings.menu.links.size }};margin:0!important;left:0!important;right:0!important;width:100%!important">{% assign defaults = 'home,grid,sparkles,crown,bag' | split: ',' %}{% for link in section.settings.menu.links %}{% assign item_icon = defaults[forloop.index0] | default: 'heart' %}{% assign custom_image = nil %}{% for block in section.blocks %}{% if block.settings.link == link.url %}{% assign item_icon = block.settings.icon %}{% assign custom_image = block.settings.image %}{% endif %}{% endfor %}<a href="{{ link.url }}" class="app-tab{% if link.active %} active{% endif %}{% if link.url == routes.cart_url %} app-tab-bag{% endif %}"{% if link.url == routes.cart_url %} data-cart-trigger{% endif %}><span class="app-tab-icon app-tab-bag-wrap">{% if custom_image %}{{ custom_image | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}{% else %}{% render 'icon', name: item_icon %}{% endif %}{% if link.url == routes.cart_url %}<span class="app-tab-badge" id="mobile-dock-badge">{{ cart.item_count }}</span>{% endif %}</span><span class="app-tab-label">{{ link.title | escape }}</span></a>{% endfor %}</nav>{% endif %}{% render 'mobile-app-drawer' %}
+{% schema %}
+{
+  "name": "Mobile Bottom Dock",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Bottom navigation menu"
+    },
+    {
+      "type": "link_list",
+      "id": "drawer_menu",
+      "label": "Mobile drawer menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dock",
+      "label": "Show Mobile Bottom Dock",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_1",
+      "label": "Copy: Quick press, instant beauty ♡",
+      "default": "Quick press, instant beauty ♡"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_2",
+      "label": "Copy: Free UK Tracked Delivery",
+      "default": "Free UK Tracked Delivery"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_3",
+      "label": "Copy: on orders over £",
+      "default": "on orders over £"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_4",
+      "label": "Copy: Home",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_5",
+      "label": "Copy: All Press-On Nails",
+      "default": "All Press-On Nails"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_6",
+      "label": "Copy: 24 Sets",
+      "default": "24 Sets"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_7",
+      "label": "Copy: Shop By Design",
+      "default": "Shop By Design"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_8",
+      "label": "Copy: Kids Collection",
+      "default": "Kids Collection"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_9",
+      "label": "Copy: Safe & Cute",
+      "default": "Safe & Cute"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_10",
+      "label": "Copy: Pedis Collection",
+      "default": "Pedis Collection"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_11",
+      "label": "Copy: Bundles & Save",
+      "default": "Bundles & Save"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_12",
+      "label": "Copy: Save 25%",
+      "default": "Save 25%"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_13",
+      "label": "Copy: Accessories & Care",
+      "default": "Accessories & Care"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_14",
+      "label": "Copy: BOOK APPOINTMENT",
+      "default": "BOOK APPOINTMENT"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_15",
+      "label": "Copy: FOLLOW ON INSTAGRAM",
+      "default": "FOLLOW ON INSTAGRAM"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_16",
+      "label": "Copy: 📞 Need Help? Call",
+      "default": "📞 Need Help? Call"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_17",
+      "label": "Copy: Press By Heart London",
+      "default": "Press By Heart London"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item_style",
+      "name": "Bottom item appearance",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Match menu destination"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "home",
+          "options": [
+            {
+              "value": "home",
+              "label": "home"
+            },
+            {
+              "value": "grid",
+              "label": "grid"
+            },
+            {
+              "value": "sparkles",
+              "label": "sparkles"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "bag",
+              "label": "bag"
+            },
+            {
+              "value": "heart",
+              "label": "heart"
+            },
+            {
+              "value": "nails",
+              "label": "nails"
+            },
+            {
+              "value": "gift",
+              "label": "gift"
+            },
+            {
+              "value": "feet",
+              "label": "feet"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mobile bottom navigation"
+    }
+  ]
+}
+{% endschema %}

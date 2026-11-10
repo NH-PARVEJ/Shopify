@@ -1,0 +1,286 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | default: 48 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 48 }}px;
+  }
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color | default: '#fff5f8' }};
+  }
+  .iwt-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .iwt-img-col-{{ section.id }} {
+    order: {% if section.settings.image_position == 'right' %}2{% else %}1{% endif %};
+  }
+  .iwt-text-col-{{ section.id }} {
+    order: {% if section.settings.image_position == 'right' %}1{% else %}2{% endif %};
+    text-align: {{ section.settings.text_alignment | default: 'left' }};
+  }
+  .iwt-img-{{ section.id }} {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(80, 20, 36, 0.08);
+  }
+  .iwt-text-col-{{ section.id }} .iwt-eyebrow {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fa4087;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+  }
+  .iwt-text-col-{{ section.id }} .iwt-heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1a1a1a;
+    margin: 0 0 14px 0;
+  }
+  .iwt-text-col-{{ section.id }} .iwt-body {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #55444b;
+    margin: 0 0 22px 0;
+  }
+  .iwt-text-col-{{ section.id }} .iwt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    background: linear-gradient(105deg, #fa4087, #f13d84);
+    color: #ffffff;
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(250, 64, 135, 0.28);
+    transition: transform 0.2s ease;
+  }
+  .iwt-text-col-{{ section.id }} .iwt-btn:hover {
+    transform: translateY(-2px);
+  }
+  @media (max-width: 768px) {
+    .iwt-grid-{{ section.id }} {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .iwt-img-col-{{ section.id }} {
+      order: 1 !important;
+    }
+    .iwt-text-col-{{ section.id }} {
+      order: 2 !important;
+      text-align: left;
+    }
+    .iwt-text-col-{{ section.id }} .iwt-heading {
+      font-size: 24px;
+    }
+  }
+  {% if section.settings.hide_desktop %}
+    @media (min-width: 701px) { #shopify-section-{{ section.id }} { display: none !important; } }
+  {% endif %}
+  {% if section.settings.hide_mobile %}
+    @media (max-width: 700px) { #shopify-section-{{ section.id }} { display: none !important; } }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="image-with-text-section section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+  <div class="content-container">
+    <div class="iwt-grid-{{ section.id }}">
+      {%- if section.settings.show_image -%}
+        <div class="iwt-img-col-{{ section.id }}">
+          {%- if section.settings.image != blank -%}
+            <img class="iwt-img-{{ section.id }}"
+              src="{{ section.settings.image | image_url: width: 900 }}"
+              alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+              loading="lazy">
+          {%- else -%}
+            <img class="iwt-img-{{ section.id }}"
+              src="{{ 'feature-0.png' | asset_url }}"
+              alt="Handcrafted nails"
+              loading="lazy">
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <div class="iwt-text-col-{{ section.id }}">
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="iwt-eyebrow">{{ section.settings.eyebrow | escape }} ♡</p>
+        {%- endif -%}
+        {%- if section.settings.show_heading and section.settings.heading != blank -%}
+          <h2 class="iwt-heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_text and section.settings.text != blank -%}
+          <div class="iwt-body">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.show_button and section.settings.button_label != blank and section.settings.button_link != blank -%}
+          <a href="{{ section.settings.button_link }}" class="iwt-btn">
+            {{ section.settings.button_label | escape }} <span>→</span>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with Text",
+  "tag": "section",
+  "class": "section-image-with-text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Element Toggles (On / Off)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Show Image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_eyebrow",
+      "label": "Show Eyebrow Subtitle",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show Heading",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text",
+      "label": "Show Description Text",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show CTA Button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content & Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Desktop Position",
+      "options": [
+        { "value": "left", "label": "Image on Left" },
+        { "value": "right", "label": "Image on Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Subtitle",
+      "default": "PERFECT FIT GUARANTEE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Handcrafted to Perfection"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Every Press By Heart set is carefully handmade with multi-layer gel for unmatched durability, high-gloss shine, and reusable wear.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "FIND YOUR FIT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#fff5f8"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 48
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_desktop",
+      "label": "Hide on Desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_mobile",
+      "label": "Hide on Mobile",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text"
+    }
+  ]
+}
+{% endschema %}

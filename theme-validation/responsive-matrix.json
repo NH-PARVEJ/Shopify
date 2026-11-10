@@ -1,0 +1,302 @@
+[
+  {
+    "body": 305,
+    "cardDesc": 0,
+    "doc": 305,
+    "dock": "flex",
+    "h1": "QUICK PRESS,\n        \n          instant ",
+    "header": 56,
+    "path": "/",
+    "width": 320
+  },
+  {
+    "body": 305,
+    "cardDesc": 0,
+    "doc": 305,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 56,
+    "path": "/collections/all",
+    "width": 320
+  },
+  {
+    "body": 305,
+    "cardDesc": 0,
+    "doc": 305,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 56,
+    "path": "/collections/kids",
+    "width": 320
+  },
+  {
+    "body": 305,
+    "cardDesc": 0,
+    "doc": 305,
+    "dock": "flex",
+    "h1": "404 &ndash; Page Not Found",
+    "header": 56,
+    "path": "/pages/shop-by-design",
+    "width": 320
+  },
+  {
+    "body": 305,
+    "cardDesc": 0,
+    "doc": 305,
+    "dock": "flex",
+    "h1": "After Dark",
+    "header": 56,
+    "path": "/products/after-dark",
+    "width": 320
+  },
+  {
+    "body": 305,
+    "cardDesc": 0,
+    "doc": 305,
+    "dock": "flex",
+    "h1": "Your Shopping Bag ♡",
+    "header": 56,
+    "path": "/cart",
+    "width": 320
+  },
+  {
+    "body": 375,
+    "cardDesc": 0,
+    "doc": 375,
+    "dock": "flex",
+    "h1": "QUICK PRESS,\n        \n          instant ",
+    "header": 56,
+    "path": "/",
+    "width": 390
+  },
+  {
+    "body": 375,
+    "cardDesc": 0,
+    "doc": 375,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 56,
+    "path": "/collections/all",
+    "width": 390
+  },
+  {
+    "body": 375,
+    "cardDesc": 0,
+    "doc": 375,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 56,
+    "path": "/collections/kids",
+    "width": 390
+  },
+  {
+    "body": 375,
+    "cardDesc": 0,
+    "doc": 375,
+    "dock": "flex",
+    "h1": "404 &ndash; Page Not Found",
+    "header": 56,
+    "path": "/pages/shop-by-design",
+    "width": 390
+  },
+  {
+    "body": 375,
+    "cardDesc": 0,
+    "doc": 375,
+    "dock": "flex",
+    "h1": "After Dark",
+    "header": 56,
+    "path": "/products/after-dark",
+    "width": 390
+  },
+  {
+    "body": 375,
+    "cardDesc": 0,
+    "doc": 375,
+    "dock": "flex",
+    "h1": "Your Shopping Bag ♡",
+    "header": 56,
+    "path": "/cart",
+    "width": 390
+  },
+  {
+    "body": 753,
+    "cardDesc": 0,
+    "doc": 753,
+    "dock": "flex",
+    "h1": "QUICK PRESS,\n        \n          instant ",
+    "header": 64,
+    "path": "/",
+    "width": 768
+  },
+  {
+    "body": 753,
+    "cardDesc": 0,
+    "doc": 753,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 64,
+    "path": "/collections/all",
+    "width": 768
+  },
+  {
+    "body": 753,
+    "cardDesc": 0,
+    "doc": 753,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 64,
+    "path": "/collections/kids",
+    "width": 768
+  },
+  {
+    "body": 753,
+    "cardDesc": 0,
+    "doc": 753,
+    "dock": "flex",
+    "h1": "404 &ndash; Page Not Found",
+    "header": 64,
+    "path": "/pages/shop-by-design",
+    "width": 768
+  },
+  {
+    "body": 753,
+    "cardDesc": 0,
+    "doc": 753,
+    "dock": "flex",
+    "h1": "After Dark",
+    "header": 64,
+    "path": "/products/after-dark",
+    "width": 768
+  },
+  {
+    "body": 768,
+    "cardDesc": 0,
+    "doc": 768,
+    "dock": "flex",
+    "h1": "Your Shopping Bag ♡",
+    "header": 64,
+    "path": "/cart",
+    "width": 768
+  },
+  {
+    "body": 1009,
+    "cardDesc": 0,
+    "doc": 1009,
+    "dock": "flex",
+    "h1": "QUICK PRESS,\n        \n          instant ",
+    "header": 64,
+    "path": "/",
+    "width": 1024
+  },
+  {
+    "body": 1009,
+    "cardDesc": 0,
+    "doc": 1009,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 64,
+    "path": "/collections/all",
+    "width": 1024
+  },
+  {
+    "body": 1009,
+    "cardDesc": 0,
+    "doc": 1009,
+    "dock": "flex",
+    "h1": "SHOP ALLNAILS",
+    "header": 64,
+    "path": "/collections/kids",
+    "width": 1024
+  },
+  {
+    "body": 1009,
+    "cardDesc": 0,
+    "doc": 1009,
+    "dock": "flex",
+    "h1": "404 &ndash; Page Not Found",
+    "header": 64,
+    "path": "/pages/shop-by-design",
+    "width": 1024
+  },
+  {
+    "body": 1009,
+    "cardDesc": 0,
+    "doc": 1009,
+    "dock": "flex",
+    "h1": "After Dark",
+    "header": 64,
+    "path": "/products/after-dark",
+    "width": 1024
+  },
+  {
+    "body": 1009,
+    "cardDesc": 0,
+    "doc": 1009,
+    "dock": "flex",
+    "h1": "Your Shopping Bag ♡",
+    "header": 64,
+    "path": "/cart",
+    "width": 1024
+  },
+  {
+    "body": 1425,
+    "cardDesc": 0,
+    "doc": 1425,
+    "dock": "none",
+    "h1": "QUICK PRESS,\n        \n          instant ",
+    "header": 100,
+    "path": "/",
+    "width": 1440
+  },
+  {
+    "body": 1425,
+    "cardDesc": 0,
+    "doc": 1425,
+    "dock": "none",
+    "h1": "SHOP ALLNAILS",
+    "header": 100,
+    "path": "/collections/all",
+    "width": 1440
+  },
+  {
+    "body": 1425,
+    "cardDesc": 0,
+    "doc": 1425,
+    "dock": "none",
+    "h1": "SHOP ALLNAILS",
+    "header": 100,
+    "path": "/collections/kids",
+    "width": 1440
+  },
+  {
+    "body": 1425,
+    "cardDesc": 0,
+    "doc": 1425,
+    "dock": "none",
+    "h1": "404 &ndash; Page Not Found",
+    "header": 100,
+    "path": "/pages/shop-by-design",
+    "width": 1440
+  },
+  {
+    "body": 1425,
+    "cardDesc": 0,
+    "doc": 1425,
+    "dock": "none",
+    "h1": "After Dark",
+    "header": 100,
+    "path": "/products/after-dark",
+    "width": 1440
+  },
+  {
+    "body": 1425,
+    "cardDesc": 0,
+    "doc": 1425,
+    "dock": "none",
+    "h1": "Your Shopping Bag ♡",
+    "header": 100,
+    "path": "/cart",
+    "width": 1440
+  }
+]

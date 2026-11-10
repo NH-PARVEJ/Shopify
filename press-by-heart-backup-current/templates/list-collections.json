@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "title": "ALL COLLECTIONS",
+        "intro": "Explore our full range of handcrafted press-on collections, custom shapes and signature designs."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,82 @@
+{% comment %}
+  Reusable Product Card Snippet — Press By Heart
+  Accepts:
+  - product: Shopify Product object
+  - title: Fallback title
+  - price: Fallback price
+  - badge: Fallback badge text (e.g. "BEST SELLER")
+  - rating: Rating number (default 5.0)
+  - image: Fallback image asset name
+  - url: Fallback product URL
+{% endcomment %}
+
+{%- liquid
+  assign card_title = title | default: product.title | default: 'Classic Nude'
+  assign card_url = url | default: product.url | default: '#'
+  assign card_price = price
+  if product
+    assign card_price = product.price | money
+  endif
+
+  assign card_badge = badge
+  if card_badge == blank and product
+    assign card_badge = product.metafields.custom.badge.value
+    for tag in product.tags
+      if tag contains 'badge:'
+        assign card_badge = tag | remove_first: 'badge:'
+      endif
+    endfor
+    if card_badge == blank
+      if product.compare_at_price > product.price
+        assign card_badge = 'SALE'
+      elsif product.tags contains 'bestseller' or product.tags contains 'best-seller'
+        assign card_badge = 'BEST SELLER'
+      elsif product.tags contains 'trending'
+        assign card_badge = 'TRENDING'
+      elsif product.tags contains 'new'
+        assign card_badge = 'NEW'
+      endif
+    endif
+  endif
+
+  assign card_image = image
+  if product and product.featured_image != blank
+    assign card_image_url = product.featured_image | image_url: width: 400
+  elsif card_image != blank
+    assign card_image_url = card_image | asset_url
+  else
+    assign card_image_url = 'product-0.png' | asset_url
+  endif
+
+  assign variant_id = product.selected_or_first_available_variant.id
+-%}
+
+<article class="product" data-product-id="{{ product.id | default: 0 }}">
+  <div class="product-media">
+    {% if card_badge != blank %}
+      <span class="product-badge">{{ card_badge }}</span>
+    {% endif %}
+    <a href="{{ card_url }}" aria-label="{{ card_title | escape }}">
+      <img src="{{ card_image_url }}" alt="{{ card_title | escape }} press-on nails" loading="lazy" width="180" height="156">
+    </a>
+  </div>
+  <div class="product-body">
+    {% if product.metafields.reviews.rating.value != blank %}{% if product.metafields.reviews.rating.value != blank %}<div class="product-rating">★★★★★ <span>{{ product.metafields.reviews.rating.value.rating }}</span></div>{% endif %}{% endif %}
+    <h3>
+      <a href="{{ card_url }}">{{ card_title }}</a>
+    </h3>
+    <p class="price">{{ card_price }}</p>
+    <button {% if product != blank and product.available == false %}disabled{% endif %} class="add" type="button"
+      data-name="{{ card_title | escape }}"
+      data-price="{{ card_price }}"
+      data-image="{{ card_image_url }}"
+      {% if variant_id %}data-variant-id="{{ variant_id }}"{% endif %}
+      aria-label="Add {{ card_title | escape }} to bag">
+      {% if product == blank or product.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
+      <svg class="bag-svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 8h14l1 14H4Z"/>
+        <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+      </svg>
+    </button>
+  </div>
+</article>

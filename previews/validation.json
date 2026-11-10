@@ -1,0 +1,1374 @@
+{
+  "results": [
+    {
+      "width": 863,
+      "scrollWidth": 863,
+      "height": 3027,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 24,
+          "height": 60
+        },
+        {
+          "name": "hero",
+          "y": 84,
+          "height": 331
+        },
+        {
+          "name": "collections",
+          "y": 415,
+          "height": 376
+        },
+        {
+          "name": "benefits",
+          "y": 815,
+          "height": 69
+        },
+        {
+          "name": "best-sellers",
+          "y": 884,
+          "height": 310
+        },
+        {
+          "name": "features",
+          "y": 1218,
+          "height": 220
+        },
+        {
+          "name": "why",
+          "y": 1462,
+          "height": 149
+        },
+        {
+          "name": "social",
+          "y": 1635,
+          "height": 120
+        },
+        {
+          "name": "FOOTER",
+          "y": 1773,
+          "height": 206
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 863,
+          "height": 24
+        },
+        "topContent": {
+          "left": 0,
+          "width": 863,
+          "height": 24
+        },
+        "header": {
+          "left": 0,
+          "width": 863,
+          "height": 60
+        },
+        "main": {
+          "left": 0,
+          "width": 863,
+          "height": 1340.265625
+        },
+        "hero": {
+          "left": 0,
+          "width": 863,
+          "height": 331
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 863,
+          "height": 331
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 863,
+          "height": 206.3125
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 863,
+          "height": 206.3125
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5043,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 40,
+          "height": 100
+        },
+        {
+          "name": "hero",
+          "y": 140,
+          "height": 552
+        },
+        {
+          "name": "collections",
+          "y": 692,
+          "height": 627
+        },
+        {
+          "name": "benefits",
+          "y": 1359,
+          "height": 115
+        },
+        {
+          "name": "best-sellers",
+          "y": 1475,
+          "height": 517
+        },
+        {
+          "name": "features",
+          "y": 2031,
+          "height": 367
+        },
+        {
+          "name": "why",
+          "y": 2438,
+          "height": 249
+        },
+        {
+          "name": "social",
+          "y": 2727,
+          "height": 199
+        },
+        {
+          "name": "FOOTER",
+          "y": 2956,
+          "height": 344
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 1440,
+          "height": 40.03125
+        },
+        "topContent": {
+          "left": 0,
+          "width": 1440,
+          "height": 40.03125
+        },
+        "header": {
+          "left": 0,
+          "width": 1440,
+          "height": 100.109375
+        },
+        "main": {
+          "left": 0,
+          "width": 1440,
+          "height": 2233.578125
+        },
+        "hero": {
+          "left": 0,
+          "width": 1440,
+          "height": 552.296875
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 1440,
+          "height": 552.296875
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 1440,
+          "height": 344.21875
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 1440,
+          "height": 344.21875
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "height": 5523,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 40,
+          "height": 100
+        },
+        {
+          "name": "hero",
+          "y": 140,
+          "height": 552
+        },
+        {
+          "name": "collections",
+          "y": 692,
+          "height": 627
+        },
+        {
+          "name": "benefits",
+          "y": 1359,
+          "height": 115
+        },
+        {
+          "name": "best-sellers",
+          "y": 1475,
+          "height": 517
+        },
+        {
+          "name": "features",
+          "y": 2031,
+          "height": 367
+        },
+        {
+          "name": "why",
+          "y": 2438,
+          "height": 249
+        },
+        {
+          "name": "social",
+          "y": 2727,
+          "height": 199
+        },
+        {
+          "name": "FOOTER",
+          "y": 2956,
+          "height": 344
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 1920,
+          "height": 40.03125
+        },
+        "topContent": {
+          "left": 240,
+          "width": 1440,
+          "height": 40.03125
+        },
+        "header": {
+          "left": 240,
+          "width": 1440,
+          "height": 100.109375
+        },
+        "main": {
+          "left": 240,
+          "width": 1440,
+          "height": 2233.578125
+        },
+        "hero": {
+          "left": 0,
+          "width": 1920,
+          "height": 552.296875
+        },
+        "heroContent": {
+          "left": 240,
+          "width": 1440,
+          "height": 552.296875
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 1920,
+          "height": 344.21875
+        },
+        "footerContent": {
+          "left": 240,
+          "width": 1440,
+          "height": 344.21875
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 2560,
+      "scrollWidth": 2560,
+      "height": 6163,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 40,
+          "height": 100
+        },
+        {
+          "name": "hero",
+          "y": 140,
+          "height": 552
+        },
+        {
+          "name": "collections",
+          "y": 692,
+          "height": 627
+        },
+        {
+          "name": "benefits",
+          "y": 1359,
+          "height": 115
+        },
+        {
+          "name": "best-sellers",
+          "y": 1475,
+          "height": 517
+        },
+        {
+          "name": "features",
+          "y": 2031,
+          "height": 367
+        },
+        {
+          "name": "why",
+          "y": 2438,
+          "height": 249
+        },
+        {
+          "name": "social",
+          "y": 2727,
+          "height": 199
+        },
+        {
+          "name": "FOOTER",
+          "y": 2956,
+          "height": 344
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 2560,
+          "height": 40.03125
+        },
+        "topContent": {
+          "left": 560,
+          "width": 1440,
+          "height": 40.03125
+        },
+        "header": {
+          "left": 560,
+          "width": 1440,
+          "height": 100.109375
+        },
+        "main": {
+          "left": 560,
+          "width": 1440,
+          "height": 2233.578125
+        },
+        "hero": {
+          "left": 0,
+          "width": 2560,
+          "height": 552.296875
+        },
+        "heroContent": {
+          "left": 560,
+          "width": 1440,
+          "height": 552.296875
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 2560,
+          "height": 344.21875
+        },
+        "footerContent": {
+          "left": 560,
+          "width": 1440,
+          "height": 344.21875
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 2696,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 21,
+          "height": 53
+        },
+        {
+          "name": "hero",
+          "y": 75,
+          "height": 295
+        },
+        {
+          "name": "collections",
+          "y": 369,
+          "height": 334
+        },
+        {
+          "name": "benefits",
+          "y": 724,
+          "height": 61
+        },
+        {
+          "name": "best-sellers",
+          "y": 786,
+          "height": 276
+        },
+        {
+          "name": "features",
+          "y": 1083,
+          "height": 196
+        },
+        {
+          "name": "why",
+          "y": 1300,
+          "height": 133
+        },
+        {
+          "name": "social",
+          "y": 1454,
+          "height": 107
+        },
+        {
+          "name": "FOOTER",
+          "y": 1577,
+          "height": 183
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 768,
+          "height": 21.34375
+        },
+        "topContent": {
+          "left": 0,
+          "width": 768,
+          "height": 21.34375
+        },
+        "header": {
+          "left": 0,
+          "width": 768,
+          "height": 53.390625
+        },
+        "main": {
+          "left": 0,
+          "width": 768,
+          "height": 1191.671875
+        },
+        "hero": {
+          "left": 0,
+          "width": 768,
+          "height": 294.5625
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 768,
+          "height": 294.5625
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 768,
+          "height": 183.484375
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 768,
+          "height": 183.484375
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 701,
+      "scrollWidth": 701,
+      "height": 2458,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 19,
+          "height": 49
+        },
+        {
+          "name": "hero",
+          "y": 68,
+          "height": 269
+        },
+        {
+          "name": "collections",
+          "y": 337,
+          "height": 305
+        },
+        {
+          "name": "benefits",
+          "y": 661,
+          "height": 56
+        },
+        {
+          "name": "best-sellers",
+          "y": 717,
+          "height": 252
+        },
+        {
+          "name": "features",
+          "y": 989,
+          "height": 179
+        },
+        {
+          "name": "why",
+          "y": 1187,
+          "height": 121
+        },
+        {
+          "name": "social",
+          "y": 1327,
+          "height": 97
+        },
+        {
+          "name": "FOOTER",
+          "y": 1439,
+          "height": 167
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 701,
+          "height": 19.484375
+        },
+        "topContent": {
+          "left": 0,
+          "width": 701,
+          "height": 19.484375
+        },
+        "header": {
+          "left": 0,
+          "width": 701,
+          "height": 48.734375
+        },
+        "main": {
+          "left": 0,
+          "width": 701,
+          "height": 1087.21875
+        },
+        "hero": {
+          "left": 0,
+          "width": 701,
+          "height": 268.859375
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 701,
+          "height": 268.859375
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 701,
+          "height": 167.453125
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 701,
+          "height": 167.453125
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 700,
+      "scrollWidth": 700,
+      "height": 7044,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 36,
+          "height": 56
+        },
+        {
+          "name": "hero",
+          "y": 92,
+          "height": 558
+        },
+        {
+          "name": "collections",
+          "y": 650,
+          "height": 1737
+        },
+        {
+          "name": "benefits",
+          "y": 2405,
+          "height": 119
+        },
+        {
+          "name": "best-sellers",
+          "y": 2524,
+          "height": 1507
+        },
+        {
+          "name": "features",
+          "y": 4051,
+          "height": 635
+        },
+        {
+          "name": "why",
+          "y": 4704,
+          "height": 318
+        },
+        {
+          "name": "social",
+          "y": 5042,
+          "height": 316
+        },
+        {
+          "name": "FOOTER",
+          "y": 5374,
+          "height": 723
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 700,
+          "height": 36
+        },
+        "topContent": {
+          "left": 0,
+          "width": 700,
+          "height": 36
+        },
+        "header": {
+          "left": 0,
+          "width": 700,
+          "height": 56
+        },
+        "main": {
+          "left": 0,
+          "width": 700,
+          "height": 4707.40625
+        },
+        "hero": {
+          "left": 0,
+          "width": 700,
+          "height": 558.109375
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 700,
+          "height": 247
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 700,
+          "height": 722.578125
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 700,
+          "height": 722.578125
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 600,
+      "scrollWidth": 600,
+      "height": 6490,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 36,
+          "height": 56
+        },
+        {
+          "name": "hero",
+          "y": 92,
+          "height": 514
+        },
+        {
+          "name": "collections",
+          "y": 606,
+          "height": 1552
+        },
+        {
+          "name": "benefits",
+          "y": 2176,
+          "height": 119
+        },
+        {
+          "name": "best-sellers",
+          "y": 2295,
+          "height": 1357
+        },
+        {
+          "name": "features",
+          "y": 3671,
+          "height": 584
+        },
+        {
+          "name": "why",
+          "y": 4274,
+          "height": 318
+        },
+        {
+          "name": "social",
+          "y": 4612,
+          "height": 274
+        },
+        {
+          "name": "FOOTER",
+          "y": 4902,
+          "height": 723
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 600,
+          "height": 36
+        },
+        "topContent": {
+          "left": 0,
+          "width": 600,
+          "height": 36
+        },
+        "header": {
+          "left": 0,
+          "width": 600,
+          "height": 56
+        },
+        "main": {
+          "left": 0,
+          "width": 600,
+          "height": 4279.984375
+        },
+        "hero": {
+          "left": 0,
+          "width": 600,
+          "height": 513.65625
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 600,
+          "height": 247
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 600,
+          "height": 722.578125
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 600,
+          "height": 722.578125
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 480,
+      "scrollWidth": 480,
+      "height": 5804,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 36,
+          "height": 56
+        },
+        {
+          "name": "hero",
+          "y": 92,
+          "height": 460
+        },
+        {
+          "name": "collections",
+          "y": 552,
+          "height": 1331
+        },
+        {
+          "name": "benefits",
+          "y": 1901,
+          "height": 119
+        },
+        {
+          "name": "best-sellers",
+          "y": 2020,
+          "height": 1177
+        },
+        {
+          "name": "features",
+          "y": 3216,
+          "height": 523
+        },
+        {
+          "name": "why",
+          "y": 3758,
+          "height": 318
+        },
+        {
+          "name": "social",
+          "y": 4096,
+          "height": 224
+        },
+        {
+          "name": "FOOTER",
+          "y": 4335,
+          "height": 723
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 480,
+          "height": 36
+        },
+        "topContent": {
+          "left": 0,
+          "width": 480,
+          "height": 36
+        },
+        "header": {
+          "left": 0,
+          "width": 480,
+          "height": 56
+        },
+        "main": {
+          "left": 0,
+          "width": 480,
+          "height": 3767.0625
+        },
+        "hero": {
+          "left": 0,
+          "width": 480,
+          "height": 460.328125
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 480,
+          "height": 247
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 480,
+          "height": 722.578125
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 480,
+          "height": 722.578125
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5317,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 36,
+          "height": 56
+        },
+        {
+          "name": "hero",
+          "y": 92,
+          "height": 420
+        },
+        {
+          "name": "collections",
+          "y": 512,
+          "height": 1164
+        },
+        {
+          "name": "benefits",
+          "y": 1695,
+          "height": 135
+        },
+        {
+          "name": "best-sellers",
+          "y": 1830,
+          "height": 1061
+        },
+        {
+          "name": "features",
+          "y": 2911,
+          "height": 469
+        },
+        {
+          "name": "why",
+          "y": 3398,
+          "height": 318
+        },
+        {
+          "name": "social",
+          "y": 3736,
+          "height": 186
+        },
+        {
+          "name": "FOOTER",
+          "y": 3938,
+          "height": 723
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 390,
+          "height": 36
+        },
+        "topContent": {
+          "left": 0,
+          "width": 390,
+          "height": 36
+        },
+        "header": {
+          "left": 0,
+          "width": 390,
+          "height": 56
+        },
+        "main": {
+          "left": 0,
+          "width": 390,
+          "height": 3410.046875
+        },
+        "hero": {
+          "left": 0,
+          "width": 390,
+          "height": 420.328125
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 390,
+          "height": 247
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 390,
+          "height": 722.578125
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 390,
+          "height": 722.578125
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 5031,
+      "sections": [
+        {
+          "name": "HEADER",
+          "y": 36,
+          "height": 56
+        },
+        {
+          "name": "hero",
+          "y": 92,
+          "height": 389
+        },
+        {
+          "name": "collections",
+          "y": 481,
+          "height": 1053
+        },
+        {
+          "name": "benefits",
+          "y": 1552,
+          "height": 170
+        },
+        {
+          "name": "best-sellers",
+          "y": 1723,
+          "height": 956
+        },
+        {
+          "name": "features",
+          "y": 2699,
+          "height": 442
+        },
+        {
+          "name": "why",
+          "y": 3158,
+          "height": 340
+        },
+        {
+          "name": "social",
+          "y": 3518,
+          "height": 157
+        },
+        {
+          "name": "FOOTER",
+          "y": 3691,
+          "height": 736
+        }
+      ],
+      "missingImages": [],
+      "fonts": {
+        "poppins": true,
+        "allura": true
+      },
+      "heroButton": "BUTTON",
+      "heroText": "QUICK PRESS,instant beauty ",
+      "alignment": {
+        "topBackground": {
+          "left": 0,
+          "width": 320,
+          "height": 36
+        },
+        "topContent": {
+          "left": 0,
+          "width": 320,
+          "height": 36
+        },
+        "header": {
+          "left": 0,
+          "width": 320,
+          "height": 56
+        },
+        "main": {
+          "left": 0,
+          "width": 320,
+          "height": 3193.78125
+        },
+        "hero": {
+          "left": 0,
+          "width": 320,
+          "height": 389.21875
+        },
+        "heroContent": {
+          "left": 0,
+          "width": 320,
+          "height": 247
+        },
+        "footerBackground": {
+          "left": 0,
+          "width": 320,
+          "height": 736.09375
+        },
+        "footerContent": {
+          "left": 0,
+          "width": 320,
+          "height": 736.09375
+        }
+      },
+      "lowerSections": [
+        {
+          "section": "features",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "why",
+          "inContainer": true,
+          "withinBounds": true
+        },
+        {
+          "section": "social",
+          "inContainer": true,
+          "withinBounds": true
+        }
+      ],
+      "polish": {
+        "collectionOverlap": false,
+        "clippedText": false,
+        "promoLinksAligned": true,
+        "mainHeadings": 1
+      }
+    }
+  ],
+  "errors": [],
+  "interactions": {
+    "shopButtonWorks": true,
+    "bagWorks": true,
+    "carouselWorks": true
+  }
+}

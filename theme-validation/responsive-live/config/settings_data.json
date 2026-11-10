@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_primary": "#f93685",
+    "color_secondary": "#ed4c9b",
+    "color_gold_accent": "#ffd56a",
+    "color_bg_soft": "#fff5f8",
+    "color_bg_announcement": "#fde5eb",
+    "color_text_dark": "#101010",
+    "color_text_muted": "#666666",
+    "color_border_soft": "#ffdeea",
+    "logo_width": 122,
+    "main_menu": "main-menu",
+    "booking_phone": "07944 545 406",
+    "booking_button_text": "BOOK NOW",
+    "enable_cart_drawer": true,
+    "free_shipping_threshold": 30,
+    "standard_shipping_rate": "3.99",
+    "promo_code_default": "HEART10",
+    "promo_discount_percent": 10,
+    "contact_phone": "07944 545 406",
+    "contact_email": "hello@pressbyheart.co.uk",
+    "contact_location": "London, UK",
+    "social_instagram_url": "https://www.instagram.com/pressbyheart/",
+    "social_tiktok_url": "https://www.tiktok.com/@pressbyheart",
+    "social_whatsapp_url": "https://wa.me/447944545406"
+  }
+}

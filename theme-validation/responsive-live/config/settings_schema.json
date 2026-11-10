@@ -1,0 +1,203 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Press by heart",
+    "theme_version": "1.0.0",
+    "theme_author": "Press By Heart",
+    "theme_documentation_url": "https://pressbyheart.co.uk",
+    "theme_support_url": "https://pressbyheart.co.uk/pages/contact"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "custom_colors",
+        "label": "Override approved colors",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Accent Pink",
+        "default": "#f93685"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Pink / Gradient",
+        "default": "#ed4c9b"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_accent",
+        "label": "Gold Crown & Star Accent",
+        "default": "#ffd56a"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_soft",
+        "label": "Soft Pink Background",
+        "default": "#fff5f8"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_announcement",
+        "label": "Announcement Bar Background",
+        "default": "#fde5eb"
+      },
+      {
+        "type": "color",
+        "id": "color_text_dark",
+        "label": "Dark Body Text",
+        "default": "#101010"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Muted Text",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "color_border_soft",
+        "label": "Border & Divider Color",
+        "default": "#ffdeea"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "custom_typography",
+        "label": "Override approved typography",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body font",
+        "default": "poppins_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading font",
+        "default": "poppins_n4"
+      }
+    ]
+  },
+  {
+    "name": "Header & Logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Custom Brand Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 80,
+        "max": 250,
+        "step": 2,
+        "unit": "px",
+        "label": "Custom Logo Width",
+        "default": 122
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Main Navigation Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "text",
+        "id": "booking_phone",
+        "label": "Booking / Contact Phone",
+        "default": "07944 545 406"
+      },
+      {
+        "type": "text",
+        "id": "booking_button_text",
+        "label": "Booking Button Text",
+        "default": "BOOK NOW"
+      }
+    ]
+  },
+  {
+    "name": "Cart Drawer & Shipping",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cart_drawer",
+        "label": "Enable Slide-Over Cart Drawer",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Delivery Threshold (£)",
+        "default": 30
+      },
+      {
+        "type": "text",
+        "id": "standard_shipping_rate",
+        "label": "Standard Delivery Rate (£)",
+        "default": "3.99"
+      },
+      {
+        "type": "text",
+        "id": "promo_code_default",
+        "label": "Featured Promo Code",
+        "default": "HEART10"
+      },
+      {
+        "type": "number",
+        "id": "promo_discount_percent",
+        "label": "Featured Promo Discount (%)",
+        "default": 10
+      }
+    ]
+  },
+  {
+    "name": "Contact & Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone Number",
+        "default": "07944 545 406"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Support Email",
+        "default": "hello@pressbyheart.co.uk"
+      },
+      {
+        "type": "text",
+        "id": "contact_location",
+        "label": "Store Location",
+        "default": "London, UK"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_url",
+        "label": "Instagram Profile Link"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_url",
+        "label": "TikTok Profile Link"
+      },
+      {
+        "type": "url",
+        "id": "social_whatsapp_url",
+        "label": "WhatsApp Contact Link"
+      }
+    ]
+  }
+]

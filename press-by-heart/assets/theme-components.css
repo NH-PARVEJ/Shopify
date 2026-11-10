@@ -1,0 +1,197 @@
+
+/* ==========================================================================
+   BULLETPROOF BRAND LUXURY CART ICON (GLOBAL DESKTOP & MOBILE)
+   ========================================================================== */
+header .nav-bag,
+.site-header .nav-bag,
+.nav-bag,
+.luxury-cart-btn {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #fff5f8 0%, #ffeaf1 100%) !important;
+  border: 1.5px solid #ffd3e2 !important;
+  color: #fa4087 !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(250, 64, 135, 0.12) !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+}
+
+header .nav-bag:hover,
+.site-header .nav-bag:hover,
+.nav-bag:hover,
+.luxury-cart-btn:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  background: linear-gradient(135deg, #ffeef4 0%, #ffdbe7 100%) !important;
+  border-color: #fa4087 !important;
+  box-shadow: 0 4px 14px rgba(250, 64, 135, 0.24) !important;
+  color: #fa4087 !important;
+}
+
+header .nav-bag:active,
+.site-header .nav-bag:active,
+.nav-bag:active,
+.luxury-cart-btn:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+header .nav-bag svg,
+header .nav-bag .bag-icon,
+header .nav-bag .cart-icon,
+header .nav-bag .icon,
+.site-header .nav-bag svg,
+.site-header .nav-bag .bag-icon,
+.site-header .nav-bag .cart-icon,
+.site-header .nav-bag .icon,
+.nav-bag svg,
+.nav-bag .bag-icon,
+.nav-bag .cart-icon,
+.nav-bag .icon,
+.luxury-cart-btn svg {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  min-width: 19px !important;
+  min-height: 19px !important;
+  max-width: 19px !important;
+  max-height: 19px !important;
+  stroke: #fa4087 !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+}
+
+header .nav-bag svg .heart-accent,
+.site-header .nav-bag svg .heart-accent,
+.nav-bag svg .heart-accent,
+.luxury-cart-btn svg .heart-accent,
+header .nav-bag svg path[fill="#fa4087"],
+.site-header .nav-bag svg path[fill="#fa4087"],
+.nav-bag svg path[fill="#fa4087"] {
+  fill: #fa4087 !important;
+  stroke: none !important;
+}
+
+header .nav-bag svg circle,
+.site-header .nav-bag svg circle,
+.nav-bag svg circle,
+.luxury-cart-btn svg circle {
+  fill: #fa4087 !important;
+  stroke: none !important;
+}
+
+header .nav-bag .bag-count,
+.site-header .nav-bag .bag-count,
+.nav-bag .bag-count,
+.luxury-badge {
+  position: absolute !important;
+  top: -3px !important;
+  right: -3px !important;
+  min-width: 17px !important;
+  height: 17px !important;
+  min-height: 17px !important;
+  max-height: 17px !important;
+  padding: 0 4px !important;
+  background: linear-gradient(135deg, #fa4087, #f13d84) !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  border: 1.5px solid #ffffff !important;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 6px rgba(250, 64, 135, 0.4) !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 700px) {
+  header .nav-bag,
+  .site-header .nav-bag,
+  .nav-bag,
+  .luxury-cart-btn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+  }
+  header .nav-bag svg,
+  header .nav-bag .bag-icon,
+  header .nav-bag .cart-icon,
+  .site-header .nav-bag svg,
+  .site-header .nav-bag .bag-icon,
+  .site-header .nav-bag .cart-icon,
+  .nav-bag svg,
+  .nav-bag .bag-icon,
+  .nav-bag .cart-icon,
+  .luxury-cart-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    min-width: 17px !important;
+    min-height: 17px !important;
+  }
+  header .nav-bag .bag-count,
+  .site-header .nav-bag .bag-count,
+  .nav-bag .bag-count,
+  .luxury-badge {
+    top: -3px !important;
+    right: -3px !important;
+    font-size: 8.5px !important;
+    min-width: 15px !important;
+    height: 15px !important;
+    min-height: 15px !important;
+    padding: 0 3px !important;
+  }
+}
+
+/* Shared components: identical geometry on every template, including the homepage. */
+.site-header .nav-bag, .site-header .luxury-cart-btn{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;width:38px!important;height:38px!important;border-radius:50%!important;background:linear-gradient(135deg,#fff5f8 0%,#ffeaf1 100%)!important;border:1.5px solid #ffd3e2!important;color:#fa4087!important;text-decoration:none!important;box-shadow:0 2px 8px rgba(250,64,135,0.12)!important;transition:transform .22s ease,background .22s ease,border-color .22s ease,box-shadow .22s ease!important}
+.site-header .nav-bag:hover, .site-header .luxury-cart-btn:hover{transform:translateY(-2px) scale(1.05)!important;background:linear-gradient(135deg,#ffeef4 0%,#ffdbe7 100%)!important;border-color:#fa4087!important;box-shadow:0 4px 14px rgba(250,64,135,0.24)!important}
+.site-header .nav-bag svg, .site-header .nav-bag .bag-icon, .site-header .nav-bag .cart-icon{display:block!important;width:19px!important;height:19px!important;max-width:19px!important;flex-shrink:0!important;stroke:#fa4087!important;stroke-width:1.8!important;fill:none!important}
+.site-header .nav-bag .bag-count, .site-header .luxury-badge{position:absolute!important;top:-3px!important;right:-3px!important;min-width:17px!important;height:17px!important;padding:0 4px!important;background:linear-gradient(135deg,#fa4087,#f13d84)!important;color:#fff!important;border-radius:999px!important;border:1.5px solid #ffffff!important;font-family:Poppins,Arial,sans-serif!important;font-size:9.5px!important;font-weight:700!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;box-shadow:0 2px 6px rgba(250,64,135,0.4)!important}
+.site-header>a{flex-shrink:0}
+.nav-dropdown-item{position:relative;display:inline-flex;align-items:center}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:170px;background:#fff;border:1px solid #f1dde4;border-radius:8px;box-shadow:0 8px 24px #6c24321f;padding:8px 0;z-index:1000}
+.nav-dropdown-item:hover>.nav-dropdown-menu,.nav-dropdown-item:focus-within>.nav-dropdown-menu{display:block}
+.nav-dropdown-menu a{display:block;padding:8px 16px;font-size:11px;color:#4a1520;border:0}
+.nav-dropdown-menu a:hover{background:#fff2f6;color:#fa4087}
+.app-drawer-sublinks{padding-left:36px;display:flex;flex-direction:column;gap:6px;margin:-4px 0 8px}
+.app-drawer-sublink{font-size:11px;color:#7b5962;padding:4px 0}
+.mobile-app-dock{grid-template-columns:repeat(var(--dock-items,5),minmax(0,1fr))}
+.shopify-section-group-header-group,.shopify-section-group-footer-group{display:contents}
+.pbh-placeholder{display:block;width:100%;height:auto;aspect-ratio:1;fill:#f2dce5;background:#fff5f8}
+.shop-filter-form{display:flex;align-items:center;flex-wrap:wrap;gap:8rem;margin:12rem 0;font-size:10rem}
+.shop-filter-form details{position:relative}
+.shop-filter-form details label{display:block;margin:6rem}
+.pdp-custom-content{font-size:11rem;line-height:18rem}
+@media(max-width:700px){
+ .site-header .nav-bag, .site-header .luxury-cart-btn{width:34px!important;height:34px!important;min-width:34px!important}
+ .site-header .nav-bag .bag-icon, .site-header .nav-bag .cart-icon, .site-header .nav-bag svg{width:17px!important;height:17px!important}
+ .site-header .nav-bag .bag-count, .site-header .luxury-badge{font-size:8.5px!important;min-width:15px!important;height:15px!important;top:-3px!important;right:-3px!important}
+}

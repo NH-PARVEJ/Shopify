@@ -1,0 +1,280 @@
+<footer id="shopify-section-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="brand">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="115" height="38" loading="lazy">
+        {%- else -%}
+          <img src="{% if section.settings.art_1 != blank %}{{ section.settings.art_1 | image_url: width: 2000 }}{% else %}{{ 'logo-hq-v2.png' | asset_url }}{% endif %}" alt="{{ shop.name }}" width="115" height="38" loading="lazy">
+        {%- endif -%}
+        <p>{{ section.settings.brand_text | default: 'Quick press,<br>instant beauty.<br>Thank you for supporting<br>our small business! ♡' }}</p>
+        <div class="social-icons">
+          <a href="{{ section.settings.social_instagram | default: settings.social_instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a>
+          <a href="{{ section.settings.social_tiktok | default: settings.social_tiktok_url | default: 'https://www.tiktok.com/@pressbyheart' }}" aria-label="TikTok" target="_blank" rel="noopener noreferrer">♪</a>
+          <a href="tel:{{ section.settings.contact_phone | default: settings.contact_phone | default: '07944545406' }}" aria-label="WhatsApp / Call">☏</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>{{ section.settings.menu_1_title | default: 'QUICK LINKS' }}</h3>
+        {%- assign f_menu_1 = linklists[section.settings.menu_1] | default: linklists['footer'] | default: linklists['main-menu'] -%}
+        {%- if f_menu_1 != blank and f_menu_1.links.size > 0 -%}
+          {%- for link in f_menu_1.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        {%- else -%}
+          <a href="{{ routes.root_url }}">{{ section.settings.copy_1 | escape }}</a>
+          <a href="{{ routes.all_products_collection_url }}">{{ section.settings.copy_2 | escape }}</a>
+          <a href="{{ routes.root_url }}pages/shop-by-design">{{ section.settings.copy_3 | escape }}</a>
+          <a href="{{ routes.collections_url }}/kids">{{ section.settings.copy_4 | escape }}</a>
+          <a href="{{ routes.collections_url }}/pedis">{{ section.settings.copy_5 | escape }}</a>
+          <a href="{{ routes.collections_url }}/bundles">{{ section.settings.copy_6 | escape }}</a>
+          <a href="{{ routes.collections_url }}/accessories">{{ section.settings.copy_7 | escape }}</a>
+        {%- endif -%}
+      </div>
+
+      <div>
+        <h3>{{ section.settings.menu_2_title | default: 'CUSTOMER CARE' }}</h3>
+        {%- assign f_menu_2 = linklists[section.settings.menu_2] | default: linklists['customer-care'] -%}
+        {%- if f_menu_2 != blank and f_menu_2.links.size > 0 -%}
+          {%- for link in f_menu_2.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        {%- else -%}
+          <a href="mailto:{{ section.settings.contact_email | default: 'hello@pressbyheart.co.uk' }}?subject=FAQ">{{ section.settings.copy_8 | escape }}</a>
+          <a href="mailto:{{ section.settings.contact_email | default: 'hello@pressbyheart.co.uk' }}?subject=Shipping">{{ section.settings.copy_9 | escape }}</a>
+          <a href="mailto:{{ section.settings.contact_email | default: 'hello@pressbyheart.co.uk' }}?subject=Returns">{{ section.settings.copy_10 | escape }}</a>
+          <a href="mailto:{{ section.settings.contact_email | default: 'hello@pressbyheart.co.uk' }}?subject=Track%20Order">{{ section.settings.copy_11 | escape }}</a>
+          <a href="mailto:{{ section.settings.contact_email | default: 'hello@pressbyheart.co.uk' }}?subject=Terms">{{ section.settings.copy_12 | escape }}</a>
+          <a href="mailto:{{ section.settings.contact_email | default: 'hello@pressbyheart.co.uk' }}?subject=Privacy">{{ section.settings.copy_13 | escape }}</a>
+        {%- endif -%}
+      </div>
+
+      <div class="contact">
+        <h3>{{ section.settings.contact_title | default: 'CONTACT US' }}</h3>
+        <a href="tel:{{ section.settings.contact_phone | default: settings.contact_phone | default: '07944545406' }}">
+          <em>♧</em>{{ section.settings.contact_phone | default: settings.contact_phone | default: '07944 545 406' }}
+        </a>
+        <a href="mailto:{{ section.settings.contact_email | default: settings.contact_email | default: 'hello@pressbyheart.co.uk' }}">
+          <em>✉</em>{{ section.settings.contact_email | default: settings.contact_email | default: 'hello@pressbyheart.co.uk' }}
+        </a>
+        <p><em>♧</em>{{ section.settings.contact_location | default: settings.contact_location | default: 'London, UK' }}</p>
+      </div>
+
+      <div class="newsletter">
+        <h3>{{ section.settings.newsletter_title | default: 'JOIN THE HEART CLUB' }}</h3>
+        <p>{{ section.settings.newsletter_sub | default: 'Be the first to know about<br>new drops, offers &amp; more!' }}</p>
+        {%- form 'customer', class: 'newsletter-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label class="sr-only" for="newsletter-email">{{ section.settings.copy_14 | escape }}</label>
+          <input id="newsletter-email" type="email" name="contact[email]" placeholder="Enter your email" required aria-required="true">
+          <button type="submit" aria-label="Join newsletter club">
+            {{ section.settings.copy_15 | escape }}
+            <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/>
+              <path d="M5 16h14M7 22h10"/>
+            </svg>
+          </button>
+        {%- endform -%}
+        <div class="payment-methods" role="list" aria-label="Accepted payment methods">
+          <span role="listitem"><img src="{{ 'apple_pay.svg' | asset_url }}" alt="Apple Pay" width="38" height="24" loading="lazy"></span>
+          <span role="listitem"><img src="{{ 'google_pay.svg' | asset_url }}" alt="Google Pay" width="38" height="24" loading="lazy"></span>
+          <span role="listitem"><img src="{{ 'master.svg' | asset_url }}" alt="Mastercard" width="38" height="24" loading="lazy"></span>
+          <span role="listitem"><img src="{{ 'paypal.svg' | asset_url }}" alt="PayPal" width="38" height="24" loading="lazy"></span>
+          <span role="listitem"><img src="{{ 'american_express.svg' | asset_url }}" alt="American Express" width="38" height="24" loading="lazy"></span>
+          <span role="listitem"><img src="{{ 'visa.svg' | asset_url }}" alt="Visa" width="38" height="24" loading="lazy"></span>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">{{ section.settings.copyright_text | default: '© 2025 Press By Heart. All rights reserved.' }}</p>
+  </div>
+</footer>
+
+
+{% schema %}{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Brand Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_text",
+      "label": "Brand Tagline (HTML supported)",
+      "default": "Quick press,<br>instant beauty.<br>Thank you for supporting<br>our small business! ♡"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Menus"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "QUICK LINKS"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Select Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "CUSTOMER CARE"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Select Menu 2"
+    },
+    {
+      "type": "header",
+      "content": "Contact Info"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Column Title",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Phone Number",
+      "default": "07944 545 406"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email Address",
+      "default": "hello@pressbyheart.co.uk"
+    },
+    {
+      "type": "text",
+      "id": "contact_location",
+      "label": "Physical Location",
+      "default": "London, UK"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "JOIN THE HEART CLUB"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_sub",
+      "label": "Newsletter Subtitle",
+      "default": "Be the first to know about<br>new drops, offers & more!"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© 2025 Press By Heart. All rights reserved."
+    },
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: Home",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: Shop All",
+      "default": "Shop All"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: Shop By Design",
+      "default": "Shop By Design"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: Kids",
+      "default": "Kids"
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: Pedis",
+      "default": "Pedis"
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Copy: Bundles",
+      "default": "Bundles"
+    },
+    {
+      "type": "text",
+      "id": "copy_7",
+      "label": "Copy: Accessories",
+      "default": "Accessories"
+    },
+    {
+      "type": "text",
+      "id": "copy_8",
+      "label": "Copy: FAQ",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "copy_9",
+      "label": "Copy: Shipping & Delivery",
+      "default": "Shipping & Delivery"
+    },
+    {
+      "type": "text",
+      "id": "copy_10",
+      "label": "Copy: Returns & Refunds",
+      "default": "Returns & Refunds"
+    },
+    {
+      "type": "text",
+      "id": "copy_11",
+      "label": "Copy: Track Your Order",
+      "default": "Track Your Order"
+    },
+    {
+      "type": "text",
+      "id": "copy_12",
+      "label": "Copy: Terms & Conditions",
+      "default": "Terms & Conditions"
+    },
+    {
+      "type": "text",
+      "id": "copy_13",
+      "label": "Copy: Privacy Policy",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "text",
+      "id": "copy_14",
+      "label": "Copy: Your email",
+      "default": "Your email"
+    },
+    {
+      "type": "text",
+      "id": "copy_15",
+      "label": "Copy: JOIN THE CLUB",
+      "default": "JOIN THE CLUB"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: logo-hq-v2.png"
+    }
+  ]
+}{% endschema %}

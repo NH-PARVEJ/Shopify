@@ -1,0 +1,56 @@
+{%- assign kids_block = section.blocks | where: 'type', 'mega_menu_kids' | first -%}
+{%- assign b_k = kids_block.settings -%}
+<div id="kids-menu" class="kids-menu" hidden aria-label="Kids collection menu" data-mega-menu-target="kids-menu" {{ kids_block.shopify_attributes }}>
+  <div class="kids-menu-pointer" aria-hidden="true"></div>
+  <div class="kids-menu-copy">
+    <h2>{{ b_k.heading | default: section.settings.menu_kids_1 | default: 'KIDS PRESS-ON NAILS' | escape }} <span>💕</span></h2>
+    <p>{{ b_k.subheading_1 | default: section.settings.menu_kids_2 | default: 'Perfectly sized for little hands,' | escape }}<br>{{ b_k.subheading_2 | default: section.settings.menu_kids_3 | default: 'made with love.' | escape }}</p>
+    <div class="kids-menu-links">
+      <a href="{{ b_k.link_1_url | default: section.settings.menu_kids_1_url | default: routes.collections_url | append: '/kids' }}" data-filter="all">
+        <span class="kids-glyph" data-kids-icon="bag" aria-hidden="true"></span>
+        <span>
+          <strong>{{ b_k.link_1_title | default: section.settings.menu_kids_4 | default: 'VIEW ALL' | escape }}</strong>
+          <small>{{ b_k.link_1_sub | default: section.settings.menu_kids_5 | default: 'Shop all kids designs' | escape }}</small>
+        </span>
+      </a>
+      <a href="{{ b_k.link_2_url | default: section.settings.menu_kids_2_url | default: routes.collections_url | append: '/kids/new' }}" data-filter="new">
+        <span class="kids-glyph" data-kids-icon="sparkles" aria-hidden="true"></span>
+        <span>
+          <strong>{{ b_k.link_2_title | default: section.settings.menu_kids_6 | default: 'NEW ARRIVALS' | escape }}</strong>
+          <small>{{ b_k.link_2_sub | default: section.settings.menu_kids_7 | default: 'The latest for little queens' | escape }}</small>
+        </span>
+      </a>
+      <a href="{{ b_k.link_3_url | default: section.settings.menu_kids_3_url | default: routes.collections_url | append: '/kids/best' }}" data-filter="best">
+        <span class="kids-glyph" data-kids-icon="flame" aria-hidden="true"></span>
+        <span>
+          <strong>{{ b_k.link_3_title | default: section.settings.menu_kids_8 | default: 'BEST SELLERS' | escape }}</strong>
+          <small>{{ b_k.link_3_sub | default: section.settings.menu_kids_9 | default: 'Our most loved sets' | escape }}</small>
+        </span>
+      </a>
+      <a href="{{ b_k.link_4_url | default: section.settings.menu_kids_4_url | default: routes.collections_url | append: '/kids/character' }}" data-filter="character">
+        <span class="kids-glyph" data-kids-icon="kids" aria-hidden="true"></span>
+        <span>
+          <strong>{{ b_k.link_4_title | default: section.settings.menu_kids_10 | default: 'CHARACTER COLLECTION' | escape }}</strong>
+          <small>{{ b_k.link_4_sub | default: section.settings.menu_kids_11 | default: 'Fun designs they’ll adore' | escape }}</small>
+        </span>
+      </a>
+      <a href="{{ b_k.link_5_url | default: section.settings.menu_kids_5_url | default: routes.collections_url | append: '/kids/glitter' }}" data-filter="glitter">
+        <span class="kids-glyph" data-kids-icon="sparkles" aria-hidden="true"></span>
+        <span>
+          <strong>{{ b_k.link_5_title | default: section.settings.menu_kids_12 | default: 'GLITTER & SPARKLE' | escape }}</strong>
+          <small>{{ b_k.link_5_sub | default: section.settings.menu_kids_13 | default: 'All the sparkle, all the joy' | escape }}</small>
+        </span>
+      </a>
+    </div>
+    <a class="kids-primary" href="{{ b_k.button_url | default: section.settings.menu_kids_btn_url | default: routes.collections_url | append: '/kids' }}" data-filter="all">
+      {{ b_k.button_label | default: section.settings.menu_kids_14 | default: 'VIEW ALL KIDS NAILS' | escape }}
+      <span class="kids-glyph" data-kids-icon="arrowRight" aria-hidden="true"></span>
+    </a>
+  </div>
+  {%- assign kids_img = b_k.image | default: section.settings.menu_kids_image -%}
+  {%- if kids_img != blank -%}
+    <img class="kids-menu-product" src="{{ kids_img | image_url: width: 1200 }}" alt="{{ kids_img.alt | default: 'Press By Heart kids collection' | escape }}" width="1202" height="1308">
+  {%- else -%}
+    <img class="kids-menu-product" src="{{ 'menu-product-hq.png' | asset_url }}" alt="Press By Heart kids collection gift boxes with flower, heart and rainbow nails" width="1202" height="1308">
+  {%- endif -%}
+</div>

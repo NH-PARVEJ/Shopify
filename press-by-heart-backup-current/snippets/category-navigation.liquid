@@ -1,0 +1,1 @@
+<nav class="shop-categories" aria-label="Shop categories">{% assign icons = 'nails,kids,gift,feet,bagHeart' | split: ',' %}{% for link in menu.links %}<a class="{% if link.active %}active{% endif %}" href="{{ link.url }}"><span class="kids-glyph">{% render 'icon', name: icons[forloop.index0] %}</span><span>{{ link.title | escape }}</span></a>{% endfor %}</nav>

@@ -1,0 +1,117 @@
+<div class="content-container">
+<section class="best-sellers" id="best-sellers">
+  <div class="section-heading">
+    <h2>{{ section.settings.title | default: 'BEST SELLERS' }} <span>♡</span></h2>
+    <a class="view-all" href="{{ section.settings.view_all_url | default: routes.all_products_collection_url }}">
+      {{ section.settings.view_all_text | default: 'VIEW ALL' }}
+    </a>
+  </div>
+
+  <div class="product-wrap">
+    <button class="arrow prev" type="button" aria-label="Previous products">‹</button>
+    <div class="products" id="products">
+      {%- assign featured_collection = section.settings.collection -%}
+      {%- assign limit = section.settings.products_to_show | default: 8 -%}
+      {%- if featured_collection != blank and featured_collection.products_count > 0 -%}
+        {%- for product in featured_collection.products limit: limit -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      {%- elsif section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.product != blank -%}
+            {%- render 'product-card', product: block.settings.product -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <button class="arrow next" type="button" aria-label="Next products">›</button>
+  </div>
+</section>
+</div>
+
+
+{% schema %}{
+  "name": "Best Sellers Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "BEST SELLERS"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "label": "Maximum Products to Show",
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Link Label",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View All Link Destination"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_item",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Custom Price (e.g. £12.99)"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge (e.g. BEST SELLER)"
+        },
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Rating",
+          "default": "5.0"
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Fallback Asset Name (e.g. product-0.png)"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Custom Destination"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Sellers Carousel"
+    }
+  ]
+}{% endschema %}

@@ -1,0 +1,59 @@
+<div class="content-container customer-account" style="max-width: 900px; margin: 50px auto; padding: 0 16px; min-height: 60vh;">
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ffdeea; padding-bottom: 20px; margin-bottom: 30px;">
+    <div>
+      <h1 style="font-family: 'Times New Roman', serif; font-size: 32px; margin: 0 0 6px;">
+        My Account <span style="color: #f93685; font-family: Allura, cursive; font-size: 36px;">♡</span>
+      </h1>
+      <p style="color: #666; font-size: 13px; margin: 0;">Welcome, {{ customer.name }}!</p>
+    </div>
+    <a href="{{ routes.account_logout_url }}" style="font-size: 12px; color: #ed4c9b; text-decoration: underline;">Log out</a>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px;">
+    <div>
+      <h2 style="font-size: 18px; margin-bottom: 16px;">Order History</h2>
+      {%- paginate customer.orders by 10 -%}
+        {%- if customer.orders.size > 0 -%}
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            {%- for order in customer.orders -%}
+              <div style="border: 1px solid #ffdeea; border-radius: 8px; padding: 16px; background: #fff;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 13px;">
+                  <span>Order {{ order.name }}</span>
+                  <span style="color: #ed4c9b;">{{ order.total_price | money }}</span>
+                </div>
+                <div style="font-size: 11px; color: #666;">
+                  <span>Placed on {{ order.created_at | date: "%B %d, %Y" }}</span> • <span>{{ order.fulfillment_status_label }}</span>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+          {{ paginate | default_pagination }}
+        {%- else -%}
+          <p style="color: #888; font-size: 13px;">You haven't placed any orders yet.</p>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+
+    <div>
+      <h2 style="font-size: 18px; margin-bottom: 16px;">Account Details</h2>
+      <div style="border: 1px solid #ffdeea; border-radius: 8px; padding: 20px; background: #fff5f8; font-size: 13px; line-height: 1.6;">
+        <p style="margin: 0 0 10px;"><strong>Name:</strong> {{ customer.name }}</p>
+        <p style="margin: 0 0 10px;"><strong>Email:</strong> {{ customer.email }}</p>
+        {%- if customer.default_address -%}
+          <p style="margin: 0 0 4px;"><strong>Default Address:</strong></p>
+          <p style="margin: 0; color: #666;">
+            {{ customer.default_address.address1 }}<br>
+            {%- if customer.default_address.address2 != blank -%}{{ customer.default_address.address2 }}<br>{%- endif -%}
+            {{ customer.default_address.city }}, {{ customer.default_address.zip }}<br>
+            {{ customer.default_address.country }}
+          </p>
+        {%- endif -%}
+        <div style="margin-top: 16px;">
+          <a href="{{ routes.account_addresses_url }}" style="font-size: 12px; color: #ed4c9b; text-decoration: underline;">
+            View Addresses ({{ customer.addresses_count }})
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

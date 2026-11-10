@@ -1,0 +1,268 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | default: 44 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 44 }}px;
+  }
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color | default: '#ffffff' }};
+  }
+  .faq-wrap-{{ section.id }} {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .faq-header-{{ section.id }} {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .faq-header-{{ section.id }} h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+  }
+  .faq-header-{{ section.id }} h2 span {
+    color: #fa4087;
+  }
+  .faq-header-{{ section.id }} p {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 13.5px;
+    color: #7b6d74;
+    margin: 0;
+  }
+  .faq-list-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .faq-item-{{ section.id }} {
+    background: #fffbfa;
+    border: 1.5px solid #fee8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .faq-item-{{ section.id }}[open] {
+    border-color: #ffd2e2;
+    box-shadow: 0 4px 12px rgba(250, 64, 135, 0.08);
+  }
+  .faq-summary-{{ section.id }} {
+    padding: 16px 20px;
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #2b1f24;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    user-select: none;
+    list-style: none;
+  }
+  .faq-summary-{{ section.id }}::-webkit-details-marker {
+    display: none;
+  }
+  .faq-summary-{{ section.id }} .faq-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff0f5;
+    border: 1px solid #ffd2e2;
+    color: #fa4087;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .faq-item-{{ section.id }}[open] .faq-summary-{{ section.id }} .faq-icon {
+    transform: rotate(45deg);
+    background: #fa4087;
+    color: #ffffff;
+    border-color: #fa4087;
+  }
+  .faq-answer-{{ section.id }} {
+    padding: 0 20px 18px 20px;
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #55444b;
+  }
+  {% if section.settings.hide_desktop %}
+    @media (min-width: 701px) { #shopify-section-{{ section.id }} { display: none !important; } }
+  {% endif %}
+  {% if section.settings.hide_mobile %}
+    @media (max-width: 700px) { #shopify-section-{{ section.id }} { display: none !important; } }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="faq-accordion-section section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+  <div class="content-container">
+    <div class="faq-wrap-{{ section.id }}">
+      {%- if section.settings.show_header -%}
+        <div class="faq-header-{{ section.id }}">
+          {%- if section.settings.show_heading -%}
+            <h2>{{ section.settings.heading | default: 'FREQUENTLY ASKED QUESTIONS' }} <span>♡</span></h2>
+          {%- endif -%}
+          {%- if section.settings.show_subheading and section.settings.subheading != blank -%}
+            <p>{{ section.settings.subheading | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <div class="faq-list-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <details class="faq-item-{{ section.id }}" {{ block.shopify_attributes }}>
+            <summary class="faq-summary-{{ section.id }}">
+              <span>{{ block.settings.question | escape }}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer-{{ section.id }}">
+              {{ block.settings.answer }}
+            </div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ Accordion",
+  "tag": "section",
+  "class": "section-faq",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Element Toggles (On / Off)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header Container",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show Main Heading",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subheading",
+      "label": "Show Subheading",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FREQUENTLY ASKED QUESTIONS"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Got questions? We've got answers 💕"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 44
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_desktop",
+      "label": "Hide on Desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_mobile",
+      "label": "Hide on Mobile",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Question & Answer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How long do Press By Heart nails stay on?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>When applied with our nail glue, your press-ons can stay firmly in place for up to 2-3 weeks! With adhesive tabs, they are ideal for 3-5 days wear or weekend events.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Accordion",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long do Press By Heart nails stay on?",
+            "answer": "<p>When applied with our nail glue, your press-ons can stay firmly in place for up to 2-3 weeks! With adhesive tabs, they are ideal for 3-5 days wear or weekend events.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are the nails reusable?",
+            "answer": "<p>Yes! Every Press By Heart set is 100% reusable. Simply buff away any residual dried glue from the underside or use our warm soapy water soak method for easy removal.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I find my size?",
+            "answer": "<p>Check our easy size guide or order a sizing kit! We offer XS, S, M, L standard sizes as well as custom size options so you get a flawless natural fit.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

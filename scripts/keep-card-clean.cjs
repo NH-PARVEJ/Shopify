@@ -1,0 +1,1 @@
+const fs=require('fs');for(const root of ['theme-validation/responsive-live','press-by-heart']){const p=root+'/snippets/catalog-card.liquid';let s=fs.readFileSync(p,'utf8');s=s.replace(/\s*<p class="{{ prefix }}-desc">[\s\S]*?<\/p>/g,'');fs.writeFileSync(p,s);}

@@ -1,0 +1,68 @@
+<div class="content-container search-content" style="max-width: 1200px; margin: 40px auto; padding: 0 16px; min-height: 50vh;">
+  <h1 style="font-family: 'Times New Roman', serif; font-size: 36px; text-align: center; margin-bottom: 24px;">
+    {{ section.settings.copy_1 | escape }} <span style="color: #f93685; font-family: Allura, cursive; font-size: 42px;">♡</span>
+  </h1>
+
+  <form action="{{ routes.search_url }}" method="get" role="search" style="max-width: 500px; margin: 0 auto 30px; display: flex; gap: 8px;">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search styles, shapes, colours..." style="flex: 1; height: 42px; border: 1px solid #ffdeea; border-radius: 8px; padding: 0 14px; font-size: 13px;">
+    <button type="submit" class="shop-button" style="height: 42px; width: auto; padding: 0 20px;">{{ section.settings.copy_2 | escape }}</button>
+  </form>
+
+  {%- if search.performed -%}
+    {%- if search.results_count == 0 -%}
+      <p style="text-align: center; color: #666; font-size: 14px;">{{ section.settings.copy_3 | escape }}{{ search.terms }}{{ section.settings.copy_4 | escape }}</p>
+    {%- else -%}
+      <p style="text-align: center; color: #888; font-size: 12px; margin-bottom: 24px;">{{ section.settings.copy_5 | escape }} {{ search.results_count }} {{ section.settings.copy_6 | escape }}{{ search.terms }}"</p>
+      <div class="products" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
+        {% paginate search.results by 24 %}{%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {% render 'product-card', product: item %}
+          {% else %}<article><h2><a href="{{ item.url }}">{{ item.title | escape }}</a></h2><p>{{ item.content | strip_html | truncatewords: 30 }}</p></article>{%- endif -%}
+        {%- endfor -%}{{ paginate | default_pagination }}{% endpaginate %}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+
+{% schema %}{
+  "name": "Search Results",
+  "settings": [
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: Search Results",
+      "default": "Search Results"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: Search",
+      "default": "Search"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: No results found for \"",
+      "default": "No results found for \""
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: \". Try searching for another style or shape.",
+      "default": "\". Try searching for another style or shape."
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: Showing",
+      "default": "Showing"
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Copy: results for \"",
+      "default": "results for \""
+    }
+  ]
+}{% endschema %}

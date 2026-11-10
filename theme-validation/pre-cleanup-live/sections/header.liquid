@@ -1,0 +1,919 @@
+<header id="site-header" class="site-header">
+<button type="button" class="mobile-app-menu-btn" id="mobile-app-menu-btn" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <a href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    {%- if section.settings.logo != blank -%}
+      <img class="logo"
+        src="{{ section.settings.logo | image_url: width: 300 }}"
+        alt="{{ section.settings.logo.alt | default: shop.name }}"
+        width="{{ section.settings.logo_width | default: 122 }}"
+        height="42">
+    {%- else -%}
+      <img class="logo"
+        src="{% if section.settings.art_1 != blank %}{{ section.settings.art_1 | image_url: width: 2000 }}{% else %}{{ 'logo-hq-v2.png' | asset_url }}{% endif %}"
+        alt="{{ shop.name }}"
+        width="{{ section.settings.logo_width | default: 122 }}"
+        height="42">
+    {%- endif -%}
+  </a>
+
+  
+  <nav aria-label="Main navigation">
+    {%- assign nav_menu = linklists[section.settings.menu] | default: linklists[settings.main_menu] | default: linklists['main-menu'] -%}
+    {%- if section.settings.use_custom_menu and nav_menu != blank and nav_menu.links.size > 0 -%}
+      {%- for link in nav_menu.links -%}
+        {%- assign down_title = link.title | downcase -%}
+        {%- assign down_url = link.url | downcase -%}
+        {%- if down_url contains 'shop-all' or down_title contains 'shop all' or link.handle == 'shop-all' -%}
+          <a class="shop-all-menu-toggle {% if link.active %}active{% endif %}" href="{{ link.url }}" aria-controls="shop-all-menu" aria-expanded="false">
+            {{ link.title }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+          </a>
+        {%- elsif down_url contains 'shop-by-design' or down_title contains 'design' or link.handle contains 'design' -%}
+          <a class="shop-by-design-menu-toggle {% if link.active %}active{% endif %}" href="{{ link.url }}" aria-controls="shop-by-design-menu" aria-expanded="false">
+            {{ link.title }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+          </a>
+        {%- elsif down_url contains 'kids' or down_title contains 'kid' or link.handle == 'kids' -%}
+          <a class="kids-menu-toggle {% if link.active %}active{% endif %}" href="{{ link.url }}" aria-controls="kids-menu" aria-expanded="false">
+            {{ link.title }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+          </a>
+        {%- elsif link.links.size > 0 -%}
+          <div class="nav-dropdown-item" style="position: relative; display: inline-flex; align-items: center;">
+            <a class="nav-dropdown-trigger {% if link.active or link.child_active %}active{% endif %}" href="{{ link.url }}">
+              {{ link.title }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+            </a>
+            <div class="nav-dropdown-menu" style="display: none; position: absolute; top: 100%; left: 0; min-width: 170px; background: #ffffff; border: 1px solid #f1dde4; border-radius: 8px; box-shadow: 0 8px 24px rgba(108, 36, 50, 0.12); padding: 8px 0; z-index: 1000;">
+              {%- for child_link in link.links -%}
+                <a href="{{ child_link.url }}" style="display: block; padding: 8px 16px; font-size: 11px; color: #4a1520; text-decoration: none; border-bottom: none; transition: background 0.15s ease;" onmouseover="this.style.background='#fff2f6';this.style.color='#fa4087'" onmouseout="this.style.background='transparent';this.style.color='#4a1520'">{{ child_link.title }}</a>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- else -%}
+          {%- assign is_link_active = false -%}
+          {%- if link.active or link.current -%}
+            {%- assign is_link_active = true -%}
+          {%- elsif forloop.first and template.name == 'index' -%}
+            {%- assign is_link_active = true -%}
+          {%- endif -%}
+          <a class="{% if is_link_active %}active{% endif %}" href="{{ link.url }}">
+            {{ link.title }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      <a class="{% if template.name == 'index' %}active{% endif %}" href="{{ routes.root_url }}">{{ section.settings.copy_1 | default: 'HOME' | escape }}</a>
+      <a class="shop-all-menu-toggle" href="{{ routes.all_products_collection_url }}" aria-controls="shop-all-menu" aria-expanded="false">
+        {{ section.settings.copy_2 | default: 'SHOP ALL' | escape }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </a>
+      <a class="shop-by-design-menu-toggle" href="{{ routes.root_url }}pages/shop-by-design" aria-controls="shop-by-design-menu" aria-expanded="false">
+        {{ section.settings.copy_3 | default: 'SHOP BY DESIGN' | escape }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </a>
+      <a class="kids-menu-toggle" href="{{ routes.collections_url }}/kids" aria-controls="kids-menu" aria-expanded="false">
+        {{ section.settings.copy_4 | default: 'KIDS' | escape }}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+      </a>
+      <a href="{{ routes.collections_url }}/pedis">{{ section.settings.copy_5 | default: 'PEDIS' | escape }}</a>
+      <a href="{{ routes.collections_url }}/bundles">{{ section.settings.copy_6 | default: 'BUNDLES' | escape }}</a>
+      <a href="{{ routes.collections_url }}/accessories">{{ section.settings.copy_7 | default: 'ACCESSORIES' | escape }}</a>
+    {%- endif -%}
+  </nav>
+
+  <a class="nav-bag" href="#bag" aria-label="Shopping bag">
+    <svg class="bag-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 8h14l1 14H4Z"/>
+      <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+    </svg>
+    <span class="bag-count">{{ cart.item_count | default: 0 }}</span>
+  </a>
+
+  <a class="book" href="tel:{{ section.settings.booking_phone | default: '07944545406' }}">
+    {{ section.settings.booking_button_text | default: 'BOOK NOW' }}
+    <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/>
+      <path d="M5 16h14M7 22h10"/>
+    </svg>
+  </a>
+
+  {% render 'mega-menu-kids' %}
+  {% render 'mega-menu-shop-all' %}
+  {% render 'mega-menu-shop-by-design' %}
+</header>
+
+
+{% schema %}{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_custom_menu",
+      "label": "Replace approved navigation with a custom menu",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Custom Brand Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 240,
+      "step": 2,
+      "unit": "px",
+      "label": "Custom Logo Width",
+      "default": 122
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Header Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "booking_button_text",
+      "label": "Book Now Button Text",
+      "default": "BOOK NOW"
+    },
+    {
+      "type": "text",
+      "id": "booking_phone",
+      "label": "Phone Number for Booking",
+      "default": "07944545406"
+    },
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: HOME",
+      "default": "HOME"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: SHOP ALL",
+      "default": "SHOP ALL"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: SHOP BY DESIGN",
+      "default": "SHOP BY DESIGN"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: KIDS",
+      "default": "KIDS"
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: PEDIS",
+      "default": "PEDIS"
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Copy: BUNDLES",
+      "default": "BUNDLES"
+    },
+    {
+      "type": "text",
+      "id": "copy_7",
+      "label": "Copy: ACCESSORIES",
+      "default": "ACCESSORIES"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: logo-hq-v2.png"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_1",
+      "label": "KIDS PRESS-ON NAILS",
+      "default": "KIDS PRESS-ON NAILS"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_2",
+      "label": "Perfectly sized for little hands,",
+      "default": "Perfectly sized for little hands,"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_3",
+      "label": "made with love.",
+      "default": "made with love."
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_4",
+      "label": "VIEW ALL",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_5",
+      "label": "Shop all kids designs",
+      "default": "Shop all kids designs"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_6",
+      "label": "NEW ARRIVALS",
+      "default": "NEW ARRIVALS"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_7",
+      "label": "The latest for little queens",
+      "default": "The latest for little queens"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_8",
+      "label": "BEST SELLERS",
+      "default": "BEST SELLERS"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_9",
+      "label": "Our most loved sets",
+      "default": "Our most loved sets"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_10",
+      "label": "CHARACTER COLLECTION",
+      "default": "CHARACTER COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_11",
+      "label": "Fun designs they’ll adore",
+      "default": "Fun designs they’ll adore"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_12",
+      "label": "GLITTER & SPARKLE",
+      "default": "GLITTER & SPARKLE"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_13",
+      "label": "All the sparkle, all the joy",
+      "default": "All the sparkle, all the joy"
+    },
+    {
+      "type": "text",
+      "id": "menu_kids_14",
+      "label": "VIEW ALL KIDS NAILS",
+      "default": "VIEW ALL KIDS NAILS"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_1",
+      "label": "NEW ARRIVALS",
+      "default": "NEW ARRIVALS"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_2",
+      "label": "Fresh picks just in",
+      "default": "Fresh picks just in"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_3",
+      "label": "BEST SELLERS",
+      "default": "BEST SELLERS"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_4",
+      "label": "Our most loved sets",
+      "default": "Our most loved sets"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_5",
+      "label": "KIDS",
+      "default": "KIDS"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_6",
+      "label": "Perfect for little queens",
+      "default": "Perfect for little queens"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_7",
+      "label": "SHOP ALL",
+      "default": "SHOP ALL"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_8",
+      "label": "View everything",
+      "default": "View everything"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_9",
+      "label": "VIEW ALL COLLECTIONS",
+      "default": "VIEW ALL COLLECTIONS"
+    },
+    {
+      "type": "text",
+      "id": "menu_shop_10",
+      "label": "SHOP NEW ARRIVALS",
+      "default": "SHOP NEW ARRIVALS"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_1",
+      "label": "SHOP BY SHAPE",
+      "default": "SHOP BY SHAPE"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_2",
+      "label": "Almond",
+      "default": "Almond"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_3",
+      "label": "Square",
+      "default": "Square"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_4",
+      "label": "Oval",
+      "default": "Oval"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_5",
+      "label": "Coffin",
+      "default": "Coffin"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_6",
+      "label": "Ballerina",
+      "default": "Ballerina"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_7",
+      "label": "VIEW ALL SHAPES",
+      "default": "VIEW ALL SHAPES"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_8",
+      "label": "SHOP BY LENGTH",
+      "default": "SHOP BY LENGTH"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_9",
+      "label": "Short",
+      "default": "Short"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_10",
+      "label": "Natural & chic",
+      "default": "Natural & chic"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_11",
+      "label": "Medium",
+      "default": "Medium"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_12",
+      "label": "Everyday perfect",
+      "default": "Everyday perfect"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_13",
+      "label": "Long",
+      "default": "Long"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_14",
+      "label": "Bold & glamorous",
+      "default": "Bold & glamorous"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_15",
+      "label": "VIEW ALL LENGTHS",
+      "default": "VIEW ALL LENGTHS"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_16",
+      "label": "SHOP BY COLOUR",
+      "default": "SHOP BY COLOUR"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_17",
+      "label": "Pink",
+      "default": "Pink"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_18",
+      "label": "White",
+      "default": "White"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_19",
+      "label": "Blue",
+      "default": "Blue"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_20",
+      "label": "Black",
+      "default": "Black"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_21",
+      "label": "Orange",
+      "default": "Orange"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_22",
+      "label": "Yellow",
+      "default": "Yellow"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_23",
+      "label": "Purple",
+      "default": "Purple"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_24",
+      "label": "Green",
+      "default": "Green"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_25",
+      "label": "Red",
+      "default": "Red"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_26",
+      "label": "Gems",
+      "default": "Gems"
+    },
+    {
+      "type": "text",
+      "id": "menu_design_27",
+      "label": "VIEW ALL COLOURS",
+      "default": "VIEW ALL COLOURS"
+    },
+    {
+      "type": "header",
+      "content": "Mega Menu Media & Links"
+    },
+    {
+      "type": "image_picker",
+      "id": "menu_shop_image",
+      "label": "Shop All Mega Menu Featured Image"
+    },
+    {
+      "type": "url",
+      "id": "menu_shop_1_url",
+      "label": "Shop All Link 1 URL (New Arrivals)"
+    },
+    {
+      "type": "url",
+      "id": "menu_shop_2_url",
+      "label": "Shop All Link 2 URL (Best Sellers)"
+    },
+    {
+      "type": "url",
+      "id": "menu_shop_3_url",
+      "label": "Shop All Link 3 URL (Kids)"
+    },
+    {
+      "type": "url",
+      "id": "menu_shop_4_url",
+      "label": "Shop All Link 4 URL (All Nails)"
+    },
+    {
+      "type": "url",
+      "id": "menu_shop_9_url",
+      "label": "Shop All Button 1 URL (View All Collections)"
+    },
+    {
+      "type": "url",
+      "id": "menu_shop_10_url",
+      "label": "Shop All Button 2 URL (Shop New Arrivals)"
+    },
+    {
+      "type": "image_picker",
+      "id": "menu_kids_image",
+      "label": "Kids Mega Menu Featured Image"
+    },
+    {
+      "type": "url",
+      "id": "menu_kids_1_url",
+      "label": "Kids Link 1 URL (View All)"
+    },
+    {
+      "type": "url",
+      "id": "menu_kids_2_url",
+      "label": "Kids Link 2 URL (New Arrivals)"
+    },
+    {
+      "type": "url",
+      "id": "menu_kids_3_url",
+      "label": "Kids Link 3 URL (Best Sellers)"
+    },
+    {
+      "type": "url",
+      "id": "menu_kids_4_url",
+      "label": "Kids Link 4 URL (Character Collection)"
+    },
+    {
+      "type": "url",
+      "id": "menu_kids_5_url",
+      "label": "Kids Link 5 URL (Glitter & Sparkle)"
+    },
+    {
+      "type": "url",
+      "id": "menu_kids_btn_url",
+      "label": "Kids Menu Action Button URL"
+    },
+    {
+      "type": "url",
+      "id": "menu_design_btn_1_url",
+      "label": "Shop By Design Shape Button URL"
+    },
+    {
+      "type": "url",
+      "id": "menu_design_btn_2_url",
+      "label": "Shop By Design Length Button URL"
+    },
+    {
+      "type": "url",
+      "id": "menu_design_btn_3_url",
+      "label": "Shop By Design Colour Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu_shop_all",
+      "name": "Shop All Mega Menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Menu Item Title",
+          "default": "SHOP ALL"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Featured Product Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Featured Button Label",
+          "default": "SHOP NEW ARRIVALS"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Featured Button Link"
+        },
+        {
+          "type": "text",
+          "id": "link_1_title",
+          "label": "Link 1 Title",
+          "default": "NEW ARRIVALS"
+        },
+        {
+          "type": "text",
+          "id": "link_1_subtitle",
+          "label": "Link 1 Subtitle",
+          "default": "Fresh picks just in"
+        },
+        {
+          "type": "url",
+          "id": "link_1_url",
+          "label": "Link 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_2_title",
+          "label": "Link 2 Title",
+          "default": "BEST SELLERS"
+        },
+        {
+          "type": "text",
+          "id": "link_2_subtitle",
+          "label": "Link 2 Subtitle",
+          "default": "Our most loved sets"
+        },
+        {
+          "type": "url",
+          "id": "link_2_url",
+          "label": "Link 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_3_title",
+          "label": "Link 3 Title",
+          "default": "KIDS"
+        },
+        {
+          "type": "text",
+          "id": "link_3_subtitle",
+          "label": "Link 3 Subtitle",
+          "default": "Perfect for little queens"
+        },
+        {
+          "type": "url",
+          "id": "link_3_url",
+          "label": "Link 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_4_title",
+          "label": "Link 4 Title",
+          "default": "SHOP ALL"
+        },
+        {
+          "type": "text",
+          "id": "link_4_subtitle",
+          "label": "Link 4 Subtitle",
+          "default": "View everything"
+        },
+        {
+          "type": "url",
+          "id": "link_4_url",
+          "label": "Link 4 URL"
+        },
+        {
+          "type": "text",
+          "id": "view_all_label",
+          "label": "Bottom Link Label",
+          "default": "VIEW ALL COLLECTIONS"
+        },
+        {
+          "type": "url",
+          "id": "view_all_url",
+          "label": "Bottom Link URL"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_kids",
+      "name": "Kids Mega Menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Menu Item Title",
+          "default": "KIDS"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "KIDS PRESS-ON NAILS"
+        },
+        {
+          "type": "text",
+          "id": "subheading_1",
+          "label": "Subheading Line 1",
+          "default": "Perfectly sized for little hands,"
+        },
+        {
+          "type": "text",
+          "id": "subheading_2",
+          "label": "Subheading Line 2",
+          "default": "made with love."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Featured Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Primary Button Label",
+          "default": "VIEW ALL KIDS NAILS"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Primary Button URL"
+        },
+        {
+          "type": "text",
+          "id": "link_1_title",
+          "label": "Link 1 Title",
+          "default": "VIEW ALL"
+        },
+        {
+          "type": "text",
+          "id": "link_1_sub",
+          "label": "Link 1 Subtitle",
+          "default": "Shop all kids designs"
+        },
+        {
+          "type": "url",
+          "id": "link_1_url",
+          "label": "Link 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_2_title",
+          "label": "Link 2 Title",
+          "default": "NEW ARRIVALS"
+        },
+        {
+          "type": "text",
+          "id": "link_2_sub",
+          "label": "Link 2 Subtitle",
+          "default": "The latest for little queens"
+        },
+        {
+          "type": "url",
+          "id": "link_2_url",
+          "label": "Link 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_3_title",
+          "label": "Link 3 Title",
+          "default": "BEST SELLERS"
+        },
+        {
+          "type": "text",
+          "id": "link_3_sub",
+          "label": "Link 3 Subtitle",
+          "default": "Our most loved sets"
+        },
+        {
+          "type": "url",
+          "id": "link_3_url",
+          "label": "Link 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_4_title",
+          "label": "Link 4 Title",
+          "default": "CHARACTER COLLECTION"
+        },
+        {
+          "type": "text",
+          "id": "link_4_sub",
+          "label": "Link 4 Subtitle",
+          "default": "Fun designs they’ll adore"
+        },
+        {
+          "type": "url",
+          "id": "link_4_url",
+          "label": "Link 4 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_5_title",
+          "label": "Link 5 Title",
+          "default": "GLITTER & SPARKLE"
+        },
+        {
+          "type": "text",
+          "id": "link_5_sub",
+          "label": "Link 5 Subtitle",
+          "default": "All the sparkle, all the joy"
+        },
+        {
+          "type": "url",
+          "id": "link_5_url",
+          "label": "Link 5 URL"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_design",
+      "name": "Shop by Design Mega Menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Menu Item Title",
+          "default": "SHOP BY DESIGN"
+        },
+        {
+          "type": "text",
+          "id": "shapes_title",
+          "label": "Col 1: Shapes Title",
+          "default": "SHOP BY SHAPE"
+        },
+        {
+          "type": "text",
+          "id": "shapes_btn_text",
+          "label": "Col 1: Button Text",
+          "default": "VIEW ALL SHAPES"
+        },
+        {
+          "type": "url",
+          "id": "shapes_btn_url",
+          "label": "Col 1: Button Link"
+        },
+        {
+          "type": "text",
+          "id": "lengths_title",
+          "label": "Col 2: Lengths Title",
+          "default": "SHOP BY LENGTH"
+        },
+        {
+          "type": "text",
+          "id": "lengths_btn_text",
+          "label": "Col 2: Button Text",
+          "default": "VIEW ALL LENGTHS"
+        },
+        {
+          "type": "url",
+          "id": "lengths_btn_url",
+          "label": "Col 2: Button Link"
+        },
+        {
+          "type": "text",
+          "id": "colours_title",
+          "label": "Col 3: Colours Title",
+          "default": "SHOP BY COLOUR"
+        },
+        {
+          "type": "text",
+          "id": "colours_btn_text",
+          "label": "Col 3: Button Text",
+          "default": "VIEW ALL COLOURS"
+        },
+        {
+          "type": "url",
+          "id": "colours_btn_url",
+          "label": "Col 3: Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "promo_image",
+          "label": "Promo Card Image"
+        },
+        {
+          "type": "text",
+          "id": "promo_title",
+          "label": "Promo Card Title",
+          "default": "CUSTOM SIZING"
+        },
+        {
+          "type": "text",
+          "id": "promo_desc",
+          "label": "Promo Card Description",
+          "default": "Every set handcrafted to your exact nail sizes."
+        },
+        {
+          "type": "text",
+          "id": "promo_btn_text",
+          "label": "Promo Card Button Text",
+          "default": "SIZE GUIDE & HOW TO MEASURE"
+        },
+        {
+          "type": "url",
+          "id": "promo_btn_url",
+          "label": "Promo Card Button Link"
+        }
+      ]
+    }
+  ]
+}{% endschema %}

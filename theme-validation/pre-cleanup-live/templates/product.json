@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "review_0": {
+          "type": "review",
+          "settings": {
+            "author": "Emily R.",
+            "date": "2 days ago",
+            "rating": "★★★★★",
+            "variant": "Almond / Medium / Size M",
+            "body": "Obsessed is an understatement! These look and feel 100% like a £70 salon gel set. Lasted 18 days with the glue and zero lifting."
+          }
+        },
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "author": "Chloe M.",
+            "date": "1 week ago",
+            "rating": "★★★★★",
+            "variant": "Coffin / Long / Size S",
+            "body": "The quality of the gel polish is unbelievable! So sturdy, didn’t bend or chip once. The packaging is gorgeous with the little heart box too."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "author": "Sophie T.",
+            "date": "2 weeks ago",
+            "rating": "★★★★★",
+            "variant": "Square / Short / Size M",
+            "body": "First time using press-ons and I am completely converted. Application took less than 10 minutes and they look so natural!"
+          }
+        }
+      },
+      "block_order": [
+        "review_0",
+        "review_1",
+        "review_2"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

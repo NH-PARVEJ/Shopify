@@ -1,0 +1,138 @@
+
+/* ==========================================================================
+   BULLETPROOF HEADER CART BAG ICON (GLOBAL DESKTOP & MOBILE)
+   ========================================================================== */
+header .nav-bag,
+.site-header .nav-bag,
+.nav-bag {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34rem !important;
+  height: 34rem !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  border-radius: 50% !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+}
+
+header .nav-bag:hover,
+.site-header .nav-bag:hover,
+.nav-bag:hover {
+  color: #fa4087 !important;
+  transform: scale(1.08) !important;
+}
+
+header .nav-bag svg,
+header .nav-bag .bag-icon,
+header .nav-bag .icon.bag-icon,
+.site-header .nav-bag svg,
+.site-header .nav-bag .bag-icon,
+.site-header .nav-bag .icon.bag-icon,
+.nav-bag svg,
+.nav-bag .bag-icon,
+.nav-bag .icon.bag-icon {
+  display: block !important;
+  width: 18rem !important;
+  height: 18rem !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8 !important;
+  fill: none !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+header .nav-bag .bag-count,
+.site-header .nav-bag .bag-count,
+.nav-bag .bag-count {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  min-width: 15rem !important;
+  height: 15rem !important;
+  min-width: 15px !important;
+  min-height: 15px !important;
+  padding: 0 4rem !important;
+  background: #fa4087 !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-size: 8.5rem !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 700px) {
+  header .nav-bag,
+  .site-header .nav-bag,
+  .nav-bag {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+  header .nav-bag svg,
+  header .nav-bag .bag-icon,
+  .site-header .nav-bag svg,
+  .site-header .nav-bag .bag-icon,
+  .nav-bag svg,
+  .nav-bag .bag-icon {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+  }
+  header .nav-bag .bag-count,
+  .site-header .nav-bag .bag-count,
+  .nav-bag .bag-count {
+    top: -2px !important;
+    right: -2px !important;
+    font-size: 8px !important;
+    min-width: 14px !important;
+    height: 14px !important;
+    min-height: 14px !important;
+    padding: 0 2px !important;
+  }
+}
+
+/* Shared components: identical geometry on every template, including the homepage. */
+.site-header .nav-bag{position:relative;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:34rem;height:34rem;border-radius:50%;color:#1a1a1a;text-decoration:none;transition:transform .2s ease,color .2s ease}
+.site-header .nav-bag:hover{color:#fa4087;transform:scale(1.08)}
+.site-header .nav-bag .bag-icon{display:block;width:18rem;height:18rem;max-width:100%;flex-shrink:0;stroke:currentColor;stroke-width:1.8;fill:none}
+.site-header .nav-bag .bag-count{position:absolute;top:1rem;right:1rem;min-width:15rem;height:15rem;padding:0 4rem;background:#fa4087;color:#fff;border-radius:999px;font-family:Poppins,Arial,sans-serif;font-size:8.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+.site-header>a{flex-shrink:0}
+.nav-dropdown-item{position:relative;display:inline-flex;align-items:center}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:170px;background:#fff;border:1px solid #f1dde4;border-radius:8px;box-shadow:0 8px 24px #6c24321f;padding:8px 0;z-index:1000}
+.nav-dropdown-item:hover>.nav-dropdown-menu,.nav-dropdown-item:focus-within>.nav-dropdown-menu{display:block}
+.nav-dropdown-menu a{display:block;padding:8px 16px;font-size:11px;color:#4a1520;border:0}
+.nav-dropdown-menu a:hover{background:#fff2f6;color:#fa4087}
+.app-drawer-sublinks{padding-left:36px;display:flex;flex-direction:column;gap:6px;margin:-4px 0 8px}
+.app-drawer-sublink{font-size:11px;color:#7b5962;padding:4px 0}
+.mobile-app-dock{grid-template-columns:repeat(var(--dock-items,5),minmax(0,1fr))}
+.shopify-section-group-header-group,.shopify-section-group-footer-group{display:contents}
+.pbh-placeholder{display:block;width:100%;height:auto;aspect-ratio:1;fill:#f2dce5;background:#fff5f8}
+.shop-filter-form{display:flex;align-items:center;flex-wrap:wrap;gap:8rem;margin:12rem 0;font-size:10rem}
+.shop-filter-form details{position:relative}
+.shop-filter-form details label{display:block;margin:6rem}
+.pdp-custom-content{font-size:11rem;line-height:18rem}
+@media(max-width:700px){
+ .site-header .nav-bag{width:34px;height:34px}
+ .site-header .nav-bag .bag-icon{width:18px;height:18px}
+ .site-header .nav-bag .bag-count{font-size:9px;min-width:15px;height:15px}
+}

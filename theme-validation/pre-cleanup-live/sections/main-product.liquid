@@ -1,0 +1,1326 @@
+
+    <div class="content-container pdp-content">
+      <!-- Breadcrumb Navigation -->
+      <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">{{ section.settings.copy_1 | escape }}</a>
+        <span class="sep">♡</span>
+        <a href="{{ routes.all_products_collection_url }}">{{ section.settings.copy_2 | escape }}</a>
+        <span class="sep">♡</span>
+        <span class="current" id="pdp-bc-current">{{ product.title | escape }}</span>
+        <a class="pdp-back-link" href="{{ routes.all_products_collection_url }}">{{ section.settings.copy_3 | escape }}</a>
+      </nav>
+
+      <!-- Main Two-Column PDP Section -->
+      <section class="pdp-main-grid" aria-label="Product Details">
+        <!-- Left: Image Gallery Showcase -->
+        <div class="pdp-gallery">
+          <div class="pdp-main-media">
+            {% if product.featured_media.media_type == 'image' and product.featured_image != blank %}
+              <img id="pdp-main-img" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}">
+            {% elsif product.featured_image != blank %}
+              <img id="pdp-main-img" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}">
+            {% else %}
+              <img id="pdp-main-img" src="{{ 'product-0.png' | asset_url }}" alt="{{ product.title | escape }}" width="800" height="800">
+            {% endif %}
+            <span class="pdp-badge gold" id="pdp-badge">{{ section.settings.copy_4 | escape }}</span>
+          </div>
+
+          <div class="pdp-thumbnails" role="tablist" aria-label="Product thumbnails">
+            {% if product.media.size > 0 %}
+              {% for media in product.media %}
+                <button class="pdp-thumb-btn {% if forloop.first %}active{% endif %}" type="button" role="tab" aria-selected="{{ forloop.first }}" aria-label="View {{ forloop.index }}" data-media-target="media-{{ media.id }}" data-image-url="{{ media.preview_image | image_url: width: 1200 }}">
+                  <img src="{{ media.preview_image | image_url: width: 160 }}" alt="{{ media.alt | escape }}" width="{{ media.preview_image.width }}" height="{{ media.preview_image.height }}">
+                </button>
+              {% endfor %}
+            {% else %}
+              <button class="pdp-thumb-btn active" type="button" role="tab" data-image-url="{{ 'product-0.png' | asset_url }}"><img src="{{ 'product-0.png' | asset_url }}" alt="Preview 1" width="160" height="160"></button>
+              <button class="pdp-thumb-btn" type="button" role="tab" data-image-url="{{ 'collection-0.png' | asset_url }}"><img src="{{ 'collection-0.png' | asset_url }}" alt="Preview 2" width="160" height="160"></button>
+              <button class="pdp-thumb-btn" type="button" role="tab" data-image-url="{{ 'shop-all-menu-product.png' | asset_url }}"><img src="{{ 'shop-all-menu-product.png' | asset_url }}" alt="Preview 3" width="160" height="160"></button>
+              <button class="pdp-thumb-btn" type="button" role="tab" data-image-url="{{ 'hero-expanded.png' | asset_url }}"><img src="{{ 'hero-expanded.png' | asset_url }}" alt="Preview 4" width="160" height="160"></button>
+            {% endif %}
+          </div>
+          <div class="pdp-extra-media" hidden>{% for media in product.media %}{% unless media.media_type == 'image' %}<div id="media-{{ media.id }}">{{ media | media_tag: image_size: '1200x', controls: true }}</div>{% endunless %}{% endfor %}</div>
+
+          <div class="pdp-trust-row" aria-label="Product assurances">
+            <div class="pdp-trust-item">
+              <i>🌸</i>
+              <div><strong>{{ section.settings.copy_5 | escape }}</strong><span>{{ section.settings.copy_6 | escape }}</span></div>
+            </div>
+            <div class="pdp-trust-item">
+              <i>♻️</i>
+              <div><strong>{{ section.settings.copy_7 | escape }}</strong><span>{{ section.settings.copy_8 | escape }}</span></div>
+            </div>
+            <div class="pdp-trust-item">
+              <i>📦</i>
+              <div><strong>{{ section.settings.copy_9 | escape }}</strong><span>{{ section.settings.copy_10 | escape }}</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Details & Purchase Customizer -->
+        <div class="pdp-details">
+          <span class="pdp-brand-tag" id="pdp-brand-tag">{{ section.settings.copy_11 | escape }}</span>
+          <h1 class="pdp-title" id="pdp-title">{{ product.title | escape }}</h1>
+
+          <div class="pdp-rating-row">
+            <span class="pdp-stars">★★★★★</span>
+            {% if product.metafields.reviews.rating_count.value > 0 %}<span class="pdp-review-count">{{ product.metafields.reviews.rating.value.rating }} ({{ product.metafields.reviews.rating_count }} {{ section.settings.copy_12 | escape }}</span>{% endif %}
+            <span class="pdp-verified-badge">{{ section.settings.copy_13 | escape }}</span>
+          </div>
+
+          <div class="pdp-price-row">
+            <span class="pdp-current-price" id="pdp-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+            <span class="pdp-compare-price" id="pdp-compare-price">{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}{{ product.selected_or_first_available_variant.compare_at_price | money }}{% endif %}</span>
+            <span class="pdp-discount-pill" id="pdp-save-pill">{% assign variant = product.selected_or_first_available_variant %}{% if variant.compare_at_price > variant.price %}{{ section.settings.copy_14 | escape }} {{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}%{% endif %}</span>
+          </div>
+
+          <div class="pdp-installments">
+            {{ section.settings.copy_15 | escape }} <strong id="pdp-installment-amount">{{ section.settings.copy_16 | escape }}</strong> {{ section.settings.copy_17 | escape }} <strong>{{ section.settings.copy_18 | escape }}</strong> {{ section.settings.copy_19 | escape }} <strong>{{ section.settings.copy_20 | escape }}</strong>.
+          </div>
+
+          <div class="pdp-desc-text" id="pdp-desc">{{ product.description }}</div>
+
+          {% form 'product', product, id: 'pdp-form' %}<input type="hidden" name="id" id="pdp-variant-id" value="{{ product.selected_or_first_available_variant.id }}">{% for option in product.options_with_values %}{% assign option_key = option.name | downcase %}<div class="pdp-option-group" data-option-index="{{ forloop.index0 }}"><div class="pdp-option-header"><span>{{ option.name | escape }}: <strong data-selected-option>{{ option.selected_value | escape }}</strong></span>{% if option_key contains 'size' %}<button class="pdp-size-guide-btn" id="open-size-guide" type="button">{{ section.settings.copy_21 | escape }}</button>{% endif %}</div><div class="pdp-option-chips" role="radiogroup" aria-label="{{ option.name | escape }}">{% for value in option.values %}<button class="{% if option_key contains 'shape' %}pdp-shape-chip{% elsif option_key contains 'length' %}pdp-length-chip{% else %}pdp-size-chip{% endif %} {% if option.selected_value == value %}active{% endif %}" type="button" data-option-value="{{ value | escape }}" role="radio" aria-checked="{% if option.selected_value == value %}true{% else %}false{% endif %}">{% if option_key contains 'shape' %}{% assign icon = value | handleize | prepend: 'shape-' | append: '.png' %}<img src="{{ icon | asset_url }}" alt="" width="800" height="800">{% endif %}{{ value | escape }}</button>{% endfor %}</div></div>{% endfor %}<!-- Quantity -->
+          <div class="pdp-actions-row">
+            <div class="pdp-qty-wrap" aria-label="Select quantity">
+              <button class="pdp-qty-btn" id="pdp-qty-minus" type="button" aria-label="Decrease quantity">−</button>
+              <input class="pdp-qty-input" id="pdp-qty" name="quantity" type="number" min="1" value="1" aria-label="Quantity">
+              <button class="pdp-qty-btn" id="pdp-qty-plus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="pdp-add-btn" id="pdp-add-btn" type="submit"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 14H4Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+              {{ section.settings.copy_22 | escape }}
+            </button>
+            <button class="pdp-buy-btn" id="pdp-buy-btn" type="button">{{ section.settings.copy_23 | escape }}</button>
+          </div>
+
+          {% endform %}<script type="application/json" data-product-json>{{ product | json }}</script>
+<!-- Stock & Shipping Notice -->
+          <div class="pdp-stock-banner">
+            <span class="pdp-stock-dot"></span>
+            <span><strong>{% if product.available %}{{ section.settings.copy_24 | escape }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}</strong>{% if product.available %} {{ section.settings.copy_25 | escape }}{% endif %}</span>
+          </div>
+
+          <!-- Accordions -->
+          <div class="pdp-accordions" aria-label="Product extra information">
+            <!-- Accordion 1: Kit Contents -->
+            <div class="pdp-accordion-item is-open">
+              <button class="pdp-accordion-trigger" type="button" aria-expanded="true">
+                <span>{{ section.settings.copy_26 | escape }}</span>
+                <svg class="pdp-accordion-icon" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg>
+              </button>
+              <div class="pdp-accordion-content">
+                <p>{{ section.settings.copy_27 | escape }}</p>
+                <div class="pdp-kit-list">
+                  <div class="pdp-kit-item"><i>♡</i> {{ section.settings.copy_28 | escape }}</div>
+                  <div class="pdp-kit-item"><i>♡</i> {{ section.settings.copy_29 | escape }}</div>
+                  <div class="pdp-kit-item"><i>♡</i> {{ section.settings.copy_30 | escape }}</div>
+                  <div class="pdp-kit-item"><i>♡</i> {{ section.settings.copy_31 | escape }}</div>
+                  <div class="pdp-kit-item"><i>♡</i> {{ section.settings.copy_32 | escape }}</div>
+                  <div class="pdp-kit-item"><i>♡</i> {{ section.settings.copy_33 | escape }}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion 2: Application Guide -->
+            <div class="pdp-accordion-item">
+              <button class="pdp-accordion-trigger" type="button" aria-expanded="false">
+                <span>{{ section.settings.copy_34 | escape }}</span>
+                <svg class="pdp-accordion-icon" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg>
+              </button>
+              <div class="pdp-accordion-content">
+                <ul>
+                  <li><strong>{{ section.settings.copy_35 | escape }}</strong> {{ section.settings.copy_36 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_37 | escape }}</strong> {{ section.settings.copy_38 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_39 | escape }}</strong> {{ section.settings.copy_40 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_41 | escape }}</strong> {{ section.settings.copy_42 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_43 | escape }}</strong> {{ section.settings.copy_44 | escape }}</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Accordion 3: Sizing & Fit -->
+            <div class="pdp-accordion-item">
+              <button class="pdp-accordion-trigger" type="button" aria-expanded="false">
+                <span>{{ section.settings.copy_45 | escape }}</span>
+                <svg class="pdp-accordion-icon" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg>
+              </button>
+              <div class="pdp-accordion-content">
+                <p>{{ section.settings.copy_46 | escape }}</p>
+                <ul>
+                  <li><strong>{{ section.settings.copy_47 | escape }}</strong> {{ section.settings.copy_48 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_49 | escape }}</strong> {{ section.settings.copy_50 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_51 | escape }}</strong> {{ section.settings.copy_52 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_53 | escape }}</strong> {{ section.settings.copy_54 | escape }}</li>
+                </ul>
+                <p>{{ section.settings.copy_55 | escape }}</p>
+              </div>
+            </div>
+
+            <!-- Accordion 4: Shipping & Returns -->
+            <div class="pdp-accordion-item">
+              <button class="pdp-accordion-trigger" type="button" aria-expanded="false">
+                <span>{{ section.settings.copy_56 | escape }}</span>
+                <svg class="pdp-accordion-icon" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg>
+              </button>
+              <div class="pdp-accordion-content">
+                <p>{{ section.settings.copy_57 | escape }}</p>
+                <ul>
+                  <li><strong>{{ section.settings.copy_58 | escape }}</strong> {{ section.settings.copy_59 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_60 | escape }}</strong> {{ section.settings.copy_61 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_62 | escape }}</strong> {{ section.settings.copy_63 | escape }}</li>
+                  <li><strong>{{ section.settings.copy_64 | escape }}</strong> {{ section.settings.copy_65 | escape }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Benefits Bar -->
+      <section class="benefits" aria-label="Customer benefits">
+        <div><i>♧</i><p><b>{{ section.settings.copy_66 | escape }}</b><span>{{ section.settings.copy_67 | escape }}</span></p></div>
+        <div><i>♢</i><p><b>{{ section.settings.copy_68 | escape }}</b><span>{{ section.settings.copy_69 | escape }}</span></p></div>
+        <div><i>◷</i><p><b>{{ section.settings.copy_70 | escape }}</b><span>{{ section.settings.copy_71 | escape }}</span></p></div>
+        <div><i>♡</i><p><b>{{ section.settings.copy_72 | escape }}</b><span>{{ section.settings.copy_73 | escape }}</span></p></div>
+      </section>
+
+      <!-- Customer Reviews Section -->
+      {% for block in section.blocks %}{% if block.type == '@app' %}{% render block %}{% endif %}{% endfor %}
+
+      {% render 'product-reviews' %}
+<!-- Related Products Section -->
+      <section class="pdp-related-section" aria-labelledby="related-heading">
+        <div class="pdp-related-header">
+          <p class="pdp-related-script">{{ section.settings.copy_74 | escape }}</p>
+          <h2 class="pdp-related-title" id="related-heading">{{ section.settings.copy_75 | escape }}</h2>
+        </div>
+        <div class="pdp-related-grid" id="pdp-related-grid" data-recommendations-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
+          {%- if recommendations.performed and recommendations.products_count > 0 -%}
+            {%- for product in recommendations.products -%}
+              {%- render 'catalog-card', product: product, kind: 'design' -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign related_coll = product.collections.first | default: collections.all -%}
+            {%- assign rel_count = 0 -%}
+            {%- for rel_prod in related_coll.products -%}
+              {%- unless rel_prod.id == product.id -%}
+                {%- render 'catalog-card', product: rel_prod, kind: 'design' -%}
+                {%- assign rel_count = rel_count | plus: 1 -%}
+                {%- if rel_count == 4 -%}{%- break -%}{%- endif -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </section>
+
+      <!-- Customer Services Row -->
+      <section class="design-services" aria-label="Customer guarantees">
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1 3h15v13H1z"/>
+              <path d="M16 8h4l3 3v5h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_76 | escape }}</strong><span>{{ section.settings.copy_77 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_78 | escape }}</strong><span>{{ section.settings.copy_79 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_80 | escape }}</strong><span>{{ section.settings.copy_81 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_82 | escape }}</strong><span>{{ section.settings.copy_83 | escape }}</span></p>
+        </div>
+      </section>
+
+      <!-- Instagram / Social Feed -->
+      <section id="social" class="social" aria-labelledby="instagram-heading">
+        <h2 id="instagram-heading">{{ section.settings.copy_84 | escape }} <a href="{{ section.settings.copy_85 | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.copy_86 | escape }}</a> <span>♡</span></h2>
+        <div id="social-grid" role="list" aria-label="Demo Instagram feed">
+          <a class="instagram-card" href="{{ section.settings.copy_87 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_1 != blank %}{{ section.settings.art_1 | image_url: width: 2000 }}{% else %}{{ 'social-0.png' | asset_url }}{% endif %}" alt="Press By Heart look 1" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_88 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_2 != blank %}{{ section.settings.art_2 | image_url: width: 2000 }}{% else %}{{ 'social-1.png' | asset_url }}{% endif %}" alt="Press By Heart look 2" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_89 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_3 != blank %}{{ section.settings.art_3 | image_url: width: 2000 }}{% else %}{{ 'social-2.png' | asset_url }}{% endif %}" alt="Press By Heart look 3" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_90 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_4 != blank %}{{ section.settings.art_4 | image_url: width: 2000 }}{% else %}{{ 'social-3.png' | asset_url }}{% endif %}" alt="Press By Heart look 4" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_91 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_5 != blank %}{{ section.settings.art_5 | image_url: width: 2000 }}{% else %}{{ 'social-4.png' | asset_url }}{% endif %}" alt="Press By Heart look 5" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_92 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_6 != blank %}{{ section.settings.art_6 | image_url: width: 2000 }}{% else %}{{ 'social-5.png' | asset_url }}{% endif %}" alt="Press By Heart look 6" loading="lazy" width="129" height="81"></a>
+        </div>
+      </section>
+    </div>
+  
+{% render 'size-guide-modal' %}
+<style>
+  #review-modal.pdp-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(30, 10, 18, 0.6) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-sizing: border-box !important;
+  }
+  #review-modal.pdp-modal.is-open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+  #review-modal .pdp-review-modal-dialog {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    max-width: 480px !important;
+    width: 100% !important;
+    padding: 28px 24px !important;
+    box-shadow: 0 20px 48px rgba(80, 20, 36, 0.22) !important;
+    position: relative !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    border: 1.5px solid #fae2eb !important;
+  }
+  #review-modal .pdp-modal-close {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    border: 1px solid #ffd2e2 !important;
+    background: #fff0f5 !important;
+    color: #fa4087 !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    transition: background 0.18s ease, transform 0.18s ease !important;
+    padding: 0 !important;
+  }
+  #review-modal .pdp-modal-close:hover {
+    background: #ffe0ec !important;
+    transform: scale(1.08) !important;
+  }
+  #review-modal .pdp-review-modal-header {
+    margin-bottom: 18px !important;
+    padding-right: 32px !important;
+    text-align: left !important;
+  }
+  #review-modal .pdp-review-modal-header h3 {
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-size: 22px !important;
+    color: #1a1a1a !important;
+    margin: 0 0 6px 0 !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+  }
+  #review-modal .pdp-review-modal-subtitle {
+    font-family: Poppins, Arial, sans-serif !important;
+    font-size: 13px !important;
+    color: #7a6e74 !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+  }
+  #review-modal .pdp-review-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  #review-modal .pdp-review-rating-picker {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    text-align: left !important;
+    margin-bottom: 2px !important;
+  }
+  #review-modal .pdp-star-rating-select {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+  }
+  #review-modal .pdp-star-btn {
+    background: none !important;
+    border: none !important;
+    padding: 0 2px !important;
+    font-size: 26px !important;
+    color: #fa4087 !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    transition: transform 0.15s ease, color 0.15s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  #review-modal .pdp-star-btn:hover,
+  #review-modal .pdp-star-btn:hover ~ .pdp-star-btn {
+    color: #fa4087 !important;
+    transform: scale(1.15) !important;
+  }
+  #review-modal .pdp-star-rating-select:hover .pdp-star-btn {
+    color: #ffd2e2 !important;
+  }
+  #review-modal .pdp-star-rating-select:hover .pdp-star-btn:hover,
+  #review-modal .pdp-star-rating-select:hover .pdp-star-btn:hover ~ .pdp-star-btn {
+    color: #fa4087 !important;
+  }
+  #review-modal .pdp-form-field {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    width: 100% !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+  #review-modal .pdp-field-label {
+    font-family: Poppins, Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #2c2126 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin: 0 !important;
+  }
+  #review-modal .pdp-field-label .required {
+    color: #fa4087 !important;
+    font-weight: 700 !important;
+  }
+  #review-modal .pdp-field-hint {
+    font-family: Poppins, Arial, sans-serif !important;
+    font-size: 11px !important;
+    color: #92838a !important;
+    margin-top: 2px !important;
+    line-height: 1.3 !important;
+  }
+  #review-modal .pdp-form-input {
+    width: 100% !important;
+    height: 42px !important;
+    padding: 0 14px !important;
+    border: 1.5px solid #f1dde4 !important;
+    border-radius: 8px !important;
+    background: #fffcfd !important;
+    font-family: Poppins, Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    color: #1a1a1a !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+  }
+  #review-modal .pdp-form-input:focus {
+    border-color: #fa4087 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(250, 64, 135, 0.15) !important;
+  }
+  #review-modal .pdp-form-textarea {
+    width: 100% !important;
+    min-height: 96px !important;
+    padding: 10px 14px !important;
+    border: 1.5px solid #f1dde4 !important;
+    border-radius: 8px !important;
+    background: #fffcfd !important;
+    font-family: Poppins, Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    color: #1a1a1a !important;
+    outline: none !important;
+    resize: vertical !important;
+    box-sizing: border-box !important;
+    line-height: 1.5 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+  }
+  #review-modal .pdp-form-textarea:focus {
+    border-color: #fa4087 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(250, 64, 135, 0.15) !important;
+  }
+  #review-modal .pdp-review-submit-btn {
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    background: linear-gradient(105deg, #fa4087, #f13d84) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-family: Poppins, Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.6px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 14px rgba(250, 64, 135, 0.28) !important;
+    transition: all 0.2s ease !important;
+    margin-top: 6px !important;
+    box-sizing: border-box !important;
+    text-transform: uppercase !important;
+  }
+  #review-modal .pdp-review-submit-btn:hover {
+    background: #df2675 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(223, 38, 117, 0.35) !important;
+  }
+  #review-modal .pdp-review-submit-btn:active {
+    transform: translateY(1px) !important;
+  }
+  @media (max-width: 480px) {
+    #review-modal .pdp-review-modal-dialog {
+      padding: 22px 18px !important;
+      border-radius: 14px !important;
+      max-width: 92vw !important;
+    }
+  }
+</style>
+{% render 'review-modal' %}<script type="application/ld+json">{{ product | structured_data }}</script>
+
+{% schema %}{
+  "name": "main product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: Home",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: Shop All",
+      "default": "Shop All"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: ← Back to Collections",
+      "default": "← Back to Collections"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: BESTSELLER",
+      "default": "BESTSELLER"
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: Salon Gel Polish",
+      "default": "Salon Gel Polish"
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Copy: 5-layer chip proof",
+      "default": "5-layer chip proof"
+    },
+    {
+      "type": "text",
+      "id": "copy_7",
+      "label": "Copy: Reusable 3+ Times",
+      "default": "Reusable 3+ Times"
+    },
+    {
+      "type": "text",
+      "id": "copy_8",
+      "label": "Copy: Gentle on nails",
+      "default": "Gentle on nails"
+    },
+    {
+      "type": "text",
+      "id": "copy_9",
+      "label": "Copy: Fast UK Dispatch",
+      "default": "Fast UK Dispatch"
+    },
+    {
+      "type": "text",
+      "id": "copy_10",
+      "label": "Copy: Tracked 24h",
+      "default": "Tracked 24h"
+    },
+    {
+      "type": "text",
+      "id": "copy_11",
+      "label": "Copy: PRESS BY HEART ♡ FRENCH COLLECTION",
+      "default": "PRESS BY HEART ♡ FRENCH COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "copy_12",
+      "label": "Copy: Reviews)",
+      "default": "Reviews)"
+    },
+    {
+      "type": "text",
+      "id": "copy_13",
+      "label": "Copy: ✓ Verified Quality",
+      "default": "✓ Verified Quality"
+    },
+    {
+      "type": "text",
+      "id": "copy_14",
+      "label": "Copy: SAVE",
+      "default": "SAVE"
+    },
+    {
+      "type": "text",
+      "id": "copy_15",
+      "label": "Copy: Pay in 4 interest-free payments of",
+      "default": "Pay in 4 interest-free payments of"
+    },
+    {
+      "type": "text",
+      "id": "copy_16",
+      "label": "Copy: £4.24",
+      "default": "£4.24"
+    },
+    {
+      "type": "text",
+      "id": "copy_17",
+      "label": "Copy: with",
+      "default": "with"
+    },
+    {
+      "type": "text",
+      "id": "copy_18",
+      "label": "Copy: Klarna",
+      "default": "Klarna"
+    },
+    {
+      "type": "text",
+      "id": "copy_19",
+      "label": "Copy: or",
+      "default": "or"
+    },
+    {
+      "type": "text",
+      "id": "copy_20",
+      "label": "Copy: Clearpay",
+      "default": "Clearpay"
+    },
+    {
+      "type": "text",
+      "id": "copy_21",
+      "label": "Copy: 📏 Size Guide",
+      "default": "📏 Size Guide"
+    },
+    {
+      "type": "text",
+      "id": "copy_22",
+      "label": "Copy: ADD TO BAG",
+      "default": "ADD TO BAG"
+    },
+    {
+      "type": "text",
+      "id": "copy_23",
+      "label": "Copy: BUY IT NOW",
+      "default": "BUY IT NOW"
+    },
+    {
+      "type": "text",
+      "id": "copy_24",
+      "label": "Copy: In Stock",
+      "default": "In Stock"
+    },
+    {
+      "type": "text",
+      "id": "copy_25",
+      "label": "Copy: — Dispatched within 24 hours from London, UK 🚚",
+      "default": "— Dispatched within 24 hours from London, UK 🚚"
+    },
+    {
+      "type": "text",
+      "id": "copy_26",
+      "label": "Copy: 💅 What's Included in Your Free Prep Kit",
+      "default": "💅 What's Included in Your Free Prep Kit"
+    },
+    {
+      "type": "text",
+      "id": "copy_27",
+      "label": "Copy: Every set arrives in our signature Press By Heart luxury pi",
+      "default": "Every set arrives in our signature Press By Heart luxury pink gift box with a complete salon prep kit:"
+    },
+    {
+      "type": "text",
+      "id": "copy_28",
+      "label": "Copy: 10 Custom / 24 Universal Nails",
+      "default": "10 Custom / 24 Universal Nails"
+    },
+    {
+      "type": "text",
+      "id": "copy_29",
+      "label": "Copy: Salon Ultra-Hold Glue (2g)",
+      "default": "Salon Ultra-Hold Glue (2g)"
+    },
+    {
+      "type": "text",
+      "id": "copy_30",
+      "label": "Copy: 24 Adhesive Sticky Tabs",
+      "default": "24 Adhesive Sticky Tabs"
+    },
+    {
+      "type": "text",
+      "id": "copy_31",
+      "label": "Copy: Dual Mini Nail Buffer & File",
+      "default": "Dual Mini Nail Buffer & File"
+    },
+    {
+      "type": "text",
+      "id": "copy_32",
+      "label": "Copy: Cuticle Manicure Stick",
+      "default": "Cuticle Manicure Stick"
+    },
+    {
+      "type": "text",
+      "id": "copy_33",
+      "label": "Copy: 2 Alcohol Prep Wipes",
+      "default": "2 Alcohol Prep Wipes"
+    },
+    {
+      "type": "text",
+      "id": "copy_34",
+      "label": "Copy: 📖 How to Apply & Remove (Lasts 2+ Weeks)",
+      "default": "📖 How to Apply & Remove (Lasts 2+ Weeks)"
+    },
+    {
+      "type": "text",
+      "id": "copy_35",
+      "label": "Copy: Step 1:",
+      "default": "Step 1:"
+    },
+    {
+      "type": "text",
+      "id": "copy_36",
+      "label": "Copy: Gently push back cuticles with the wooden stick and lightly",
+      "default": "Gently push back cuticles with the wooden stick and lightly buff the natural nail surface."
+    },
+    {
+      "type": "text",
+      "id": "copy_37",
+      "label": "Copy: Step 2:",
+      "default": "Step 2:"
+    },
+    {
+      "type": "text",
+      "id": "copy_38",
+      "label": "Copy: Cleanse nails thoroughly with the included alcohol wipe to ",
+      "default": "Cleanse nails thoroughly with the included alcohol wipe to remove natural oils."
+    },
+    {
+      "type": "text",
+      "id": "copy_39",
+      "label": "Copy: Step 3:",
+      "default": "Step 3:"
+    },
+    {
+      "type": "text",
+      "id": "copy_40",
+      "label": "Copy: Apply a drop of glue (for 2-3 weeks wear) OR sticky tabs (f",
+      "default": "Apply a drop of glue (for 2-3 weeks wear) OR sticky tabs (for weekend 3-4 days wear)."
+    },
+    {
+      "type": "text",
+      "id": "copy_41",
+      "label": "Copy: Step 4:",
+      "default": "Step 4:"
+    },
+    {
+      "type": "text",
+      "id": "copy_42",
+      "label": "Copy: Align nail at 45° from cuticle line and press firmly down f",
+      "default": "Align nail at 45° from cuticle line and press firmly down for 25-30 seconds. Done!"
+    },
+    {
+      "type": "text",
+      "id": "copy_43",
+      "label": "Copy: Removal:",
+      "default": "Removal:"
+    },
+    {
+      "type": "text",
+      "id": "copy_44",
+      "label": "Copy: Soak hands in warm soapy water with a drop of cuticle oil f",
+      "default": "Soak hands in warm soapy water with a drop of cuticle oil for 10-15 minutes. Gently peel off from sides."
+    },
+    {
+      "type": "text",
+      "id": "copy_45",
+      "label": "Copy: 📏 Size Guide & Measurement Instructions",
+      "default": "📏 Size Guide & Measurement Instructions"
+    },
+    {
+      "type": "text",
+      "id": "copy_46",
+      "label": "Copy: Measure across the widest part of your natural nail bed usi",
+      "default": "Measure across the widest part of your natural nail bed using a soft measuring tape (or tape and a ruler):"
+    },
+    {
+      "type": "text",
+      "id": "copy_47",
+      "label": "Copy: XS:",
+      "default": "XS:"
+    },
+    {
+      "type": "text",
+      "id": "copy_48",
+      "label": "Copy: 14mm, 11mm, 12mm, 11mm, 8mm",
+      "default": "14mm, 11mm, 12mm, 11mm, 8mm"
+    },
+    {
+      "type": "text",
+      "id": "copy_49",
+      "label": "Copy: S:",
+      "default": "S:"
+    },
+    {
+      "type": "text",
+      "id": "copy_50",
+      "label": "Copy: 15mm, 12mm, 13mm, 12mm, 9mm",
+      "default": "15mm, 12mm, 13mm, 12mm, 9mm"
+    },
+    {
+      "type": "text",
+      "id": "copy_51",
+      "label": "Copy: M:",
+      "default": "M:"
+    },
+    {
+      "type": "text",
+      "id": "copy_52",
+      "label": "Copy: 16mm, 13mm, 14mm, 13mm, 10mm (Most Popular)",
+      "default": "16mm, 13mm, 14mm, 13mm, 10mm (Most Popular)"
+    },
+    {
+      "type": "text",
+      "id": "copy_53",
+      "label": "Copy: L:",
+      "default": "L:"
+    },
+    {
+      "type": "text",
+      "id": "copy_54",
+      "label": "Copy: 17mm, 14mm, 15mm, 14mm, 11mm",
+      "default": "17mm, 14mm, 15mm, 14mm, 11mm"
+    },
+    {
+      "type": "text",
+      "id": "copy_55",
+      "label": "Copy: Between sizes? Always size up and gently file down the edge",
+      "default": "Between sizes? Always size up and gently file down the edges with the included mini file."
+    },
+    {
+      "type": "text",
+      "id": "copy_56",
+      "label": "Copy: 🚚 Shipping & 30-Day Guarantee",
+      "default": "🚚 Shipping & 30-Day Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "copy_57",
+      "label": "Copy: We handcraft and dispatch all orders with care from our Lon",
+      "default": "We handcraft and dispatch all orders with care from our London studio:"
+    },
+    {
+      "type": "text",
+      "id": "copy_58",
+      "label": "Copy: UK Standard Tracked:",
+      "default": "UK Standard Tracked:"
+    },
+    {
+      "type": "text",
+      "id": "copy_59",
+      "label": "Copy: 2-3 business days (£2.99 or FREE over £30)",
+      "default": "2-3 business days (£2.99 or FREE over £30)"
+    },
+    {
+      "type": "text",
+      "id": "copy_60",
+      "label": "Copy: UK Express Next Day:",
+      "default": "UK Express Next Day:"
+    },
+    {
+      "type": "text",
+      "id": "copy_61",
+      "label": "Copy: 1 business day (£4.99)",
+      "default": "1 business day (£4.99)"
+    },
+    {
+      "type": "text",
+      "id": "copy_62",
+      "label": "Copy: International Tracked:",
+      "default": "International Tracked:"
+    },
+    {
+      "type": "text",
+      "id": "copy_63",
+      "label": "Copy: 5-8 business days",
+      "default": "5-8 business days"
+    },
+    {
+      "type": "text",
+      "id": "copy_64",
+      "label": "Copy: Love It Guarantee:",
+      "default": "Love It Guarantee:"
+    },
+    {
+      "type": "text",
+      "id": "copy_65",
+      "label": "Copy: 30-day hassle free returns on unworn sets.",
+      "default": "30-day hassle free returns on unworn sets."
+    },
+    {
+      "type": "text",
+      "id": "copy_66",
+      "label": "Copy: REUSABLE & DURABLE",
+      "default": "REUSABLE & DURABLE"
+    },
+    {
+      "type": "text",
+      "id": "copy_67",
+      "label": "Copy: Wear again & again",
+      "default": "Wear again & again"
+    },
+    {
+      "type": "text",
+      "id": "copy_68",
+      "label": "Copy: SALON QUALITY",
+      "default": "SALON QUALITY"
+    },
+    {
+      "type": "text",
+      "id": "copy_69",
+      "label": "Copy: Premium finish",
+      "default": "Premium finish"
+    },
+    {
+      "type": "text",
+      "id": "copy_70",
+      "label": "Copy: QUICK & EASY",
+      "default": "QUICK & EASY"
+    },
+    {
+      "type": "text",
+      "id": "copy_71",
+      "label": "Copy: Apply in minutes",
+      "default": "Apply in minutes"
+    },
+    {
+      "type": "text",
+      "id": "copy_72",
+      "label": "Copy: CRUELTY FREE",
+      "default": "CRUELTY FREE"
+    },
+    {
+      "type": "text",
+      "id": "copy_73",
+      "label": "Copy: Made with love",
+      "default": "Made with love"
+    },
+    {
+      "type": "text",
+      "id": "copy_74",
+      "label": "Copy: Complete your collection ♡",
+      "default": "Complete your collection ♡"
+    },
+    {
+      "type": "text",
+      "id": "copy_75",
+      "label": "Copy: YOU MAY ALSO LOVE",
+      "default": "YOU MAY ALSO LOVE"
+    },
+    {
+      "type": "text",
+      "id": "copy_76",
+      "label": "Copy: FAST DELIVERY",
+      "default": "FAST DELIVERY"
+    },
+    {
+      "type": "text",
+      "id": "copy_77",
+      "label": "Copy: Tracked UK shipping",
+      "default": "Tracked UK shipping"
+    },
+    {
+      "type": "text",
+      "id": "copy_78",
+      "label": "Copy: PREMIUM QUALITY",
+      "default": "PREMIUM QUALITY"
+    },
+    {
+      "type": "text",
+      "id": "copy_79",
+      "label": "Copy: Salon grade materials",
+      "default": "Salon grade materials"
+    },
+    {
+      "type": "text",
+      "id": "copy_80",
+      "label": "Copy: SECURE PAYMENT",
+      "default": "SECURE PAYMENT"
+    },
+    {
+      "type": "text",
+      "id": "copy_81",
+      "label": "Copy: 100% encrypted checkout",
+      "default": "100% encrypted checkout"
+    },
+    {
+      "type": "text",
+      "id": "copy_82",
+      "label": "Copy: CUSTOMER CARE",
+      "default": "CUSTOMER CARE"
+    },
+    {
+      "type": "text",
+      "id": "copy_83",
+      "label": "Copy: Here to help 7 days",
+      "default": "Here to help 7 days"
+    },
+    {
+      "type": "text",
+      "id": "copy_84",
+      "label": "Copy: FOLLOW US",
+      "default": "FOLLOW US"
+    },
+    {
+      "type": "text",
+      "id": "copy_85",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_86",
+      "label": "Copy: @PRESSBYHEART",
+      "default": "@PRESSBYHEART"
+    },
+    {
+      "type": "text",
+      "id": "copy_87",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_88",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_89",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_90",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_91",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_92",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_1",
+      "label": "Copy: Nail Sizing Guide 📏",
+      "default": "Nail Sizing Guide 📏"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_2",
+      "label": "Copy: Hold a measuring tape across the widest part of your natura",
+      "default": "Hold a measuring tape across the widest part of your natural nail bed (or apply clear tape, mark with a pen, and measure against a ruler in millimeters):"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_3",
+      "label": "Copy: Size",
+      "default": "Size"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_4",
+      "label": "Copy: Thumb",
+      "default": "Thumb"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_5",
+      "label": "Copy: Index",
+      "default": "Index"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_6",
+      "label": "Copy: Middle",
+      "default": "Middle"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_7",
+      "label": "Copy: Ring",
+      "default": "Ring"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_8",
+      "label": "Copy: Pinky",
+      "default": "Pinky"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_9",
+      "label": "Copy: XS",
+      "default": "XS"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_10",
+      "label": "Copy: 14mm",
+      "default": "14mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_11",
+      "label": "Copy: 11mm",
+      "default": "11mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_12",
+      "label": "Copy: 12mm",
+      "default": "12mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_13",
+      "label": "Copy: 11mm",
+      "default": "11mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_14",
+      "label": "Copy: 8mm",
+      "default": "8mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_15",
+      "label": "Copy: 15mm",
+      "default": "15mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_16",
+      "label": "Copy: 12mm",
+      "default": "12mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_17",
+      "label": "Copy: 13mm",
+      "default": "13mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_18",
+      "label": "Copy: 12mm",
+      "default": "12mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_19",
+      "label": "Copy: 9mm",
+      "default": "9mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_20",
+      "label": "Copy: 16mm",
+      "default": "16mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_21",
+      "label": "Copy: 13mm",
+      "default": "13mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_22",
+      "label": "Copy: 14mm",
+      "default": "14mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_23",
+      "label": "Copy: 13mm",
+      "default": "13mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_24",
+      "label": "Copy: 10mm",
+      "default": "10mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_25",
+      "label": "Copy: 17mm",
+      "default": "17mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_26",
+      "label": "Copy: 14mm",
+      "default": "14mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_27",
+      "label": "Copy: 15mm",
+      "default": "15mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_28",
+      "label": "Copy: 14mm",
+      "default": "14mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_29",
+      "label": "Copy: 11mm",
+      "default": "11mm"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_moda_30",
+      "label": "Copy: Tip: If between sizes, choose the larger size! You can gent",
+      "default": "Tip: If between sizes, choose the larger size! You can gently file the sides for a tailor-made snug fit."
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: social-0.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_2",
+      "label": "Image: social-1.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_3",
+      "label": "Image: social-2.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_4",
+      "label": "Image: social-3.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_5",
+      "label": "Image: social-4.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_6",
+      "label": "Image: social-5.png"
+    },
+    {
+      "type": "text",
+      "id": "score",
+      "label": "Displayed review score",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "summary",
+      "label": "Review summary",
+      "default": "Based on 48 reviews"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "review",
+      "name": "Approved review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Variant"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Review"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "main product"
+    }
+  ]
+}{% endschema %}

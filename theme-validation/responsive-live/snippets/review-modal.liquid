@@ -1,0 +1,22 @@
+{{ 'review-popup.css' | asset_url | stylesheet_tag }}
+<div id="review-modal" class="pbh-review-popup" role="dialog" aria-hidden="true" aria-labelledby="review-form-title" aria-describedby="review-form-intro">
+  <div class="pbh-review-card">
+    <button type="button" id="close-review-form" class="pbh-review-close" aria-label="Close review form">×</button>
+    <div class="pbh-review-heading"><span aria-hidden="true">♡</span><h2 id="review-form-title">Write a Review</h2><p id="review-form-intro">A little love goes a long way. Tell us about your set.</p></div>
+    <p class="pbh-review-product">{{ product.title | escape }}</p>
+    {% form 'contact', id: 'product-review-form', class: 'pbh-review-form' %}
+      {% if form.posted_successfully? %}<div class="pbh-review-message" role="status" data-review-result><strong>Thank you for sharing the love!</strong><p>Your review has been sent to our team for review.</p></div>{% else %}
+      {% if form.errors %}<div class="pbh-review-errors" role="alert" data-review-result>{{ form.errors | default_errors }}</div>{% endif %}
+      <input type="hidden" name="contact[subject]" value="Product review: {{ product.title | escape }}">
+      <input type="hidden" name="contact[product]" value="{{ product.title | escape }}">
+      <input type="hidden" name="contact[product_url]" value="{{ shop.url }}{{ product.url }}">
+      <fieldset class="pbh-review-rating"><legend>Your rating <span>*</span></legend><div class="pbh-review-stars">{% for star in (1..5) %}<label><input type="radio" name="contact[rating]" value="{{ star }}" required {% if star == 5 %}checked{% endif %}><span aria-hidden="true">★</span><span class="pbh-review-sr">{{ star }} {% if star == 1 %}star{% else %}stars{% endif %}</span></label>{% endfor %}</div></fieldset>
+      <div class="pbh-review-fields"><div><label for="review-author-name">Your name <span>*</span></label><input id="review-author-name" name="contact[name]" type="text" autocomplete="name" required maxlength="100" value="{{ form.name | default: customer.name | escape }}" placeholder="Your name"></div><div><label for="review-author-email">Email address <span>*</span></label><input id="review-author-email" name="contact[email]" type="email" autocomplete="email" required value="{{ form.email | default: customer.email | escape }}" placeholder="you@example.com"></div></div>
+      <label for="review-body-text">Your review <span>*</span></label><textarea id="review-body-text" name="contact[body]" rows="4" required minlength="10" maxlength="5000" placeholder="How was the fit, finish and wear?">{{ form.body | escape }}</textarea>
+      <p class="pbh-review-note">Your email stays private. Reviews are sent to our team before publication.</p>
+      <button type="submit" class="pbh-review-submit">Submit Review <span aria-hidden="true">♡</span></button>
+      {% endif %}
+    {% endform %}
+  </div>
+</div>
+<script src="{{ 'review-popup.js' | asset_url }}" defer></script>

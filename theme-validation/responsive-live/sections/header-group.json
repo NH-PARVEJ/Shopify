@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "shop_all": {
+          "type": "mega_menu",
+          "settings": {
+            "trigger_title": "SHOP ALL",
+            "layout": "shop-all",
+            "menu": "mega-shop-all",
+            "button_link": "/collections/all/new-arrivals",
+            "secondary_link": "/collections",
+            "button_label": "SHOP NEW ARRIVALS"
+          }
+        },
+        "kids": {
+          "type": "mega_menu",
+          "settings": {
+            "trigger_title": "KIDS",
+            "layout": "kids",
+            "menu": "mega-kids",
+            "button_link": "/collections/kids",
+            "secondary_link": "/collections",
+            "button_label": "SHOP ALL KIDS NAILS"
+          }
+        },
+        "design": {
+          "type": "mega_menu",
+          "settings": {
+            "trigger_title": "SHOP BY DESIGN",
+            "layout": "shop-by-design",
+            "menu": "design-shapes",
+            "button_link": "/collections/all/new-arrivals",
+            "secondary_link": "/pages/shop-by-design",
+            "button_label": "SHOP NEW ARRIVALS",
+            "menu_2": "design-lengths",
+            "menu_3": "design-colours",
+            "secondary_label": "VIEW ALL SHAPES",
+            "column_2_link": "/pages/shop-by-design",
+            "column_3_link": "/pages/shop-by-design"
+          }
+        }
+      },
+      "block_order": [
+        "shop_all",
+        "kids",
+        "design"
+      ],
+      "settings": {
+        "menu": "main-menu",
+        "booking_link": "tel:07944545406"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

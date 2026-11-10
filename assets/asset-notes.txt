@@ -1,0 +1,14 @@
+Banner background
+Tool: built-in image_gen (edit mode).
+Saved file: C:/Users/devnh/Downloads/shopify/assets/hero-clean.png
+Original: C:/Users/devnh/Downloads/shopify/assets/hero.png
+The original product image is displayed over the right side to preserve the source product artwork. All foreground hero copy and the Shop Now button are HTML.
+
+Final prompt:
+Edit this exact website hero banner. Remove ONLY the left overlay text 'PRESS BY HEART', outline heart, 'QUICK PRESS,', handwritten 'instant beauty' and decorative handwritten heart, the two-line description, and pink SHOP NOW button. Inpaint those left text/button areas with the surrounding very pale blush pink satin/white background. Preserve exact composition and all other pixels as closely as possible: boxed nails, gold crowned heart emblem, pink silk background and ribbon. Do NOT remove text printed on the product packaging. Maintain same wide 863:331 aspect ratio. No added content.
+
+Typography
+Locally bundled Poppins 400/500/600 and Allura 400, with Times New Roman for serif headings. Font choices are visually inferred from the supplied flattened PNG; the source design contains no font metadata. Open Font Licenses are included alongside the font files.
+
+Visual validation
+The reference is 863 x 1822. At 863px viewport width the HTML is 1822px tall, hero starts at 133px, benefits at 847px, promotional cards at 1192px, testimonial panel at 1396px, and footer at 1654px. Browser screenshots and validation results are in ../previews/. No claim of mathematically identical pixels is made: live font rasterization and the reconstructed text-free portion of the hero differ from the flattened reference.

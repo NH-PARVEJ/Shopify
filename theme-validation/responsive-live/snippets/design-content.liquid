@@ -1,0 +1,162 @@
+
+    <!-- Hero Banner (Same design as kids.html) -->
+    <section class="design-hero" aria-labelledby="design-hero-title">
+      <img class="design-hero-background" src="{% if section.settings.design_art_1 != blank %}{{ section.settings.design_art_1 | image_url: width: 2000 }}{% else %}{{ 'hero-expanded.png' | asset_url }}{% endif %}" alt="Salon quality press-on nails and pink satin ribbon" width="1881" height="836">
+      <div class="design-hero-container">
+        <div class="design-hero-copy">
+          <p class="design-script">{{ section.settings.design_copy_1 | escape }}</p>
+          <h1 id="design-hero-title">{{ section.settings.design_copy_2 | escape }}<br>{{ section.settings.design_copy_3 | escape }}</h1>
+          <p class="design-description">{{ section.settings.design_copy_4 | escape }}<br>{{ section.settings.design_copy_5 | escape }}</p>
+          <a class="design-primary" href="{{ section.settings.design_copy_6 | escape }}">{{ section.settings.design_copy_7 | escape }} <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/><path d="M5 16h14M7 22h10"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-container design-content">
+      <!-- 5 Category Navigation Tiles -->
+      <nav class="design-categories" aria-label="Shop categories">
+        <a href="{{ routes.all_products_collection_url }}" data-category="nails"><span class="kids-glyph" data-kids-icon="nails" aria-hidden="true"></span><span>{{ section.settings.design_copy_8 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/kids" data-category="kids"><span class="kids-glyph" data-kids-icon="kids" aria-hidden="true"></span><span>{{ section.settings.design_copy_9 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/bundles" data-category="bundles"><span class="kids-glyph" data-kids-icon="gift" aria-hidden="true"></span><span>{{ section.settings.design_copy_10 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/pedis" data-category="pedis"><span class="kids-glyph" data-kids-icon="feet" aria-hidden="true"></span><span>{{ section.settings.design_copy_11 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/accessories" data-category="accessories"><span class="kids-glyph" data-kids-icon="bagHeart" aria-hidden="true"></span><span>{{ section.settings.design_copy_12 | escape }}</span></a>
+      </nav>
+
+      <!-- Interactive Design Customizer Filters -->
+      <section class="sbd-customizer" aria-label="Customize designs">
+        <div class="sbd-customizer-header">
+          <h3 class="sbd-customizer-title">{{ section.settings.design_copy_13 | escape }}</h3>
+          <button id="sbd-reset-btn" class="sbd-reset-btn" type="button">{{ section.settings.design_copy_14 | escape }}</button>
+        </div>
+
+        <div class="sbd-filters-row">
+          <!-- Shape Group -->
+          <div class="sbd-filter-group">
+            <h4>{{ section.settings.design_copy_15 | escape }}</h4>
+            <div class="sbd-filter-options">
+              <button class="sbd-chip active" type="button" data-filter-type="shape" data-filter-value="all">{{ section.settings.design_copy_16 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="almond">{{ section.settings.design_copy_17 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="square">{{ section.settings.design_copy_18 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="oval">{{ section.settings.design_copy_19 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="coffin">{{ section.settings.design_copy_20 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="ballerina">{{ section.settings.design_copy_21 | escape }}</button>
+            </div>
+          </div>
+
+          <!-- Length Group -->
+          <div class="sbd-filter-group">
+            <h4>{{ section.settings.design_copy_22 | escape }}</h4>
+            <div class="sbd-filter-options">
+              <button class="sbd-chip active" type="button" data-filter-type="length" data-filter-value="all">{{ section.settings.design_copy_23 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="length" data-filter-value="short">{{ section.settings.design_copy_24 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="length" data-filter-value="medium">{{ section.settings.design_copy_25 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="length" data-filter-value="long">{{ section.settings.design_copy_26 | escape }}</button>
+            </div>
+          </div>
+
+          <!-- Colour Group -->
+          <div class="sbd-filter-group">
+            <h4>{{ section.settings.design_copy_27 | escape }}</h4>
+            <div class="sbd-filter-options">
+              <button class="sbd-chip active" type="button" data-filter-type="colour" data-filter-value="all">{{ section.settings.design_copy_28 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="pink"><span class="chip-dot" style="background:#ff7aa5;"></span>{{ section.settings.design_copy_29 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="white"><span class="chip-dot" style="background:#ffffff;border:1rem solid #ddd;"></span>{{ section.settings.design_copy_30 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="blue"><span class="chip-dot" style="background:#84b6f4;"></span>{{ section.settings.design_copy_31 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="black"><span class="chip-dot" style="background:#1a1a1a;"></span>{{ section.settings.design_copy_32 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="orange"><span class="chip-dot" style="background:#ff9f43;"></span>{{ section.settings.design_copy_33 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="yellow"><span class="chip-dot" style="background:#ffd32a;"></span>{{ section.settings.design_copy_34 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="purple"><span class="chip-dot" style="background:#a55eea;"></span>{{ section.settings.design_copy_35 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="green"><span class="chip-dot" style="background:#26de81;"></span>{{ section.settings.design_copy_36 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="red"><span class="chip-dot" style="background:#eb3b5a;"></span>{{ section.settings.design_copy_37 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="gems"><img class="chip-dot" src="{% if section.settings.design_art_2 != blank %}{{ section.settings.design_art_2 | image_url: width: 2000 }}{% else %}{{ 'swatch-gems.png' | asset_url }}{% endif %}" alt="" style="object-fit:cover;" width="24" height="24">{{ section.settings.design_copy_38 | escape }}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Status Bar -->
+      <div class="sbd-results-bar" aria-live="polite">
+        <div>{{ section.settings.design_copy_39 | escape }} <strong id="sbd-count">{{ section.settings.design_copy_40 | escape }}</strong> {{ section.settings.design_copy_41 | escape }} <strong id="sbd-total">{{ section.settings.design_copy_42 | escape }}</strong> {{ section.settings.design_copy_43 | escape }}</div>
+      </div>
+
+      <!-- Products Grid -->
+      {% assign design_collection = section.settings.design_collection | default: collections['designs'] | default: collections.all %}{% paginate design_collection.products by 24 %}<section class="design-grid" id="design-grid" aria-label="Matching designs product catalog">{% for product in design_collection.products %}{% render 'catalog-card', product: product, kind: 'design' %}{% endfor %}</section>{{ paginate | default_pagination }}{% endpaginate %}
+
+      <!-- Benefits Row -->
+      <section class="design-benefits" aria-label="Customer benefits">
+        <div><i>♧</i><p><b>{{ section.settings.design_copy_44 | escape }}</b><span>{{ section.settings.design_copy_45 | escape }}</span></p></div>
+        <div><i>♢</i><p><b>{{ section.settings.design_copy_46 | escape }}</b><span>{{ section.settings.design_copy_47 | escape }}</span></p></div>
+        <div><i>◷</i><p><b>{{ section.settings.design_copy_48 | escape }}</b><span>{{ section.settings.design_copy_49 | escape }}</span></p></div>
+        <div><i>♡</i><p><b>{{ section.settings.design_copy_50 | escape }}</b><span>{{ section.settings.design_copy_51 | escape }}</span></p></div>
+      </section>
+
+      <!-- Gold Promo Banner -->
+      <section class="design-promo-banner" aria-label="Design promo">
+        <img class="promo-emblem" src="{% if section.settings.design_art_3 != blank %}{{ section.settings.design_art_3 | image_url: width: 2000 }}{% else %}{{ 'heart-hq.png' | asset_url }}{% endif %}" alt="Golden crowned heart" width="1254" height="1254">
+        <div class="design-promo-copy">
+          <h3>{{ section.settings.design_copy_52 | escape }}</h3>
+          <h2>{{ section.settings.design_copy_53 | escape }}</h2>
+          <p>{{ section.settings.design_copy_54 | escape }}</p>
+        </div>
+        <div class="design-promo-action">
+          <a class="design-promo-btn" href="{{ section.settings.design_copy_55 | escape }}">
+            {{ section.settings.design_copy_56 | escape }} <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/><path d="M5 16h14M7 22h10"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Customer Services Row (from shop by design.png slice 6) -->
+      <section class="design-services" aria-label="Customer guarantees">
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1 3h15v13H1z"/>
+              <path d="M16 8h4l3 3v5h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.design_copy_57 | escape }}</strong><span>{{ section.settings.design_copy_58 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.design_copy_59 | escape }}</strong><span>{{ section.settings.design_copy_60 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.design_copy_61 | escape }}</strong><span>{{ section.settings.design_copy_62 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.design_copy_63 | escape }}</strong><span>{{ section.settings.design_copy_64 | escape }}</span></p>
+        </div>
+      </section>
+
+      <!-- Instagram / Social -->
+      <section id="social" class="social" aria-labelledby="instagram-heading">
+        <h2 id="instagram-heading">{{ section.settings.design_copy_65 | escape }} <a href="{{ section.settings.design_copy_66 | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.design_copy_67 | escape }}</a> <span>♡</span></h2>
+        <div id="social-grid" role="list" aria-label="Demo Instagram feed">
+          <a class="instagram-card" href="{{ section.settings.design_copy_68 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.design_art_4 != blank %}{{ section.settings.design_art_4 | image_url: width: 2000 }}{% else %}{{ 'social-0.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 1" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.design_copy_69 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.design_art_5 != blank %}{{ section.settings.design_art_5 | image_url: width: 2000 }}{% else %}{{ 'social-1.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 2" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.design_copy_70 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.design_art_6 != blank %}{{ section.settings.design_art_6 | image_url: width: 2000 }}{% else %}{{ 'social-2.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 3" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.design_copy_71 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.design_art_7 != blank %}{{ section.settings.design_art_7 | image_url: width: 2000 }}{% else %}{{ 'social-3.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 4" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.design_copy_72 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.design_art_8 != blank %}{{ section.settings.design_art_8 | image_url: width: 2000 }}{% else %}{{ 'social-4.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 5" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.design_copy_73 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.design_art_9 != blank %}{{ section.settings.design_art_9 | image_url: width: 2000 }}{% else %}{{ 'social-5.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 6" loading="lazy" width="129" height="81"></a>
+        </div>
+      </section>
+    </div>
+  
+

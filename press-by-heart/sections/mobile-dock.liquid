@@ -1,0 +1,194 @@
+{% if section.settings.show_dock %}<nav class="mobile-app-dock" aria-label="Mobile navigation" style="--dock-items:5;margin:0!important;left:0!important;right:0!important;width:100%!important">{% if section.settings.menu != blank and section.settings.menu.links.size > 0 %}{% assign defaults = 'home,grid,sparkles,crown,menu' | split: ',' %}{% assign tab_idx = 0 %}{% for link in section.settings.menu.links %}{% assign link_title_down = link.title | downcase %}{% if link.url == routes.cart_url or link_title_down == 'bag' or link_title_down == 'cart' %}{% elsif link.url == '#menu' or link_title_down == 'menu' %}<button type="button" class="app-tab app-tab-menu app-menu-btn" data-drawer-trigger aria-label="{{ 'general.accessibility.menu' | t | default: 'Menu' }}" aria-controls="mobile-app-drawer"><span class="app-tab-icon">{% render 'icon', name: 'menu' %}</span><span class="app-tab-label">Menu</span></button>{% else %}{% assign item_icon = defaults[tab_idx] | default: 'heart' %}{% assign tab_idx = tab_idx | plus: 1 %}{% assign custom_image = nil %}{% for block in section.blocks %}{% if block.settings.link == link.url %}{% assign item_icon = block.settings.icon %}{% assign custom_image = block.settings.image %}{% endif %}{% endfor %}<a href="{{ link.url }}" class="app-tab{% if link.active or link.current %} active{% endif %}"><span class="app-tab-icon">{% if custom_image %}{{ custom_image | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}{% else %}{% render 'icon', name: item_icon %}{% endif %}</span><span class="app-tab-label">{{ link.title | escape }}</span></a>{% endif %}{% endfor %}<button type="button" class="app-tab app-tab-menu app-menu-btn" data-drawer-trigger aria-label="{{ 'general.accessibility.menu' | t | default: 'Menu' }}" aria-controls="mobile-app-drawer"><span class="app-tab-icon">{% render 'icon', name: 'menu' %}</span><span class="app-tab-label">Menu</span></button>{% else %}<a href="{{ routes.root_url }}" class="app-tab{% if template.name == 'index' %} active{% endif %}"><span class="app-tab-icon">{% render 'icon', name: 'home' %}</span><span class="app-tab-label">Home</span></a><a href="/collections/all" class="app-tab{% if template.name == 'collection' and template.suffix != 'kids' %} active{% endif %}"><span class="app-tab-icon">{% render 'icon', name: 'grid' %}</span><span class="app-tab-label">Shop All</span></a><a href="/pages/shop-by-design" class="app-tab{% if template.suffix == 'shop-by-design' %} active{% endif %}"><span class="app-tab-icon">{% render 'icon', name: 'sparkles' %}</span><span class="app-tab-label">Designs</span></a><a href="/collections/kids" class="app-tab{% if template.suffix == 'kids' %} active{% endif %}"><span class="app-tab-icon">{% render 'icon', name: 'crown' %}</span><span class="app-tab-label">Kids</span></a><button type="button" class="app-tab app-tab-menu app-menu-btn" data-drawer-trigger aria-label="{{ 'general.accessibility.menu' | t | default: 'Menu' }}" aria-controls="mobile-app-drawer"><span class="app-tab-icon">{% render 'icon', name: 'menu' %}</span><span class="app-tab-label">Menu</span></button>{% endif %}</nav>{% endif %}{% render 'mobile-app-drawer' %}
+{% schema %}
+{
+  "name": "Mobile Bottom Dock",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Bottom navigation menu"
+    },
+    {
+      "type": "link_list",
+      "id": "drawer_menu",
+      "label": "Mobile drawer menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dock",
+      "label": "Show Mobile Bottom Dock",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_1",
+      "label": "Copy: Quick press, instant beauty ♡",
+      "default": "Quick press, instant beauty ♡"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_2",
+      "label": "Copy: Free UK Tracked Delivery",
+      "default": "Free UK Tracked Delivery"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_3",
+      "label": "Copy: on orders over £",
+      "default": "on orders over £"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_4",
+      "label": "Copy: Home",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_5",
+      "label": "Copy: All Press-On Nails",
+      "default": "All Press-On Nails"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_6",
+      "label": "Copy: 24 Sets",
+      "default": "24 Sets"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_7",
+      "label": "Copy: Shop By Design",
+      "default": "Shop By Design"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_8",
+      "label": "Copy: Kids Collection",
+      "default": "Kids Collection"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_9",
+      "label": "Copy: Safe & Cute",
+      "default": "Safe & Cute"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_10",
+      "label": "Copy: Pedis Collection",
+      "default": "Pedis Collection"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_11",
+      "label": "Copy: Bundles & Save",
+      "default": "Bundles & Save"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_12",
+      "label": "Copy: Save 25%",
+      "default": "Save 25%"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_13",
+      "label": "Copy: Accessories & Care",
+      "default": "Accessories & Care"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_14",
+      "label": "Copy: BOOK APPOINTMENT",
+      "default": "BOOK APPOINTMENT"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_15",
+      "label": "Copy: FOLLOW ON INSTAGRAM",
+      "default": "FOLLOW ON INSTAGRAM"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_16",
+      "label": "Copy: 📞 Need Help? Call",
+      "default": "📞 Need Help? Call"
+    },
+    {
+      "type": "text",
+      "id": "mobile_app_draw_17",
+      "label": "Copy: Press By Heart London",
+      "default": "Press By Heart London"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item_style",
+      "name": "Bottom item appearance",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Match menu destination"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "home",
+          "options": [
+            {
+              "value": "home",
+              "label": "home"
+            },
+            {
+              "value": "grid",
+              "label": "grid"
+            },
+            {
+              "value": "sparkles",
+              "label": "sparkles"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "bag",
+              "label": "bag"
+            },
+            {
+              "value": "heart",
+              "label": "heart"
+            },
+            {
+              "value": "nails",
+              "label": "nails"
+            },
+            {
+              "value": "gift",
+              "label": "gift"
+            },
+            {
+              "value": "feet",
+              "label": "feet"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mobile bottom navigation"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,813 @@
+[
+  {
+    "name": "CLASSIC NUDE",
+    "price": "12.99",
+    "badge": "BEST SELLER",
+    "rating": "5.0",
+    "image": "assets/product-0.png",
+    "category": "all",
+    "tags": [
+      "homepage",
+      "best-sellers"
+    ],
+    "handle": "classic-nude",
+    "source": "homepage"
+  },
+  {
+    "name": "PINK BADDIE",
+    "price": "13.99",
+    "badge": "TRENDING",
+    "rating": "5.0",
+    "image": "assets/product-1.png",
+    "category": "all",
+    "tags": [
+      "homepage",
+      "best-sellers"
+    ],
+    "handle": "pink-baddie",
+    "source": "homepage"
+  },
+  {
+    "name": "FRENCH COLLECTION",
+    "price": "12.99",
+    "badge": "CLASSIC",
+    "rating": "4.9",
+    "image": "assets/product-2.png",
+    "category": "all",
+    "tags": [
+      "homepage",
+      "best-sellers"
+    ],
+    "handle": "french-collection",
+    "source": "homepage"
+  },
+  {
+    "name": "GLITTER GLOSS",
+    "price": "13.99",
+    "badge": "SPARKLE",
+    "rating": "5.0",
+    "image": "assets/product-3.png",
+    "category": "all",
+    "tags": [
+      "homepage",
+      "best-sellers"
+    ],
+    "handle": "glitter-gloss",
+    "source": "homepage"
+  },
+  {
+    "name": "LOVE STRUCK",
+    "price": "13.99",
+    "badge": "POPULAR",
+    "rating": "5.0",
+    "image": "assets/product-4.png",
+    "category": "all",
+    "tags": [
+      "homepage",
+      "best-sellers"
+    ],
+    "handle": "love-struck",
+    "source": "homepage"
+  },
+  {
+    "id": "pink-perfection",
+    "category": "all",
+    "name": "Pink Perfection",
+    "price": "£12.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Best Seller",
+    "badgeClass": "",
+    "desc": "Flawless pink French tips with soft gloss shine.",
+    "image": "assets/product-0.png",
+    "tags": [
+      "all",
+      "best-sellers",
+      "french"
+    ],
+    "handle": "pink-perfection",
+    "source": "category"
+  },
+  {
+    "id": "soft-glam",
+    "category": "all",
+    "name": "Soft Glam",
+    "price": "£12.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "New Arrival",
+    "badgeClass": "",
+    "desc": "Subtle nude shimmer perfect for everyday luxury.",
+    "image": "assets/product-1.png",
+    "tags": [
+      "all",
+      "new-arrivals",
+      "best-sellers"
+    ],
+    "handle": "soft-glam",
+    "source": "category"
+  },
+  {
+    "id": "glow-girl",
+    "category": "all",
+    "name": "Glow Girl",
+    "price": "£12.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Trending",
+    "badgeClass": "",
+    "desc": "Glazed donut rosy finish with mirror chrome reflection.",
+    "image": "assets/product-2.png",
+    "tags": [
+      "all",
+      "new-arrivals",
+      "glaze"
+    ],
+    "handle": "glow-girl",
+    "source": "category"
+  },
+  {
+    "id": "diamond-dreams",
+    "category": "all",
+    "name": "Diamond Dreams",
+    "price": "£12.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Top Pick",
+    "badgeClass": "",
+    "desc": "Sparkling diamond accent tips on soft petal pink.",
+    "image": "assets/product-3.png",
+    "tags": [
+      "all",
+      "best-sellers"
+    ],
+    "handle": "diamond-dreams",
+    "source": "category"
+  },
+  {
+    "id": "french-luxe",
+    "category": "all",
+    "name": "French Luxe",
+    "price": "£13.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Classic Salon",
+    "badgeClass": "",
+    "desc": "Crisp white French manicure with durable gel coat.",
+    "image": "assets/collection-0.png",
+    "tags": [
+      "all",
+      "best-sellers",
+      "french"
+    ],
+    "handle": "french-luxe",
+    "source": "category"
+  },
+  {
+    "id": "pearly-white",
+    "category": "all",
+    "name": "Pearly White",
+    "price": "£15.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "New Arrival",
+    "badgeClass": "",
+    "desc": "Minimalist glazed porcelain with soft translucent undertone.",
+    "image": "assets/product-1.png",
+    "tags": [
+      "all",
+      "new-arrivals",
+      "glaze"
+    ],
+    "handle": "pearly-white",
+    "source": "category"
+  },
+  {
+    "id": "little-blossom",
+    "category": "kids",
+    "name": "Little Blossom",
+    "price": "£8.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Kids Floral",
+    "badgeClass": "kids",
+    "desc": "Mini daisy petals and sweet soft blush tones.",
+    "image": "assets/kids/product-0.png",
+    "tags": [
+      "all",
+      "new",
+      "best",
+      "kids",
+      "new-arrivals",
+      "kids-landing"
+    ],
+    "handle": "little-blossom",
+    "source": "category"
+  },
+  {
+    "id": "rainbow-dreamer",
+    "category": "kids",
+    "name": "Rainbow Dreamer",
+    "price": "£8.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Kids Brights",
+    "badgeClass": "kids",
+    "desc": "Vibrant pastel rainbows designed for happy little hands.",
+    "image": "assets/kids/product-1.png",
+    "tags": [
+      "all",
+      "new",
+      "character",
+      "kids",
+      "kids-landing"
+    ],
+    "handle": "rainbow-dreamer",
+    "source": "category"
+  },
+  {
+    "id": "sweet-hearts",
+    "category": "kids",
+    "name": "Sweet Hearts",
+    "price": "£8.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Kids Loved",
+    "badgeClass": "kids",
+    "desc": "Hand-painted miniature hearts for everyday joy.",
+    "image": "assets/kids/product-2.png",
+    "tags": [
+      "all",
+      "best",
+      "character",
+      "kids",
+      "best-sellers",
+      "kids-landing"
+    ],
+    "handle": "sweet-hearts",
+    "source": "category"
+  },
+  {
+    "id": "daisy-days",
+    "category": "kids",
+    "name": "Daisy Days",
+    "price": "£8.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Kids Glitter",
+    "badgeClass": "kids",
+    "desc": "Sparkling glitter with floral accents for cheerful days.",
+    "image": "assets/kids/product-3.png",
+    "tags": [
+      "all",
+      "glitter",
+      "kids-landing"
+    ],
+    "handle": "daisy-days",
+    "source": "category"
+  },
+  {
+    "id": "princess-sparkle",
+    "category": "kids",
+    "name": "Princess Sparkle",
+    "price": "£8.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Kids Sparkle",
+    "badgeClass": "kids",
+    "desc": "Dazzling fairy glitter tips made for little royalty.",
+    "image": "assets/kids/product-4.png",
+    "tags": [
+      "all",
+      "best",
+      "glitter",
+      "kids-landing"
+    ],
+    "handle": "princess-sparkle",
+    "source": "category"
+  },
+  {
+    "id": "little-princess",
+    "category": "kids",
+    "name": "Little Princess",
+    "price": "£9.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Kids Crown",
+    "badgeClass": "kids",
+    "desc": "Petite sizing with adorable pastel crowns & glitter.",
+    "image": "assets/product-4.png",
+    "tags": [
+      "all",
+      "character",
+      "new",
+      "kids"
+    ],
+    "handle": "little-princess",
+    "source": "category"
+  },
+  {
+    "id": "pedi-rose-bliss",
+    "category": "pedis",
+    "name": "Pedi Rose Bliss",
+    "price": "£11.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Best Seller",
+    "badgeClass": "",
+    "desc": "Matching salon pedicure press-on nails with flexible base.",
+    "image": "assets/collection-1.png",
+    "tags": [
+      "all",
+      "best-sellers",
+      "solid",
+      "pedis"
+    ],
+    "handle": "pedi-rose-bliss",
+    "source": "category"
+  },
+  {
+    "id": "pedi-french-classic",
+    "category": "pedis",
+    "name": "Pedi French Classic",
+    "price": "£12.49",
+    "rating": "★★★★★ 5.0",
+    "badge": "New Arrival",
+    "badgeClass": "",
+    "desc": "Crisp white pedicure French smile line with natural bed.",
+    "image": "assets/collection-0.png",
+    "tags": [
+      "all",
+      "new-arrivals",
+      "french"
+    ],
+    "handle": "pedi-french-classic",
+    "source": "category"
+  },
+  {
+    "id": "pedi-nude-glow",
+    "category": "pedis",
+    "name": "Pedi Nude Glow",
+    "price": "£11.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Trending",
+    "badgeClass": "",
+    "desc": "Soft nude finish matching every sandal and heel.",
+    "image": "assets/collection-2.png",
+    "tags": [
+      "all",
+      "solid"
+    ],
+    "handle": "pedi-nude-glow",
+    "source": "category"
+  },
+  {
+    "id": "pedi-glazed-pearl",
+    "category": "pedis",
+    "name": "Pedi Glazed Pearl",
+    "price": "£12.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Top Pick",
+    "badgeClass": "",
+    "desc": "High-shine pearl glazed toes with long-lasting gel coat.",
+    "image": "assets/product-2.png",
+    "tags": [
+      "all",
+      "new-arrivals"
+    ],
+    "handle": "pedi-glazed-pearl",
+    "source": "category"
+  },
+  {
+    "id": "nude-elegance-bundle",
+    "category": "bundles",
+    "name": "Nude Elegance Bundle",
+    "price": "£24.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Save 25%",
+    "badgeClass": "gold",
+    "desc": "Trio pack of best-selling nude shades and nail prep essentials.",
+    "image": "assets/collection-2.png",
+    "tags": [
+      "all",
+      "trio",
+      "best-sellers",
+      "bundles"
+    ],
+    "handle": "nude-elegance-bundle",
+    "source": "category"
+  },
+  {
+    "id": "glam-queen-trio",
+    "category": "bundles",
+    "name": "Glam Queen Trio",
+    "price": "£26.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Save 20%",
+    "badgeClass": "gold",
+    "desc": "French Luxe, Diamond Dreams and Soft Glam in one gift box.",
+    "image": "assets/collection-3.png",
+    "tags": [
+      "all",
+      "trio"
+    ],
+    "handle": "glam-queen-trio",
+    "source": "category"
+  },
+  {
+    "id": "starter-kit-bundle",
+    "category": "bundles",
+    "name": "Complete Starter Kit",
+    "price": "£19.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Best Starter",
+    "badgeClass": "gold",
+    "desc": "Any two nail sets plus professional glue, buffer & care tools.",
+    "image": "assets/collection-4.png",
+    "tags": [
+      "all",
+      "starter",
+      "best-sellers"
+    ],
+    "handle": "complete-starter-kit",
+    "source": "category"
+  },
+  {
+    "id": "kids-party-pack",
+    "category": "bundles",
+    "name": "Kids Party 4-Pack",
+    "price": "£24.99",
+    "rating": "★★★★★ 5.0",
+    "badge": "Kids Bundle",
+    "badgeClass": "kids",
+    "desc": "4 fun kids nail boxes with safe, gentle adhesive tabs.",
+    "image": "assets/kids/menu-product-hq.png",
+    "tags": [
+      "all",
+      "starter"
+    ],
+    "handle": "kids-party-4-pack",
+    "source": "category"
+  },
+  {
+    "id": "essential-prep-kit",
+    "category": "accessories",
+    "name": "Essential Prep & Care Kit",
+    "price": "£6.99",
+    "rating": "★★★★★ 4.8",
+    "badge": "Essential",
+    "badgeClass": "",
+    "desc": "Buffer, cuticle stick, dual adhesive tabs and nail glue.",
+    "image": "assets/collection-4.png",
+    "tags": [
+      "all",
+      "tools",
+      "care",
+      "accessories"
+    ],
+    "handle": "essential-prep-and-care-kit",
+    "source": "category"
+  },
+  {
+    "id": "ultra-hold-nail-glue",
+    "category": "accessories",
+    "name": "Ultra-Hold Brush Nail Glue",
+    "price": "£4.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Best Seller",
+    "badgeClass": "",
+    "desc": "Precision brush-on salon formula for up to 2+ weeks hold.",
+    "image": "assets/collection-4.png",
+    "tags": [
+      "all",
+      "adhesives"
+    ],
+    "handle": "ultra-hold-brush-nail-glue",
+    "source": "category"
+  },
+  {
+    "id": "dual-adhesive-tabs",
+    "category": "accessories",
+    "name": "Waterproof Adhesive Tabs (120pcs)",
+    "price": "£3.99",
+    "rating": "★★★★★ 4.9",
+    "badge": "Damage Free",
+    "badgeClass": "",
+    "desc": "Gentle, damage-free wear ideal for quick events and kids.",
+    "image": "assets/collection-4.png",
+    "tags": [
+      "all",
+      "adhesives"
+    ],
+    "handle": "waterproof-adhesive-tabs-120pcs",
+    "source": "category"
+  },
+  {
+    "id": "glass-cuticle-pusher",
+    "category": "accessories",
+    "name": "Precision Glass Cuticle Pusher",
+    "price": "£5.49",
+    "rating": "★★★★★ 5.0",
+    "badge": "Pro Tool",
+    "badgeClass": "",
+    "desc": "Etched glass file for immaculate prep without nail damage.",
+    "image": "assets/collection-4.png",
+    "tags": [
+      "all",
+      "tools"
+    ],
+    "handle": "precision-glass-cuticle-pusher",
+    "source": "category"
+  },
+  {
+    "id": 1,
+    "name": "French Rose Glaze",
+    "price": "£16.99",
+    "rating": "★★★★★",
+    "reviews": 42,
+    "desc": "Soft milky rose with delicate white tips and glazed finish.",
+    "shape": "almond",
+    "length": "medium",
+    "colour": "pink",
+    "badge": "BESTSELLER",
+    "badgeType": "gold",
+    "image": "assets/product-0.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "french-rose-glaze",
+    "source": "design"
+  },
+  {
+    "id": 2,
+    "name": "Pearly White Minimalist",
+    "price": "£15.99",
+    "rating": "★★★★★",
+    "reviews": 38,
+    "desc": "Clean porcelain white with pearlescent chrome sheen.",
+    "shape": "square",
+    "length": "short",
+    "colour": "white",
+    "badge": "TRENDING",
+    "badgeType": "",
+    "image": "assets/product-1.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "pearly-white-minimalist",
+    "source": "design"
+  },
+  {
+    "id": 3,
+    "name": "Midnight Noir Starlight",
+    "price": "£18.99",
+    "rating": "★★★★★",
+    "reviews": 29,
+    "desc": "Glossy pitch black adorned with micro sparkle accents.",
+    "shape": "coffin",
+    "length": "long",
+    "colour": "black",
+    "badge": "LUXE",
+    "badgeType": "gold",
+    "image": "assets/product-2.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "midnight-noir-starlight",
+    "source": "design"
+  },
+  {
+    "id": 4,
+    "name": "Blushing Ballerina Gems",
+    "price": "£19.99",
+    "rating": "★★★★★",
+    "reviews": 51,
+    "desc": "Ballet slipper pink embellished with iridescent crystal gems.",
+    "shape": "ballerina",
+    "length": "long",
+    "colour": "gems",
+    "badge": "PREMIUM",
+    "badgeType": "gold",
+    "image": "assets/product-3.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "blushing-ballerina-gems",
+    "source": "design"
+  },
+  {
+    "id": 5,
+    "name": "Sky Blue Aura",
+    "price": "£16.49",
+    "rating": "★★★★★",
+    "reviews": 23,
+    "desc": "Ethereal pastel blue gradient aura with glossy gel coat.",
+    "shape": "oval",
+    "length": "medium",
+    "colour": "blue",
+    "badge": "NEW",
+    "badgeType": "",
+    "image": "assets/product-4.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "sky-blue-aura",
+    "source": "design"
+  },
+  {
+    "id": 6,
+    "name": "Ruby Velvet Almond",
+    "price": "£17.99",
+    "rating": "★★★★★",
+    "reviews": 35,
+    "desc": "Deep crimson red with cat-eye velvet shimmer dimension.",
+    "shape": "almond",
+    "length": "medium",
+    "colour": "red",
+    "badge": "POPULAR",
+    "badgeType": "gold",
+    "image": "assets/collection-0.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "ruby-velvet-almond",
+    "source": "design"
+  },
+  {
+    "id": 7,
+    "name": "Citrus Sunset Square",
+    "price": "£15.99",
+    "rating": "★★★★★",
+    "reviews": 19,
+    "desc": "Warm peach orange ombre with micro gold foil flakes.",
+    "shape": "square",
+    "length": "short",
+    "colour": "orange",
+    "badge": "SUMMER",
+    "badgeType": "",
+    "image": "assets/collection-1.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "citrus-sunset-square",
+    "source": "design"
+  },
+  {
+    "id": 8,
+    "name": "Lavender Haze Ballerina",
+    "price": "£17.49",
+    "rating": "★★★★★",
+    "reviews": 27,
+    "desc": "Dreamy soft lilac purple with iridescent holographic dust.",
+    "shape": "ballerina",
+    "length": "medium",
+    "colour": "purple",
+    "badge": "NEW",
+    "badgeType": "",
+    "image": "assets/collection-2.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "lavender-haze-ballerina",
+    "source": "design"
+  },
+  {
+    "id": 9,
+    "name": "Emerald Blossom Coffin",
+    "price": "£18.49",
+    "rating": "★★★★★",
+    "reviews": 31,
+    "desc": "Rich forest green with delicate white daisy florals.",
+    "shape": "coffin",
+    "length": "long",
+    "colour": "green",
+    "badge": "BESTSELLER",
+    "badgeType": "gold",
+    "image": "assets/collection-3.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "emerald-blossom-coffin",
+    "source": "design"
+  },
+  {
+    "id": 10,
+    "name": "Buttercup Daisy Short Oval",
+    "price": "£14.99",
+    "rating": "★★★★★",
+    "reviews": 22,
+    "desc": "Pastel pastel yellow with adorable hand-painted blooms.",
+    "shape": "oval",
+    "length": "short",
+    "colour": "yellow",
+    "badge": "CUTE",
+    "badgeType": "",
+    "image": "assets/collection-4.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "buttercup-daisy-short-oval",
+    "source": "design"
+  },
+  {
+    "id": 11,
+    "name": "Rhinestone Tiara Almond",
+    "price": "£21.99",
+    "rating": "★★★★★",
+    "reviews": 48,
+    "desc": "Sheer nude base encrusted with crown jewel rhinestone clusters.",
+    "shape": "almond",
+    "length": "long",
+    "colour": "gems",
+    "badge": "LUXE",
+    "badgeType": "gold",
+    "image": "assets/collection-5.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "rhinestone-tiara-almond",
+    "source": "design"
+  },
+  {
+    "id": 12,
+    "name": "Classic White French Coffin",
+    "price": "£16.99",
+    "rating": "★★★★★",
+    "reviews": 64,
+    "desc": "The timeless ultra-crisp white French tip in modern tapered coffin.",
+    "shape": "coffin",
+    "length": "medium",
+    "colour": "white",
+    "badge": "CLASSIC",
+    "badgeType": "gold",
+    "image": "assets/kids/product-0.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "classic-white-french-coffin",
+    "source": "design"
+  },
+  {
+    "id": 13,
+    "name": "Bubblegum Short Square",
+    "price": "£14.99",
+    "rating": "★★★★★",
+    "reviews": 26,
+    "desc": "Playful vivid pink in an easy-to-wear natural everyday length.",
+    "shape": "square",
+    "length": "short",
+    "colour": "pink",
+    "badge": "",
+    "badgeType": "",
+    "image": "assets/kids/product-1.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "bubblegum-short-square",
+    "source": "design"
+  },
+  {
+    "id": 14,
+    "name": "Cobalt Chrome Ballerina",
+    "price": "£18.99",
+    "rating": "★★★★★",
+    "reviews": 33,
+    "desc": "Electric royal blue finished with mirror chrome reflection.",
+    "shape": "ballerina",
+    "length": "long",
+    "colour": "blue",
+    "badge": "TRENDING",
+    "badgeType": "",
+    "image": "assets/kids/product-2.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "cobalt-chrome-ballerina",
+    "source": "design"
+  },
+  {
+    "id": 15,
+    "name": "Matcha Latte Short Oval",
+    "price": "£15.49",
+    "rating": "★★★★★",
+    "reviews": 28,
+    "desc": "Soothing creamy sage green with subtle white wave swirls.",
+    "shape": "oval",
+    "length": "short",
+    "colour": "green",
+    "badge": "NEW",
+    "badgeType": "",
+    "image": "assets/kids/product-3.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "matcha-latte-short-oval",
+    "source": "design"
+  },
+  {
+    "id": 16,
+    "name": "Onyx Glamour Almond",
+    "price": "£17.99",
+    "rating": "★★★★★",
+    "reviews": 37,
+    "desc": "Sleek matte black with high-gloss French tip accents.",
+    "shape": "almond",
+    "length": "medium",
+    "colour": "black",
+    "badge": "POPULAR",
+    "badgeType": "gold",
+    "image": "assets/kids/product-4.png",
+    "tags": [
+      "design"
+    ],
+    "handle": "onyx-glamour-almond",
+    "source": "design"
+  }
+]

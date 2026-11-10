@@ -1,0 +1,111 @@
+<section class="hero" aria-labelledby="hero-title" data-section-id="{{ section.id }}">
+  {%- if section.settings.image != blank -%}
+    <img class="hero-background"
+      src="{{ section.settings.image | image_url: width: 1881 }}"
+      alt="{{ section.settings.image.alt | default: section.settings.heading_main | escape }}"
+      width="1881"
+      height="836"
+      loading="eager">
+  {%- else -%}
+    <img class="hero-background"
+      src="{% if section.settings.art_1 != blank %}{{ section.settings.art_1 | image_url: width: 2000 }}{% else %}{{ 'hero-expanded.png' | asset_url }}{% endif %}"
+      alt="Pink Press By Heart press-on nail set, pink satin ribbon and gold crowned-heart emblem"
+      width="1881"
+      height="836"
+      loading="eager">
+  {%- endif -%}
+
+  <div class="hero-container">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ section.settings.eyebrow | default: 'PRESS BY HEART' }} <span>♡</span></p>
+      <h1 id="hero-title">
+        {{ section.settings.heading_main | default: 'QUICK PRESS,' }}
+        <span class="script-line">
+          {{ section.settings.heading_script | default: 'instant beauty' }}
+          <svg class="flourish" viewBox="0 0 30 45" aria-hidden="true">
+            <path d="M8 36C22 27 27 9 21 7C16 4 15 13 15 13S13 3 8 6C0 10 9 27 22 33"/>
+          </svg>
+        </span>
+      </h1>
+      <p class="hero-description">{{ section.settings.description | default: 'Salon quality press-on nails<br>delivered to your door.' }}</p>
+      {%- if section.settings.button_link != blank -%}
+        <a class="shop-button" href="{{ section.settings.button_link }}">
+          {{ section.settings.button_text | default: 'SHOP NOW' }}
+          <span>
+            <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/>
+              <path d="M5 16h14M7 22h10"/>
+            </svg>
+          </span>
+        </a>
+      {%- else -%}
+        <button class="shop-button" type="button" onclick="if(document.getElementById('best-sellers')){document.getElementById('best-sellers').scrollIntoView({behavior:'smooth'})}else{window.location.href='{{ routes.all_products_collection_url }}'}">
+          {{ section.settings.button_text | default: 'SHOP NOW' }}
+          <span>
+            <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/>
+              <path d="M5 16h14M7 22h10"/>
+            </svg>
+          </span>
+        </button>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Background Banner"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Subtitle",
+      "default": "PRESS BY HEART"
+    },
+    {
+      "type": "text",
+      "id": "heading_main",
+      "label": "Main Headline (Serif)",
+      "default": "QUICK PRESS,"
+    },
+    {
+      "type": "text",
+      "id": "heading_script",
+      "label": "Script Accent Headline (Cursive)",
+      "default": "instant beauty"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "Salon quality press-on nails<br>delivered to your door."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "CTA Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "CTA Button Destination (Leave blank to scroll to Best Sellers)"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: hero-expanded.png"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}{% endschema %}

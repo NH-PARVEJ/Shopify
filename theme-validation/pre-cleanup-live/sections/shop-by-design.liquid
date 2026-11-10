@@ -1,0 +1,660 @@
+
+    <!-- Hero Banner (Same design as kids.html) -->
+    <section class="design-hero" aria-labelledby="design-hero-title">
+      <img class="design-hero-background" src="{% if section.settings.art_1 != blank %}{{ section.settings.art_1 | image_url: width: 2000 }}{% else %}{{ 'hero-expanded.png' | asset_url }}{% endif %}" alt="Salon quality press-on nails and pink satin ribbon" width="1881" height="836">
+      <div class="design-hero-container">
+        <div class="design-hero-copy">
+          <p class="design-script">{{ section.settings.copy_1 | escape }}</p>
+          <h1 id="design-hero-title">{{ section.settings.copy_2 | escape }}<br>{{ section.settings.copy_3 | escape }}</h1>
+          <p class="design-description">{{ section.settings.copy_4 | escape }}<br>{{ section.settings.copy_5 | escape }}</p>
+          <a class="design-primary" href="{{ section.settings.copy_6 | escape }}">{{ section.settings.copy_7 | escape }} <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/><path d="M5 16h14M7 22h10"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-container design-content">
+      <!-- 5 Category Navigation Tiles -->
+      <nav class="design-categories" aria-label="Shop categories">
+        <a href="{{ routes.all_products_collection_url }}" data-category="nails"><span class="kids-glyph" data-kids-icon="nails" aria-hidden="true"></span><span>{{ section.settings.copy_8 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/kids" data-category="kids"><span class="kids-glyph" data-kids-icon="kids" aria-hidden="true"></span><span>{{ section.settings.copy_9 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/bundles" data-category="bundles"><span class="kids-glyph" data-kids-icon="gift" aria-hidden="true"></span><span>{{ section.settings.copy_10 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/pedis" data-category="pedis"><span class="kids-glyph" data-kids-icon="feet" aria-hidden="true"></span><span>{{ section.settings.copy_11 | escape }}</span></a>
+        <a href="{{ routes.collections_url }}/accessories" data-category="accessories"><span class="kids-glyph" data-kids-icon="bagHeart" aria-hidden="true"></span><span>{{ section.settings.copy_12 | escape }}</span></a>
+      </nav>
+
+      <!-- Interactive Design Customizer Filters -->
+      <section class="sbd-customizer" aria-label="Customize designs">
+        <div class="sbd-customizer-header">
+          <h3 class="sbd-customizer-title">{{ section.settings.copy_13 | escape }}</h3>
+          <button id="sbd-reset-btn" class="sbd-reset-btn" type="button">{{ section.settings.copy_14 | escape }}</button>
+        </div>
+
+        <div class="sbd-filters-row">
+          <!-- Shape Group -->
+          <div class="sbd-filter-group">
+            <h4>{{ section.settings.copy_15 | escape }}</h4>
+            <div class="sbd-filter-options">
+              <button class="sbd-chip active" type="button" data-filter-type="shape" data-filter-value="all">{{ section.settings.copy_16 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="almond">{{ section.settings.copy_17 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="square">{{ section.settings.copy_18 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="oval">{{ section.settings.copy_19 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="coffin">{{ section.settings.copy_20 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="shape" data-filter-value="ballerina">{{ section.settings.copy_21 | escape }}</button>
+            </div>
+          </div>
+
+          <!-- Length Group -->
+          <div class="sbd-filter-group">
+            <h4>{{ section.settings.copy_22 | escape }}</h4>
+            <div class="sbd-filter-options">
+              <button class="sbd-chip active" type="button" data-filter-type="length" data-filter-value="all">{{ section.settings.copy_23 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="length" data-filter-value="short">{{ section.settings.copy_24 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="length" data-filter-value="medium">{{ section.settings.copy_25 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="length" data-filter-value="long">{{ section.settings.copy_26 | escape }}</button>
+            </div>
+          </div>
+
+          <!-- Colour Group -->
+          <div class="sbd-filter-group">
+            <h4>{{ section.settings.copy_27 | escape }}</h4>
+            <div class="sbd-filter-options">
+              <button class="sbd-chip active" type="button" data-filter-type="colour" data-filter-value="all">{{ section.settings.copy_28 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="pink"><span class="chip-dot" style="background:#ff7aa5;"></span>{{ section.settings.copy_29 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="white"><span class="chip-dot" style="background:#ffffff;border:1rem solid #ddd;"></span>{{ section.settings.copy_30 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="blue"><span class="chip-dot" style="background:#84b6f4;"></span>{{ section.settings.copy_31 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="black"><span class="chip-dot" style="background:#1a1a1a;"></span>{{ section.settings.copy_32 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="orange"><span class="chip-dot" style="background:#ff9f43;"></span>{{ section.settings.copy_33 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="yellow"><span class="chip-dot" style="background:#ffd32a;"></span>{{ section.settings.copy_34 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="purple"><span class="chip-dot" style="background:#a55eea;"></span>{{ section.settings.copy_35 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="green"><span class="chip-dot" style="background:#26de81;"></span>{{ section.settings.copy_36 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="red"><span class="chip-dot" style="background:#eb3b5a;"></span>{{ section.settings.copy_37 | escape }}</button>
+              <button class="sbd-chip" type="button" data-filter-type="colour" data-filter-value="gems"><img class="chip-dot" src="{% if section.settings.art_2 != blank %}{{ section.settings.art_2 | image_url: width: 2000 }}{% else %}{{ 'swatch-gems.png' | asset_url }}{% endif %}" alt="" style="object-fit:cover;" width="24" height="24">{{ section.settings.copy_38 | escape }}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Status Bar -->
+      <div class="sbd-results-bar" aria-live="polite">
+        <div>{{ section.settings.copy_39 | escape }} <strong id="sbd-count">{{ section.settings.copy_40 | escape }}</strong> {{ section.settings.copy_41 | escape }} <strong id="sbd-total">{{ section.settings.copy_42 | escape }}</strong> {{ section.settings.copy_43 | escape }}</div>
+      </div>
+
+      <!-- Products Grid -->
+      {% assign design_collection = section.settings.collection | default: collections['designs'] | default: collections.all %}{% paginate design_collection.products by 24 %}<section class="design-grid" id="design-grid" aria-label="Matching designs product catalog">{% for product in design_collection.products %}{% render 'catalog-card', product: product, kind: 'design' %}{% endfor %}</section>{{ paginate | default_pagination }}{% endpaginate %}
+
+      <!-- Benefits Row -->
+      <section class="design-benefits" aria-label="Customer benefits">
+        <div><i>♧</i><p><b>{{ section.settings.copy_44 | escape }}</b><span>{{ section.settings.copy_45 | escape }}</span></p></div>
+        <div><i>♢</i><p><b>{{ section.settings.copy_46 | escape }}</b><span>{{ section.settings.copy_47 | escape }}</span></p></div>
+        <div><i>◷</i><p><b>{{ section.settings.copy_48 | escape }}</b><span>{{ section.settings.copy_49 | escape }}</span></p></div>
+        <div><i>♡</i><p><b>{{ section.settings.copy_50 | escape }}</b><span>{{ section.settings.copy_51 | escape }}</span></p></div>
+      </section>
+
+      <!-- Gold Promo Banner -->
+      <section class="design-promo-banner" aria-label="Design promo">
+        <img class="promo-emblem" src="{% if section.settings.art_3 != blank %}{{ section.settings.art_3 | image_url: width: 2000 }}{% else %}{{ 'heart-hq.png' | asset_url }}{% endif %}" alt="Golden crowned heart" width="1254" height="1254">
+        <div class="design-promo-copy">
+          <h3>{{ section.settings.copy_52 | escape }}</h3>
+          <h2>{{ section.settings.copy_53 | escape }}</h2>
+          <p>{{ section.settings.copy_54 | escape }}</p>
+        </div>
+        <div class="design-promo-action">
+          <a class="design-promo-btn" href="{{ section.settings.copy_55 | escape }}">
+            {{ section.settings.copy_56 | escape }} <svg class="icon crown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 4 5 5-8 5 8 4-5-2 13H5L3 6Z"/><path d="M5 16h14M7 22h10"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Customer Services Row (from shop by design.png slice 6) -->
+      <section class="design-services" aria-label="Customer guarantees">
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1 3h15v13H1z"/>
+              <path d="M16 8h4l3 3v5h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_57 | escape }}</strong><span>{{ section.settings.copy_58 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_59 | escape }}</strong><span>{{ section.settings.copy_60 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_61 | escape }}</strong><span>{{ section.settings.copy_62 | escape }}</span></p>
+        </div>
+        <div>
+          <div class="service-glyph">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <p><strong>{{ section.settings.copy_63 | escape }}</strong><span>{{ section.settings.copy_64 | escape }}</span></p>
+        </div>
+      </section>
+
+      <!-- Instagram / Social -->
+      <section id="social" class="social" aria-labelledby="instagram-heading">
+        <h2 id="instagram-heading">{{ section.settings.copy_65 | escape }} <a href="{{ section.settings.copy_66 | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.copy_67 | escape }}</a> <span>♡</span></h2>
+        <div id="social-grid" role="list" aria-label="Demo Instagram feed">
+          <a class="instagram-card" href="{{ section.settings.copy_68 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_4 != blank %}{{ section.settings.art_4 | image_url: width: 2000 }}{% else %}{{ 'social-0.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 1" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_69 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_5 != blank %}{{ section.settings.art_5 | image_url: width: 2000 }}{% else %}{{ 'social-1.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 2" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_70 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_6 != blank %}{{ section.settings.art_6 | image_url: width: 2000 }}{% else %}{{ 'social-2.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 3" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_71 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_7 != blank %}{{ section.settings.art_7 | image_url: width: 2000 }}{% else %}{{ 'social-3.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 4" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_72 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_8 != blank %}{{ section.settings.art_8 | image_url: width: 2000 }}{% else %}{{ 'social-4.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 5" loading="lazy" width="129" height="81"></a>
+          <a class="instagram-card" href="{{ section.settings.copy_73 | escape }}" target="_blank" rel="noopener noreferrer"><img src="{% if section.settings.art_9 != blank %}{{ section.settings.art_9 | image_url: width: 2000 }}{% else %}{{ 'social-5.png' | asset_url }}{% endif %}" alt="Press By Heart Instagram look 6" loading="lazy" width="129" height="81"></a>
+        </div>
+      </section>
+    </div>
+  
+
+{% schema %}{
+  "name": "shop by design",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Design collection"
+    },
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Copy: Press By Heart ♡",
+      "default": "Press By Heart ♡"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Copy: SHOP BY",
+      "default": "SHOP BY"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Copy: DESIGN",
+      "default": "DESIGN"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Copy: Find your perfect shape, length & style.",
+      "default": "Find your perfect shape, length & style."
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Copy: Handcrafted salon quality press-on nails.",
+      "default": "Handcrafted salon quality press-on nails."
+    },
+    {
+      "type": "text",
+      "id": "copy_6",
+      "label": "Link: #shop-by-design-grid",
+      "default": "#shop-by-design-grid"
+    },
+    {
+      "type": "text",
+      "id": "copy_7",
+      "label": "Copy: EXPLORE DESIGNS",
+      "default": "EXPLORE DESIGNS"
+    },
+    {
+      "type": "text",
+      "id": "copy_8",
+      "label": "Copy: NAILS",
+      "default": "NAILS"
+    },
+    {
+      "type": "text",
+      "id": "copy_9",
+      "label": "Copy: KIDS",
+      "default": "KIDS"
+    },
+    {
+      "type": "text",
+      "id": "copy_10",
+      "label": "Copy: BUNDLES",
+      "default": "BUNDLES"
+    },
+    {
+      "type": "text",
+      "id": "copy_11",
+      "label": "Copy: PEDIS",
+      "default": "PEDIS"
+    },
+    {
+      "type": "text",
+      "id": "copy_12",
+      "label": "Copy: ACCESSORIES",
+      "default": "ACCESSORIES"
+    },
+    {
+      "type": "text",
+      "id": "copy_13",
+      "label": "Copy: CUSTOMIZE YOUR SET 💅",
+      "default": "CUSTOMIZE YOUR SET 💅"
+    },
+    {
+      "type": "text",
+      "id": "copy_14",
+      "label": "Copy: RESET ALL FILTERS",
+      "default": "RESET ALL FILTERS"
+    },
+    {
+      "type": "text",
+      "id": "copy_15",
+      "label": "Copy: Shape",
+      "default": "Shape"
+    },
+    {
+      "type": "text",
+      "id": "copy_16",
+      "label": "Copy: All Shapes",
+      "default": "All Shapes"
+    },
+    {
+      "type": "text",
+      "id": "copy_17",
+      "label": "Copy: Almond",
+      "default": "Almond"
+    },
+    {
+      "type": "text",
+      "id": "copy_18",
+      "label": "Copy: Square",
+      "default": "Square"
+    },
+    {
+      "type": "text",
+      "id": "copy_19",
+      "label": "Copy: Oval",
+      "default": "Oval"
+    },
+    {
+      "type": "text",
+      "id": "copy_20",
+      "label": "Copy: Coffin",
+      "default": "Coffin"
+    },
+    {
+      "type": "text",
+      "id": "copy_21",
+      "label": "Copy: Ballerina",
+      "default": "Ballerina"
+    },
+    {
+      "type": "text",
+      "id": "copy_22",
+      "label": "Copy: Length",
+      "default": "Length"
+    },
+    {
+      "type": "text",
+      "id": "copy_23",
+      "label": "Copy: All Lengths",
+      "default": "All Lengths"
+    },
+    {
+      "type": "text",
+      "id": "copy_24",
+      "label": "Copy: Short",
+      "default": "Short"
+    },
+    {
+      "type": "text",
+      "id": "copy_25",
+      "label": "Copy: Medium",
+      "default": "Medium"
+    },
+    {
+      "type": "text",
+      "id": "copy_26",
+      "label": "Copy: Long",
+      "default": "Long"
+    },
+    {
+      "type": "text",
+      "id": "copy_27",
+      "label": "Copy: Colour",
+      "default": "Colour"
+    },
+    {
+      "type": "text",
+      "id": "copy_28",
+      "label": "Copy: All Colours",
+      "default": "All Colours"
+    },
+    {
+      "type": "text",
+      "id": "copy_29",
+      "label": "Copy: Pink",
+      "default": "Pink"
+    },
+    {
+      "type": "text",
+      "id": "copy_30",
+      "label": "Copy: White",
+      "default": "White"
+    },
+    {
+      "type": "text",
+      "id": "copy_31",
+      "label": "Copy: Blue",
+      "default": "Blue"
+    },
+    {
+      "type": "text",
+      "id": "copy_32",
+      "label": "Copy: Black",
+      "default": "Black"
+    },
+    {
+      "type": "text",
+      "id": "copy_33",
+      "label": "Copy: Orange",
+      "default": "Orange"
+    },
+    {
+      "type": "text",
+      "id": "copy_34",
+      "label": "Copy: Yellow",
+      "default": "Yellow"
+    },
+    {
+      "type": "text",
+      "id": "copy_35",
+      "label": "Copy: Purple",
+      "default": "Purple"
+    },
+    {
+      "type": "text",
+      "id": "copy_36",
+      "label": "Copy: Green",
+      "default": "Green"
+    },
+    {
+      "type": "text",
+      "id": "copy_37",
+      "label": "Copy: Red",
+      "default": "Red"
+    },
+    {
+      "type": "text",
+      "id": "copy_38",
+      "label": "Copy: Gems",
+      "default": "Gems"
+    },
+    {
+      "type": "text",
+      "id": "copy_39",
+      "label": "Copy: Showing",
+      "default": "Showing"
+    },
+    {
+      "type": "text",
+      "id": "copy_40",
+      "label": "Copy: 16",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "copy_41",
+      "label": "Copy: of",
+      "default": "of"
+    },
+    {
+      "type": "text",
+      "id": "copy_42",
+      "label": "Copy: 16",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "copy_43",
+      "label": "Copy: designs",
+      "default": "designs"
+    },
+    {
+      "type": "text",
+      "id": "copy_44",
+      "label": "Copy: REUSABLE & DURABLE",
+      "default": "REUSABLE & DURABLE"
+    },
+    {
+      "type": "text",
+      "id": "copy_45",
+      "label": "Copy: Wear again & again",
+      "default": "Wear again & again"
+    },
+    {
+      "type": "text",
+      "id": "copy_46",
+      "label": "Copy: SALON QUALITY",
+      "default": "SALON QUALITY"
+    },
+    {
+      "type": "text",
+      "id": "copy_47",
+      "label": "Copy: Premium finish",
+      "default": "Premium finish"
+    },
+    {
+      "type": "text",
+      "id": "copy_48",
+      "label": "Copy: QUICK & EASY",
+      "default": "QUICK & EASY"
+    },
+    {
+      "type": "text",
+      "id": "copy_49",
+      "label": "Copy: Apply in minutes",
+      "default": "Apply in minutes"
+    },
+    {
+      "type": "text",
+      "id": "copy_50",
+      "label": "Copy: CRUELTY FREE",
+      "default": "CRUELTY FREE"
+    },
+    {
+      "type": "text",
+      "id": "copy_51",
+      "label": "Copy: Made with love",
+      "default": "Made with love"
+    },
+    {
+      "type": "text",
+      "id": "copy_52",
+      "label": "Copy: Quick press, instant beauty ♡",
+      "default": "Quick press, instant beauty ♡"
+    },
+    {
+      "type": "text",
+      "id": "copy_53",
+      "label": "Copy: PRESS-ON NAILS FOR EVERY YOU",
+      "default": "PRESS-ON NAILS FOR EVERY YOU"
+    },
+    {
+      "type": "text",
+      "id": "copy_54",
+      "label": "Copy: Handcrafted shapes, lengths and finishes designed to expres",
+      "default": "Handcrafted shapes, lengths and finishes designed to express your unique beauty every single day."
+    },
+    {
+      "type": "text",
+      "id": "copy_55",
+      "label": "Link: #shop-by-design-grid",
+      "default": "#shop-by-design-grid"
+    },
+    {
+      "type": "text",
+      "id": "copy_56",
+      "label": "Copy: SHOP DESIGNS",
+      "default": "SHOP DESIGNS"
+    },
+    {
+      "type": "text",
+      "id": "copy_57",
+      "label": "Copy: FAST DELIVERY",
+      "default": "FAST DELIVERY"
+    },
+    {
+      "type": "text",
+      "id": "copy_58",
+      "label": "Copy: Tracked UK shipping",
+      "default": "Tracked UK shipping"
+    },
+    {
+      "type": "text",
+      "id": "copy_59",
+      "label": "Copy: PREMIUM QUALITY",
+      "default": "PREMIUM QUALITY"
+    },
+    {
+      "type": "text",
+      "id": "copy_60",
+      "label": "Copy: Salon grade materials",
+      "default": "Salon grade materials"
+    },
+    {
+      "type": "text",
+      "id": "copy_61",
+      "label": "Copy: SECURE PAYMENT",
+      "default": "SECURE PAYMENT"
+    },
+    {
+      "type": "text",
+      "id": "copy_62",
+      "label": "Copy: 100% encrypted checkout",
+      "default": "100% encrypted checkout"
+    },
+    {
+      "type": "text",
+      "id": "copy_63",
+      "label": "Copy: CUSTOMER CARE",
+      "default": "CUSTOMER CARE"
+    },
+    {
+      "type": "text",
+      "id": "copy_64",
+      "label": "Copy: Here to help 7 days",
+      "default": "Here to help 7 days"
+    },
+    {
+      "type": "text",
+      "id": "copy_65",
+      "label": "Copy: FOLLOW US",
+      "default": "FOLLOW US"
+    },
+    {
+      "type": "text",
+      "id": "copy_66",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_67",
+      "label": "Copy: @PRESSBYHEART",
+      "default": "@PRESSBYHEART"
+    },
+    {
+      "type": "text",
+      "id": "copy_68",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_69",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_70",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_71",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_72",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "text",
+      "id": "copy_73",
+      "label": "Link: https://www.instagram.com/pressbyheart/",
+      "default": "https://www.instagram.com/pressbyheart/"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Image: hero-expanded.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_2",
+      "label": "Image: swatch-gems.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_3",
+      "label": "Image: heart-hq.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_4",
+      "label": "Image: social-0.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_5",
+      "label": "Image: social-1.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_6",
+      "label": "Image: social-2.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_7",
+      "label": "Image: social-3.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_8",
+      "label": "Image: social-4.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_9",
+      "label": "Image: social-5.png"
+    }
+  ],
+  "presets": [
+    {
+      "name": "shop by design"
+    }
+  ]
+}{% endschema %}

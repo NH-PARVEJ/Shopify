@@ -1,0 +1,367 @@
+{%- style -%}
+  .section-{{ section.id }}-why {
+    padding-top: {{ section.settings.padding_top | default: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 0 }}px;
+  }
+  .section-{{ section.id }}-why .why {
+    {% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }} !important;{% endif %}
+  }
+  {% if section.settings.heading_color != blank %}
+    .section-{{ section.id }}-why .why h2 {
+      color: {{ section.settings.heading_color }} !important;
+    }
+  {% endif %}
+  {% if section.settings.text_color != blank %}
+    .section-{{ section.id }}-why .why ul,
+    .section-{{ section.id }}-why .testimonial blockquote {
+      color: {{ section.settings.text_color }} !important;
+    }
+  {% endif %}
+  {% if section.settings.stars_color != blank %}
+    .section-{{ section.id }}-why .stars {
+      color: {{ section.settings.stars_color }} !important;
+    }
+  {% endif %}
+  {% if section.settings.hide_desktop %}
+    @media (min-width: 701px) { .section-{{ section.id }}-why { display: none !important; } }
+  {% endif %}
+  {% if section.settings.hide_mobile %}
+    @media (max-width: 700px) { .section-{{ section.id }}-why { display: none !important; } }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="content-container section-{{ section.id }}-why">
+<section class="why" data-section-id="{{ section.id }}">
+  {%- if section.settings.show_bullets_column -%}
+    <div class="why-copy">
+      {%- if section.settings.show_heading -%}
+        <h2>{{ section.settings.heading | default: 'Why Press By Heart?' }} {%- if section.settings.show_heart -%}<span>♡</span>{%- endif -%}</h2>
+      {%- endif -%}
+      <ul>
+        {%- assign bullet_blocks = section.blocks | where: 'type', 'bullet_point' -%}
+        {%- if bullet_blocks.size > 0 -%}
+          {%- for block in bullet_blocks -%}
+            <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+          {%- endfor -%}
+        {%- else -%}
+          <li>{{ section.settings.copy_1 | default: 'Salon quality nails at home' | escape }}</li>
+          <li>{{ section.settings.copy_2 | default: 'Long lasting & durable' | escape }}</li>
+          <li>{{ section.settings.copy_3 | default: 'Reusable up to 2+ weeks' | escape }}</li>
+          <li>{{ section.settings.copy_4 | default: '100% handmade with love' | escape }}</li>
+          <li>{{ section.settings.copy_5 | default: 'Inclusive sizes for every nail shape' | escape }}</li>
+        {%- endif -%}
+      </ul>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.show_center_emblem -%}
+    {%- if section.settings.center_image != blank -%}
+      <img src="{{ section.settings.center_image | image_url: width: 180 }}" alt="{{ section.settings.center_image.alt | default: 'Golden crowned heart' | escape }}" loading="lazy" width="90" height="95">
+    {%- else -%}
+      <img src="{% if section.settings.art_1 != blank %}{{ section.settings.art_1 | image_url: width: 2000 }}{% else %}{{ 'heart-hq.png' | asset_url }}{% endif %}" alt="Golden crowned heart" loading="lazy" width="90" height="95">
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if section.settings.show_testimonials_column -%}
+    {%- assign testimonial_blocks = section.blocks | where: 'type', 'testimonial' -%}
+    {%- if testimonial_blocks.size > 0 -%}
+      <div class="testimonial" role="region" aria-roledescription="carousel" aria-label="Customer reviews" tabindex="0" data-active-review="0" data-total-reviews="{{ testimonial_blocks.size }}">
+        <script type="application/json" class="testimonials-json">
+          [
+            {%- for block in testimonial_blocks -%}
+              {
+                "id": {{ block.id | json }},
+                "text": {{ block.settings.quote | json }},
+                "author": {{ block.settings.author | json }},
+                "stars": {{ block.settings.stars | default: '★★★★★' | json }}
+              }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          ]
+        </script>
+        {%- assign first_review = testimonial_blocks.first -%}
+        {%- if section.settings.show_stars -%}
+          <div class="stars" aria-label="5 out of 5 stars">{{ first_review.settings.stars | default: '★★★★★' }}</div>
+        {%- endif -%}
+        <div class="quote-line">
+          {%- if section.settings.show_carousel_arrows -%}
+            <button type="button" class="review-prev" aria-label="Previous review">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg>
+            </button>
+          {%- endif -%}
+          <blockquote aria-live="polite" aria-atomic="true" {{ first_review.shopify_attributes }}>
+            <span class="review-text">{{ first_review.settings.quote }}</span>
+            <cite>{{ first_review.settings.author }}</cite>
+          </blockquote>
+          {%- if section.settings.show_carousel_arrows -%}
+            <button type="button" class="review-next" aria-label="Next review">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg>
+            </button>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.show_carousel_dots -%}
+          <div class="review-dots" aria-label="Choose a review">
+            {%- for block in testimonial_blocks -%}
+              <button type="button" aria-label="Show review {{ forloop.index }} of {{ testimonial_blocks.size }}" data-review="{{ forloop.index0 }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" {{ block.shopify_attributes }}></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+      <div class="testimonial" role="region" aria-roledescription="carousel" aria-label="Customer reviews" tabindex="0">
+        {%- if section.settings.show_stars -%}
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        {%- endif -%}
+        <div class="quote-line">
+          {%- if section.settings.show_carousel_arrows -%}
+            <button type="button" class="review-prev" aria-label="Previous review"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg></button>
+          {%- endif -%}
+          <blockquote>
+            <span class="review-text">{{ section.settings.review_1_text | default: '“The quality is unreal! They last for weeks and I get so many compliments.”' }}</span>
+            <cite>{{ section.settings.review_1_author | default: '- Sarah J.' }}</cite>
+          </blockquote>
+          {%- if section.settings.show_carousel_arrows -%}
+            <button type="button" class="review-next" aria-label="Next review"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg></button>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Why Choose Us & Reviews",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Element Toggles (On / Off)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show Section Heading",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heart",
+      "label": "Show Heart Symbol in Heading",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bullets_column",
+      "label": "Show Bullets (Left Column)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_center_emblem",
+      "label": "Show Center Crowned Heart Emblem",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_testimonials_column",
+      "label": "Show Testimonials (Right Column)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show Star Rating",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_carousel_arrows",
+      "label": "Show Review Prev/Next Arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_carousel_dots",
+      "label": "Show Review Indicator Dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Why Press By Heart?"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Emblem Custom Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "art_1",
+      "label": "Fallback Emblem (heart-hq.png)"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#fff2f6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "stars_color",
+      "label": "Stars Rating Color",
+      "default": "#f32b75"
+    },
+    {
+      "type": "header",
+      "content": "Spacing & Responsive"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Spacing",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_desktop",
+      "label": "Hide on Desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_mobile",
+      "label": "Hide on Mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Fallback Bullet Points"
+    },
+    {
+      "type": "text",
+      "id": "copy_1",
+      "label": "Bullet 1",
+      "default": "Salon quality nails at home"
+    },
+    {
+      "type": "text",
+      "id": "copy_2",
+      "label": "Bullet 2",
+      "default": "Long lasting & durable"
+    },
+    {
+      "type": "text",
+      "id": "copy_3",
+      "label": "Bullet 3",
+      "default": "Reusable up to 2+ weeks"
+    },
+    {
+      "type": "text",
+      "id": "copy_4",
+      "label": "Bullet 4",
+      "default": "100% handmade with love"
+    },
+    {
+      "type": "text",
+      "id": "copy_5",
+      "label": "Bullet 5",
+      "default": "Inclusive sizes for every nail shape"
+    },
+    {
+      "type": "header",
+      "content": "Fallback Review"
+    },
+    {
+      "type": "text",
+      "id": "review_1_text",
+      "label": "Review Quote",
+      "default": "“The quality is unreal! They last for weeks and I get so many compliments.”"
+    },
+    {
+      "type": "text",
+      "id": "review_1_author",
+      "label": "Review Author",
+      "default": "- Sarah J."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet_point",
+      "name": "Why Us Bullet Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Point Description",
+          "default": "Salon quality nails at home"
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Testimonial Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Customer Review Quote",
+          "default": "“The quality is unreal! They last for weeks and I get so many compliments.”"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer Name / Handle",
+          "default": "- Sarah J."
+        },
+        {
+          "type": "text",
+          "id": "stars",
+          "label": "Star Rating (e.g. ★★★★★)",
+          "default": "★★★★★"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us & Reviews"
+    }
+  ]
+}
+{% endschema %}
