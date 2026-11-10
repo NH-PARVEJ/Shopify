@@ -152,3 +152,6 @@ If you see the error `"This store isn't set up to receive orders yet"`, your Sho
 2. In the **Theme library** section, click **Add theme > Upload zip file**.
 3. Select `press-by-heart.zip` and click **Upload**.
 4. Once uploaded, click **Actions > Publish** to make it your live store theme.
+#   S h o p i f y  
+ #   S h o p i f y  
+ 
