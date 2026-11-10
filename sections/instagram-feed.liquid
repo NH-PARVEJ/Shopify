@@ -1,57 +1,131 @@
-<div class="content-container">
-<section id="social" class="social" aria-labelledby="instagram-heading">
-  <h2 id="instagram-heading">
-    {{ section.settings.heading | default: 'FOLLOW US' }}
-    <a href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}" target="_blank" rel="noopener noreferrer">
-      {{ section.settings.account_handle | default: '@PRESSBYHEART' }}
-    </a>
-    <span>♡</span>
-  </h2>
+{{ 'instagram-feed.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'instagram-feed.js' | asset_url }}" defer="defer"></script>
 
-  <div id="social-grid" role="list" aria-label="Instagram feed">
-    {%- if section.blocks.size > 0 -%}
-      {%- for block in section.blocks -%}
-        <a class="instagram-card" role="listitem"
-          href="{{ block.settings.url | default: section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}"
-          target="_blank" rel="noopener noreferrer"
-          aria-label="{{ block.settings.caption | default: 'View on Instagram' | escape }}"
-          {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.caption | default: 'Instagram post' | escape }}" loading="lazy" width="129" height="81">
-          {%- else -%}
-            {%- assign default_social_idx = forloop.index0 | modulo: 6 -%}
-            <img src="{{ 'social-' | append: default_social_idx | append: '.png' | asset_url }}" alt="{{ block.settings.caption | default: 'Instagram post' | escape }}" loading="lazy" width="129" height="81">
-          {%- endif -%}
-          <span class="instagram-overlay" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7"/></svg>
-            <span>{{ section.settings.copy_1 | escape }}</span>
-          </span>
+<div class="content-container">
+<section id="social" class="social instagram-feed-section" aria-labelledby="instagram-heading" data-section-id="{{ section.id }}" style="--ig-cols-desktop: {{ section.settings.grid_columns_desktop | default: 6 }}; --ig-cols-mobile: {{ section.settings.grid_columns_mobile | default: 3 }};">
+  
+  <div class="instagram-feed-header">
+    <h2 id="instagram-heading">
+      {{ section.settings.heading | default: 'FOLLOW US' }}
+      {%- if section.settings.account_handle != blank -%}
+        <a href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}" target="_blank" rel="noopener noreferrer">
+          {{ section.settings.account_handle }}
         </a>
-      {%- endfor -%}
-    {%- else -%}
-      {% comment %} Default Approved Prototype Instagram Feed (6 Cards) {% endcomment %}
-      {%- assign demo_captions = "Everyday nude nail inspiration,Pretty in pink press-on nails,Unbox your instant beauty,Your next pink manicure,Glossy French nail designs,A little pink delivery" | split: "," -%}
-      {%- for i in (0..5) -%}
-        <a class="instagram-card" role="listitem"
-          href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}"
-          target="_blank" rel="noopener noreferrer"
-          aria-label="{{ demo_captions[i] }} — view @pressbyheart on Instagram">
-          <img src="{{ 'social-' | append: i | append: '.png' | asset_url }}" alt="{{ demo_captions[i] }}" loading="lazy" width="129" height="81">
-          <span class="instagram-overlay" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7"/></svg>
-            <span>{{ section.settings.copy_2 | escape }}</span>
-          </span>
-        </a>
-      {%- endfor -%}
+      {%- endif -%}
+      <span>♡</span>
+    </h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="instagram-subheading">{{ section.settings.subheading | escape }}</p>
     {%- endif -%}
   </div>
+
+  {%- comment -%} Shopify Theme Editor Setup Guide (Only visible inside Theme Customizer when not connected) {%- endcomment -%}
+  {%- if request.design_mode -%}
+    {%- if section.settings.access_token == blank and section.settings.feed_api_url == blank and section.settings.embed_code == blank -%}
+      <div class="instagram-editor-notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <div>
+          <strong>Real Instagram Feed Setup:</strong> To display real live posts automatically, enter your <em>Instagram Access Token</em> or <em>JSON Feed URL (Behold.so / Curator)</em> or paste an <em>Embed Code</em> in the section settings on the right. Currently showing fallback preview.
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- comment -%} Check for Third-party App Blocks (e.g. Instafeed) {%- endcomment -%}
+  {%- assign has_app_block = false -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == '@app' -%}
+      {%- assign has_app_block = true -%}
+      <div class="instagram-app-block" {{ block.shopify_attributes }}>
+        {% render block %}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- unless has_app_block -%}
+    {%- if section.settings.embed_code != blank -%}
+      <div class="instagram-custom-embed">
+        {{ section.settings.embed_code }}
+      </div>
+    {%- else -%}
+      <div id="social-grid" 
+           class="social-grid" 
+           role="list" 
+           aria-label="Instagram feed"
+           data-instagram-grid
+           data-access-token="{{ section.settings.access_token | escape }}"
+           data-feed-url="{{ section.settings.feed_api_url | escape }}"
+           data-post-limit="{{ section.settings.post_limit | default: 6 }}"
+           data-handle="{{ section.settings.account_handle | default: '@PRESSBYHEART' | escape }}"
+           data-account-url="{{ section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}">
+        
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'instagram_post' -%}
+              <a class="instagram-card" role="listitem"
+                href="{{ block.settings.url | default: section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="{{ block.settings.caption | default: 'View on Instagram' | escape }}"
+                {{ block.shopify_attributes }}>
+                <div class="instagram-img-wrap">
+                  {%- if block.settings.image != blank -%}
+                    <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.caption | default: 'Instagram post' | escape }}" loading="lazy" width="129" height="129">
+                  {%- else -%}
+                    {%- assign default_social_idx = forloop.index0 | modulo: 6 -%}
+                    <img src="{{ 'social-' | append: default_social_idx | append: '.png' | asset_url }}" alt="{{ block.settings.caption | default: 'Instagram post' | escape }}" loading="lazy" width="129" height="129">
+                  {%- endif -%}
+                </div>
+                <span class="instagram-overlay" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7"/></svg>
+                  <span class="instagram-overlay-caption">{{ block.settings.caption | default: 'View on Instagram' | escape }}</span>
+                </span>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {% comment %} Default Approved Prototype Instagram Feed Fallback (6 Cards) {% endcomment %}
+          {%- assign demo_captions = "Everyday nude nail inspiration,Pretty in pink press-on nails,Unbox your instant beauty,Your next pink manicure,Glossy French nail designs,A little pink delivery" | split: "," -%}
+          {%- for i in (0..5) -%}
+            <a class="instagram-card" role="listitem"
+              href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="{{ demo_captions[i] }} — view @pressbyheart on Instagram">
+              <div class="instagram-img-wrap">
+                <img src="{{ 'social-' | append: i | append: '.png' | asset_url }}" alt="{{ demo_captions[i] }}" loading="lazy" width="129" height="129">
+              </div>
+              <span class="instagram-overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7"/></svg>
+                <span class="instagram-overlay-caption">{{ demo_captions[i] }}</span>
+              </span>
+            </a>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endunless -%}
+
+  {%- if section.settings.show_follow_button -%}
+    <div class="instagram-cta-wrap">
+      <a href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/pressbyheart/' }}" target="_blank" rel="noopener noreferrer" class="instagram-follow-btn">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <span>{{ section.settings.follow_button_text | default: 'Follow on Instagram' }}</span>
+      </a>
+    </div>
+  {%- endif -%}
+
 </section>
 </div>
 
-
-{% schema %}{
+{% schema %}
+{
   "name": "Instagram Feed",
+  "tag": "section",
+  "class": "section-instagram-feed",
   "settings": [
+    {
+      "type": "header",
+      "content": "Heading & Profile"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -71,21 +145,93 @@
     },
     {
       "type": "text",
-      "id": "copy_1",
-      "label": "Copy: View on Instagram",
-      "default": "View on Instagram"
+      "id": "subheading",
+      "label": "Subheading (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Live Instagram Connection"
+    },
+    {
+      "type": "paragraph",
+      "content": "Connect real live posts by entering your Instagram Access Token (from Meta Basic Display API) OR a JSON Feed URL (from Behold.so / Curator) OR an Embed Code below."
     },
     {
       "type": "text",
-      "id": "copy_2",
-      "label": "Copy: View on Instagram",
-      "default": "View on Instagram"
+      "id": "access_token",
+      "label": "Instagram User Access Token",
+      "info": "Paste your Instagram User Token to automatically fetch live feed posts."
+    },
+    {
+      "type": "text",
+      "id": "feed_api_url",
+      "label": "JSON Feed URL (Optional)",
+      "info": "If using Behold.so or Curator, paste your JSON feed URL here."
+    },
+    {
+      "type": "html",
+      "id": "embed_code",
+      "label": "Custom Embed / Widget Code (Optional)",
+      "info": "Paste embed code here if using SnapWidget, Elfsight, or LightWidget."
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "label": "Number of Posts to Show",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "grid_columns_desktop",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "label": "Desktop Columns",
+      "default": 6
+    },
+    {
+      "type": "select",
+      "id": "grid_columns_mobile",
+      "label": "Mobile Columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 Columns"
+        },
+        {
+          "value": "3",
+          "label": "3 Columns"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "header",
+      "content": "Follow Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_follow_button",
+      "label": "Show Follow Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "follow_button_text",
+      "label": "Follow Button Text",
+      "default": "Follow on Instagram"
     }
   ],
   "blocks": [
     {
+      "type": "@app"
+    },
+    {
       "type": "instagram_post",
-      "name": "Instagram Card",
+      "name": "Custom / Fallback Card",
       "settings": [
         {
           "type": "image_picker",
@@ -108,7 +254,46 @@
   ],
   "presets": [
     {
-      "name": "Instagram Feed"
+      "name": "Instagram Feed",
+      "blocks": [
+        {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Everyday nude nail inspiration"
+          }
+        },
+        {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Pretty in pink press-on nails"
+          }
+        },
+        {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Unbox your instant beauty"
+          }
+        },
+        {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Your next pink manicure"
+          }
+        },
+        {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "Glossy French nail designs"
+          }
+        },
+        {
+          "type": "instagram_post",
+          "settings": {
+            "caption": "A little pink delivery"
+          }
+        }
+      ]
     }
   ]
-}{% endschema %}
+}
+{% endschema %}
