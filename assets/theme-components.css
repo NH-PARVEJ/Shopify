@@ -1,74 +1,123 @@
 
 /* ==========================================================================
-   BULLETPROOF HEADER CART BAG ICON (GLOBAL DESKTOP & MOBILE)
+   BULLETPROOF BRAND LUXURY CART ICON (GLOBAL DESKTOP & MOBILE)
    ========================================================================== */
 header .nav-bag,
 .site-header .nav-bag,
-.nav-bag {
+.nav-bag,
+.luxury-cart-btn {
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 34rem !important;
-  height: 34rem !important;
-  min-width: 34px !important;
-  min-height: 34px !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
   border-radius: 50% !important;
-  color: #1a1a1a !important;
+  background: linear-gradient(135deg, #fff5f8 0%, #ffeaf1 100%) !important;
+  border: 1.5px solid #ffd3e2 !important;
+  color: #fa4087 !important;
   text-decoration: none !important;
-  transition: transform 0.2s ease, color 0.2s ease !important;
+  box-shadow: 0 2px 8px rgba(250, 64, 135, 0.12) !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease !important;
   flex-shrink: 0 !important;
   margin: 0 !important;
+  padding: 0 !important;
   line-height: 1 !important;
   vertical-align: middle !important;
   box-sizing: border-box !important;
+  cursor: pointer !important;
 }
 
 header .nav-bag:hover,
 .site-header .nav-bag:hover,
-.nav-bag:hover {
+.nav-bag:hover,
+.luxury-cart-btn:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  background: linear-gradient(135deg, #ffeef4 0%, #ffdbe7 100%) !important;
+  border-color: #fa4087 !important;
+  box-shadow: 0 4px 14px rgba(250, 64, 135, 0.24) !important;
   color: #fa4087 !important;
-  transform: scale(1.08) !important;
+}
+
+header .nav-bag:active,
+.site-header .nav-bag:active,
+.nav-bag:active,
+.luxury-cart-btn:active {
+  transform: translateY(0) scale(0.98) !important;
 }
 
 header .nav-bag svg,
 header .nav-bag .bag-icon,
-header .nav-bag .icon.bag-icon,
+header .nav-bag .cart-icon,
+header .nav-bag .icon,
 .site-header .nav-bag svg,
 .site-header .nav-bag .bag-icon,
-.site-header .nav-bag .icon.bag-icon,
+.site-header .nav-bag .cart-icon,
+.site-header .nav-bag .icon,
 .nav-bag svg,
 .nav-bag .bag-icon,
-.nav-bag .icon.bag-icon {
+.nav-bag .cart-icon,
+.nav-bag .icon,
+.luxury-cart-btn svg {
   display: block !important;
-  width: 18rem !important;
-  height: 18rem !important;
-  min-width: 18px !important;
-  min-height: 18px !important;
-  stroke: currentColor !important;
+  width: 19px !important;
+  height: 19px !important;
+  min-width: 19px !important;
+  min-height: 19px !important;
+  max-width: 19px !important;
+  max-height: 19px !important;
+  stroke: #fa4087 !important;
   stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
   fill: none !important;
   flex-shrink: 0 !important;
+  margin: 0 !important;
   box-sizing: border-box !important;
+  pointer-events: none !important;
+}
+
+header .nav-bag svg .heart-accent,
+.site-header .nav-bag svg .heart-accent,
+.nav-bag svg .heart-accent,
+.luxury-cart-btn svg .heart-accent,
+header .nav-bag svg path[fill="#fa4087"],
+.site-header .nav-bag svg path[fill="#fa4087"],
+.nav-bag svg path[fill="#fa4087"] {
+  fill: #fa4087 !important;
+  stroke: none !important;
+}
+
+header .nav-bag svg circle,
+.site-header .nav-bag svg circle,
+.nav-bag svg circle,
+.luxury-cart-btn svg circle {
+  fill: #fa4087 !important;
+  stroke: none !important;
 }
 
 header .nav-bag .bag-count,
 .site-header .nav-bag .bag-count,
-.nav-bag .bag-count {
+.nav-bag .bag-count,
+.luxury-badge {
   position: absolute !important;
-  top: 1rem !important;
-  right: 1rem !important;
-  min-width: 15rem !important;
-  height: 15rem !important;
-  min-width: 15px !important;
-  min-height: 15px !important;
-  padding: 0 4rem !important;
-  background: #fa4087 !important;
+  top: -3px !important;
+  right: -3px !important;
+  min-width: 17px !important;
+  height: 17px !important;
+  min-height: 17px !important;
+  max-height: 17px !important;
+  padding: 0 4px !important;
+  background: linear-gradient(135deg, #fa4087, #f13d84) !important;
   color: #ffffff !important;
   border-radius: 999px !important;
+  border: 1.5px solid #ffffff !important;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
-  font-size: 8.5rem !important;
-  font-size: 10px !important;
+  font-size: 9.5px !important;
   font-weight: 700 !important;
   display: flex !important;
   align-items: center !important;
@@ -76,46 +125,56 @@ header .nav-bag .bag-count,
   line-height: 1 !important;
   pointer-events: none !important;
   box-sizing: border-box !important;
+  box-shadow: 0 2px 6px rgba(250, 64, 135, 0.4) !important;
+  z-index: 2 !important;
 }
 
 @media (max-width: 700px) {
   header .nav-bag,
   .site-header .nav-bag,
-  .nav-bag {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
+  .nav-bag,
+  .luxury-cart-btn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
   }
   header .nav-bag svg,
   header .nav-bag .bag-icon,
+  header .nav-bag .cart-icon,
   .site-header .nav-bag svg,
   .site-header .nav-bag .bag-icon,
+  .site-header .nav-bag .cart-icon,
   .nav-bag svg,
-  .nav-bag .bag-icon {
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    min-height: 16px !important;
+  .nav-bag .bag-icon,
+  .nav-bag .cart-icon,
+  .luxury-cart-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    min-width: 17px !important;
+    min-height: 17px !important;
   }
   header .nav-bag .bag-count,
   .site-header .nav-bag .bag-count,
-  .nav-bag .bag-count {
-    top: -2px !important;
-    right: -2px !important;
-    font-size: 8px !important;
-    min-width: 14px !important;
-    height: 14px !important;
-    min-height: 14px !important;
-    padding: 0 2px !important;
+  .nav-bag .bag-count,
+  .luxury-badge {
+    top: -3px !important;
+    right: -3px !important;
+    font-size: 8.5px !important;
+    min-width: 15px !important;
+    height: 15px !important;
+    min-height: 15px !important;
+    padding: 0 3px !important;
   }
 }
 
 /* Shared components: identical geometry on every template, including the homepage. */
-.site-header .nav-bag{position:relative;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:34rem;height:34rem;border-radius:50%;color:#1a1a1a;text-decoration:none;transition:transform .2s ease,color .2s ease}
-.site-header .nav-bag:hover{color:#fa4087;transform:scale(1.08)}
-.site-header .nav-bag .bag-icon{display:block;width:18rem;height:18rem;max-width:100%;flex-shrink:0;stroke:currentColor;stroke-width:1.8;fill:none}
-.site-header .nav-bag .bag-count{position:absolute;top:1rem;right:1rem;min-width:15rem;height:15rem;padding:0 4rem;background:#fa4087;color:#fff;border-radius:999px;font-family:Poppins,Arial,sans-serif;font-size:8.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+.site-header .nav-bag, .site-header .luxury-cart-btn{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;width:38px!important;height:38px!important;border-radius:50%!important;background:linear-gradient(135deg,#fff5f8 0%,#ffeaf1 100%)!important;border:1.5px solid #ffd3e2!important;color:#fa4087!important;text-decoration:none!important;box-shadow:0 2px 8px rgba(250,64,135,0.12)!important;transition:transform .22s ease,background .22s ease,border-color .22s ease,box-shadow .22s ease!important}
+.site-header .nav-bag:hover, .site-header .luxury-cart-btn:hover{transform:translateY(-2px) scale(1.05)!important;background:linear-gradient(135deg,#ffeef4 0%,#ffdbe7 100%)!important;border-color:#fa4087!important;box-shadow:0 4px 14px rgba(250,64,135,0.24)!important}
+.site-header .nav-bag svg, .site-header .nav-bag .bag-icon, .site-header .nav-bag .cart-icon{display:block!important;width:19px!important;height:19px!important;max-width:19px!important;flex-shrink:0!important;stroke:#fa4087!important;stroke-width:1.8!important;fill:none!important}
+.site-header .nav-bag .bag-count, .site-header .luxury-badge{position:absolute!important;top:-3px!important;right:-3px!important;min-width:17px!important;height:17px!important;padding:0 4px!important;background:linear-gradient(135deg,#fa4087,#f13d84)!important;color:#fff!important;border-radius:999px!important;border:1.5px solid #ffffff!important;font-family:Poppins,Arial,sans-serif!important;font-size:9.5px!important;font-weight:700!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;box-shadow:0 2px 6px rgba(250,64,135,0.4)!important}
 .site-header>a{flex-shrink:0}
 .nav-dropdown-item{position:relative;display:inline-flex;align-items:center}
 .nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:170px;background:#fff;border:1px solid #f1dde4;border-radius:8px;box-shadow:0 8px 24px #6c24321f;padding:8px 0;z-index:1000}
@@ -132,7 +191,7 @@ header .nav-bag .bag-count,
 .shop-filter-form details label{display:block;margin:6rem}
 .pdp-custom-content{font-size:11rem;line-height:18rem}
 @media(max-width:700px){
- .site-header .nav-bag{width:34px;height:34px}
- .site-header .nav-bag .bag-icon{width:18px;height:18px}
- .site-header .nav-bag .bag-count{font-size:9px;min-width:15px;height:15px}
+ .site-header .nav-bag, .site-header .luxury-cart-btn{width:34px!important;height:34px!important;min-width:34px!important}
+ .site-header .nav-bag .bag-icon, .site-header .nav-bag .cart-icon, .site-header .nav-bag svg{width:17px!important;height:17px!important}
+ .site-header .nav-bag .bag-count, .site-header .luxury-badge{font-size:8.5px!important;min-width:15px!important;height:15px!important;top:-3px!important;right:-3px!important}
 }

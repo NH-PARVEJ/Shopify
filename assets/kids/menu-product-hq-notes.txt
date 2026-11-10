@@ -1,8 +1,0 @@
-Kids mega-menu high-resolution product image
-Tool: built-in image_gen (edit mode).
-Saved asset: C:/Users/devnh/Downloads/shopify/assets/kids/menu-product-hq.png
-Reference: C:/Users/devnh/Downloads/shopify/assets/kids/menu-product.png
-
-Final prompt:
-Recreate this exact existing ecommerce mega-menu product photograph in high resolution, ideally 1400x1520 or greater, same portrait 374:407 aspect ratio. Preserve the exact composition: two pale pink Press By Heart kids press-on nail boxes, front box upright tilted slightly counterclockwise on left, second box behind on right tilted clockwise, both sitting on warm blush-white studio background. Front box clear window contains ten petite glossy pink nails with miniature white daisies, yellow flower centers, red/pink heart designs and a small rainbow. Rear box has the same cute pink floral nail designs. Preserve soft pink box colors, window size, proportions, positions, soft realistic shadows, small gold accents, premium beauty product photography. Front box exact printed text 'PRESS' / 'BY HEART ♡', lower text 'KIDS COLLECTION', tiny slogan 'QUICK PRESS, INSTANT HAPPINESS ♡'. Render lettering sharp and elegant, high detail crisp nail art, clean packaging edges, avoid blur or smudging, no redesign, no extra objects, no website UI or buttons, no watermark. Fit both product boxes fully within frame with subtle margins.
-

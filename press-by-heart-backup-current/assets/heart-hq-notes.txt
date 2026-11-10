@@ -1,8 +1,0 @@
-Regenerated Why Press By Heart emblem
-Tool: built-in image_gen, edit mode.
-Saved file: C:/Users/devnh/Downloads/shopify/assets/heart-hq.png
-Reference: C:/Users/devnh/Downloads/shopify/assets/heart.png
-
-Final prompt:
-Recreate this exact small brand emblem in high resolution, at least 1024x1024 pixels. Same design: a thin polished metallic gold circular rim, pale blush pink inner disk, a centered glossy dimensional yellow-gold heart wearing a small three-point gold crown, luminous white reflections at upper left, warm gold shadows at lower right. Preserve the reference proportions, round shape, straight-on front-facing viewpoint, restrained thin rim, heart/crown size and placements, pink/gold palette and soft luxury appearance. Improve detail and edge clarity, remove blur and pixelation. All of the outer gold circle must fit with a small even margin on every side. Transparent background OUTSIDE the circle; keep the pale pink disk inside the circle opaque. No text, no extra ornaments, no redesign, no watermark.
-

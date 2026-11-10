@@ -1,9 +1,0 @@
-Regenerated wide Kids banner
-Tool: built-in image_gen (reference-based recreation).
-Asset: C:/Users/devnh/Downloads/shopify/assets/kids/hero-wide-hq.png
-Reference: C:/Users/devnh/Downloads/shopify/assets/kids/hero-background.png
-HTML text and buttons remain separate. The wide composition is displayed using object-fit:contain so no nail or medallion is cropped.
-
-Final prompt:
-Recreate the supplied Kids Collection banner as a polished premium beauty ecommerce photograph, preserving the SAME design language, pink hues, hand/nail artwork and gold crowned-heart medallion. IMPORTANT output a wide LANDSCAPE 2.61:1 website hero, around 2560x980 or highest available resolution. Recompose the existing artwork for this horizontal shape: left 43% is calm very pale blush-pink satin negative space for separate HTML headline; on the right half a natural petite hand resting diagonally on lustrous pale pink satin, four visible fingers with short rounded pink glitter press-on nails decorated with tiny white daisies, yellow centers, small pink/red hearts. Preserve the specific reference nail motifs. Hand enters naturally from upper right edge, fingers angle toward lower middle-right, every nail fully visible with generous breathing room. At far lower right a smaller round thin metallic gold-rimmed pale-pink medallion containing glossy gold heart with delicate crown, fully in frame, about 15% of canvas width. Elegant flowing satin folds, smooth blush gradients, soft studio lighting, fine fabric detail, crisp realistic nail highlights, natural anatomy. Beautiful and faithful to reference, no packaging, no additional props, no text, no logo lettering, no menu, no button, no watermark. Do not make a square or portrait image; use the wide 2.61:1 banner composition.
-

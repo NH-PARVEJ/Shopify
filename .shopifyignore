@@ -1,0 +1,9 @@
+# Shopify Theme Ignore List
+# Files and directories ignored by Shopify GitHub connection and Shopify CLI
+
+_dev_workspace/
+*.zip
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
